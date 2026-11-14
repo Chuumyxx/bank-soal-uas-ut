@@ -256,6 +256,7 @@ nav.tabs button[aria-selected="true"] { background: var(--accent); color: var(--
 .conf .c-link { color: var(--accent); }
 .conf pre { margin: 10px 0; font-family: var(--f-mono); font-size: 13.5px; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere; }
 .conf mark { background: var(--accent-soft); color: var(--ink); padding: 2px 6px; border-radius: 4px; display: inline-block; }
+.figcap { margin: 14px 0 10px; color: var(--muted); font-size: 13.5px; line-height: 1.5; }
 .fig:has(.web) { max-width: 640px; padding: 0; overflow: hidden; }
 .web { font-family: var(--f-ui); font-size: 12px; color: var(--ink); }
 .web .w-bar { padding: 7px 12px; background: var(--surface); border-bottom: 1px solid var(--line); color: var(--muted); font-size: 11px; }
@@ -314,6 +315,77 @@ nav.tabs button[aria-selected="true"] { background: var(--accent); color: var(--
 .codetbl.grid td, .codetbl.grid th { padding: 4px 10px; }
 .fig:has(.codetbl) { max-width: 640px; padding: 0; overflow-x: auto; background: transparent; border: 0; border-radius: 0; }
 .fig:has(.llf) { max-width: 600px; }
+
+/* ===== tampilan HP: semua muat satu layar, tanpa gulir ===== */
+.sh, .bs { display: none; }
+@media (max-width: 640px) {
+  body { font-size: 14px; }
+  .hero .gut { flex-wrap: nowrap; align-items: center; gap: 10px 14px; padding-block: 12px 40px; }
+  .hero .gut > div:first-child { min-width: 0; flex: 1 1 auto; }
+  .hero.compact .gut { padding-block: 10px 38px; }
+  .brand { font-size: 10.5px; letter-spacing: .05em; margin-bottom: 6px; }
+  .brand .bl { display: none; } .brand .bs { display: inline; }
+  .brand .bx { display: none; }
+  body[data-page="course"] .foot { display: none; }
+  body[data-page="course"] main.gut { padding-bottom: 8px; }
+  #sets.sets button { box-shadow: none; }
+  #sets.sets button[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--accent); }
+  .hero.compact .brand { display: none; }
+  .hero h1 { font-size: 27px; line-height: 1.05; }
+  .hero h1 br { display: none; }
+  .hero p, .hnums { display: none; }
+  .ring, .ring svg { width: 62px; height: 62px; }
+  .ring b { font-size: 16px; }
+  .ring b small { display: none; }
+  .ring b span { font-size: 10px !important; }
+  .back { margin-bottom: 8px; min-height: 30px; padding: 3px 12px 3px 8px; font-size: 12.5px; }
+  .back.snd { margin-left: 6px; }
+  main.gut { padding-block: 4px 18px; }
+  .foot { margin-top: 12px; font-size: 10.5px; line-height: 1.4; }
+
+  /* beranda: dua mata kuliah, ringkas */
+  .sets.courses { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; overflow: visible; padding: 0; margin-top: -24px; }
+  .courses .course { display: grid; grid-template-columns: 44px minmax(0, 1fr); grid-template-areas: "ico code" "ico name" "ico chips" "mini mini"; column-gap: 12px; row-gap: 2px; align-items: center; padding: 12px 14px; min-height: 0; flex: none; }
+  .courses .course .ico { grid-area: ico; width: 44px; height: 44px; margin: 0; align-self: center; }
+  .courses .course .sid { grid-area: code; }
+  .courses .course b { grid-area: name; font-size: 21px; }
+  .courses .course .src, .courses .course .go { display: none; }
+  .courses .course .chips { grid-area: chips; margin-top: 2px; gap: 5px; }
+  .courses .course .chip { font-size: 11px; padding: 1px 8px; }
+  .courses .course .mini { grid-area: mini; margin-top: 8px; }
+  .soon, .howto { display: none; }
+
+  /* pemilih set: deretan tombol kecil, satu baris */
+  .setswrap { margin-top: -24px; }
+  #sets.sets { display: flex; gap: 6px; padding: 2px 2px 6px; margin-top: 0; overflow-x: auto; }
+  #sets.sets button { flex: 0 0 auto; padding: 6px 12px; border-radius: 12px; gap: 0; min-height: 0; scroll-snap-align: none; }
+  #sets.sets .sid, #sets.sets b, #sets.sets .src, #sets.sets .cnt { display: none; }
+  #sets.sets .sh { display: block; font-family: var(--f-display); font-weight: 600; font-size: 13.5px; white-space: nowrap; }
+  #sets.sets .mini { margin-top: 4px; height: 3px; }
+  nav.tabs { display: flex; margin: 6px 0 8px; padding: 3px; }
+  nav.tabs button { flex: 1 1 0; padding: 6px 4px; min-height: 34px; font-size: 13px; }
+
+  /* nomor soal: satu baris */
+  .pager { flex-wrap: nowrap; gap: 4px; margin-bottom: 8px; }
+  .pager button { flex: 1 1 0; min-width: 0; width: auto; height: 34px; border-radius: 8px; font-size: 12px; padding: 0; }
+  .pager button[aria-current="true"] { outline-offset: 1px; }
+
+  /* kartu soal */
+  .card { padding: 14px; border-radius: 14px; }
+  .progress { margin: 0 -14px 10px; height: 3px; }
+  .eyebrow { font-size: 10.5px; }
+  .qtext { font-size: 1.03rem; line-height: 1.42; margin: 8px 0 12px; }
+  .fig { margin-bottom: 12px; }
+  .figcap { margin: 8px 0 8px; }
+  .opts { gap: 7px; }
+  .opt { grid-template-columns: 30px minmax(0, 1fr) 20px; gap: 10px; min-height: 46px; padding: 6px 10px; border-radius: 10px; font-size: .98rem; }
+  .opt .l { width: 28px; height: 28px; font-size: 12px; }
+  .note { margin-top: 10px; padding: 9px 11px; font-size: 13px; }
+  .note.idle { display: none; }
+  .why { margin-top: 10px; }
+  .card.q .nav { margin: 8px -14px 0; padding: 8px 14px calc(8px + env(safe-area-inset-bottom, 0px)); }
+  .btn { min-height: 42px; padding: 8px 14px; }
+}
 </style>
 
 <header class="hero"><div class="gut" id="hero"></div></header>
@@ -3114,6 +3186,867 @@ const SETS_SD = [
         ]
       }
     ]
+  },
+  {
+    "id": "SDG",
+    "name": "Set G · Variabel & Operasi Java",
+    "src": "Test Formatif 1 · coding Latihan1 & Latih2",
+    "title": "Struktur Data · Test Formatif 1: Variabel dan Operasi Hitung pada Java (modul belum tertera)",
+    "ph": "Screenshot asli",
+    "kind": "screenshot",
+    "bk": [
+      2,
+      1,
+      0,
+      2,
+      0,
+      2,
+      2,
+      3,
+      3,
+      0
+    ],
+    "bkSrc": "Kunci Jawaban Tes Formatif 1 (foto kunci ketiga)",
+    "qs": [
+      {
+        "n": 1,
+        "pg": "pG1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Nama class pada coding di atas adalah ....",
+        "fig": "g_c1",
+        "figCap": "Coding berikut digunakan untuk menjawab soal nomor 1 sampai 5.",
+        "figFirst": true,
+        "o": [
+          "Class",
+          "Latihan",
+          "Latihan1",
+          "Class Latihan1"
+        ],
+        "g": [
+          2
+        ],
+        "c": "tinggi",
+        "e": [
+          "Class adalah kata kunci Java untuk membuat class, bukan nama class.",
+          "Nama class bukan Latihan saja. Pada baris 1 tertulis Latihan1.",
+          "Benar menurut kunci buku. Nama class tertulis setelah kata class pada baris 1: class Latihan1{.",
+          "Class hanyalah kata kunci. Nama class-nya adalah Latihan1."
+        ]
+      },
+      {
+        "n": 2,
+        "pg": "pG2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Tipe data dari variabel x adalah ....",
+        "fig": "g_c1",
+        "figCap": "Coding berikut digunakan untuk menjawab soal nomor 1 sampai 5.",
+        "figFirst": true,
+        "o": [
+          "Boolean",
+          "Integer",
+          "Floating point",
+          "String"
+        ],
+        "g": [
+          1
+        ],
+        "c": "tinggi",
+        "e": [
+          "Boolean hanya untuk nilai benar atau salah, sedangkan x berisi 10.",
+          "Benar menurut kunci buku. Baris 3: int x = 10;. int adalah tipe bilangan bulat (integer).",
+          "Floating point untuk bilangan pecahan, sedangkan x bernilai 10 (bulat).",
+          "String untuk teks, sedangkan x berisi angka tanpa tanda kutip."
+        ]
+      },
+      {
+        "n": 3,
+        "pg": "pG2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Nilai dari variabel y adalah ....",
+        "fig": "g_c1",
+        "figCap": "Coding berikut digunakan untuk menjawab soal nomor 1 sampai 5.",
+        "figFirst": true,
+        "o": [
+          "5",
+          "15",
+          "1",
+          "10"
+        ],
+        "g": [
+          0
+        ],
+        "c": "tinggi",
+        "e": [
+          "Benar menurut kunci buku. Baris 4: int y = 5;, jadi nilai y adalah 5.",
+          "15 adalah hasil x + y, bukan nilai y.",
+          "Nilai 1 tidak ada di kode.",
+          "10 adalah nilai x, bukan y."
+        ]
+      },
+      {
+        "n": 4,
+        "pg": "pG2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Hasil yang akan ditampilkan pada layar komputer berdasarkan pada baris ke-5 adalah ....",
+        "fig": "g_c1",
+        "figCap": "Coding berikut digunakan untuk menjawab soal nomor 1 sampai 5.",
+        "figFirst": true,
+        "o": [
+          "Hasil penjumlahan : 5",
+          "Hasil penjumlahan : 10",
+          "Hasil penjumlahan : 15",
+          "Hasil penjumlahan : 20"
+        ],
+        "g": [
+          2
+        ],
+        "c": "tinggi",
+        "note": "Pada pilihan jawaban ada spasi sebelum titik dua (penjumlahan : 15), sedangkan di kode tertulis penjumlahan: tanpa spasi. Ini tidak mengubah jawaban.",
+        "e": [
+          "5 adalah nilai y, bukan hasil x + y.",
+          "10 adalah nilai x, bukan hasil x + y.",
+          "Benar menurut kunci buku. Baris 5 mencetak x + y = 10 + 5 = 15.",
+          "20 tidak didapat dari 10 + 5."
+        ]
+      },
+      {
+        "n": 5,
+        "pg": "pG2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Hasil yang akan ditampilkan pada layar komputer berdasarkan pada baris ke-6 adalah ....",
+        "fig": "g_c1",
+        "figCap": "Coding berikut digunakan untuk menjawab soal nomor 1 sampai 5.",
+        "figFirst": true,
+        "o": [
+          "Hasil pengurangan : 5",
+          "Hasil pengurangan : 10",
+          "Hasil pengurangan : 15",
+          "Hasil pengurangan : 20"
+        ],
+        "g": [
+          0
+        ],
+        "c": "tinggi",
+        "e": [
+          "Benar menurut kunci buku. Baris 6 mencetak x - y = 10 - 5 = 5.",
+          "10 adalah nilai x, bukan hasil x - y.",
+          "15 adalah hasil penjumlahan (x + y), bukan pengurangan.",
+          "20 tidak didapat dari 10 - 5."
+        ]
+      },
+      {
+        "n": 6,
+        "pg": "pG2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Nama class pada coding di atas adalah ....",
+        "fig": "g_c2",
+        "figCap": "Coding berikut digunakan untuk menjawab soal nomor 6 sampai 10.",
+        "figFirst": true,
+        "o": [
+          "Class",
+          "Latih",
+          "Latih2",
+          "Class Latihan2"
+        ],
+        "g": [
+          2
+        ],
+        "c": "tinggi",
+        "e": [
+          "Class adalah kata kunci Java untuk membuat class, bukan nama class.",
+          "Nama class bukan Latih saja. Pada baris 1 tertulis Latih2.",
+          "Benar menurut kunci buku. Nama class tertulis setelah kata class pada baris 1: class Latih2{.",
+          "Class hanyalah kata kunci, dan nama class pada kode adalah Latih2, bukan Latihan2."
+        ]
+      },
+      {
+        "n": 7,
+        "pg": "pG2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Tipe data dari variabel a adalah ....",
+        "fig": "g_c2",
+        "figCap": "Coding berikut digunakan untuk menjawab soal nomor 6 sampai 10.",
+        "figFirst": true,
+        "o": [
+          "Boolean",
+          "Integer",
+          "Floating point",
+          "String"
+        ],
+        "g": [
+          2
+        ],
+        "c": "tinggi",
+        "e": [
+          "Boolean hanya untuk nilai benar atau salah, sedangkan a berisi 8.0d.",
+          "Integer untuk bilangan bulat, sedangkan a berisi bilangan pecahan 8.0d.",
+          "Benar menurut kunci buku. Baris 3: double a = 8.0d;. double adalah tipe bilangan pecahan (floating point).",
+          "String untuk teks, sedangkan a berisi angka tanpa tanda kutip."
+        ]
+      },
+      {
+        "n": 8,
+        "pg": "pG2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Nilai dari variabel b adalah ....",
+        "fig": "g_c2",
+        "figCap": "Coding berikut digunakan untuk menjawab soal nomor 6 sampai 10.",
+        "figFirst": true,
+        "o": [
+          "8.0d",
+          "6.0d",
+          "4.0d",
+          "2.0d"
+        ],
+        "g": [
+          3
+        ],
+        "c": "tinggi",
+        "e": [
+          "8.0d adalah nilai a, bukan b.",
+          "Nilai 6.0d tidak ada di kode.",
+          "Nilai 4.0d tidak ada di kode (4.0 adalah hasil a dibagi b).",
+          "Benar menurut kunci buku. Baris 4: double b = 2.0d;, jadi nilai b adalah 2.0d."
+        ]
+      },
+      {
+        "n": 9,
+        "pg": "pG3",
+        "pgl": "Screenshot 3",
+        "pageTag": "screenshot 3",
+        "t": "Hasil yang akan ditampilkan pada layar komputer berdasarkan pada baris ke-5 adalah ....",
+        "fig": "g_c2",
+        "figCap": "Coding berikut digunakan untuk menjawab soal nomor 6 sampai 10.",
+        "figFirst": true,
+        "o": [
+          "Hasil perkalian : 4.0",
+          "Hasil perkalian : 8.0",
+          "Hasil perkalian : 12.0",
+          "Hasil perkalian : 16.0"
+        ],
+        "g": [
+          3
+        ],
+        "c": "cek",
+        "note": "Pada kode, baris 5 dan 6 menulis (x*y) dan (x/y), padahal variabel yang dibuat di class Latih2 adalah a dan b. Jika dijalankan apa adanya, kode itu akan error. Soal dijawab dengan a x b dan a / b, sesuai kunci buku.",
+        "e": [
+          "4.0 adalah hasil pembagian a / b (8.0 / 2.0), bukan perkalian.",
+          "8.0 adalah nilai a, bukan hasil perkalian.",
+          "12.0 tidak didapat dari 8.0 dan 2.0.",
+          "Benar menurut kunci buku. Perkalian 8.0 x 2.0 = 16.0."
+        ]
+      },
+      {
+        "n": 10,
+        "pg": "pG3",
+        "pgl": "Screenshot 3",
+        "pageTag": "screenshot 3",
+        "t": "Hasil yang akan ditampilkan pada layar komputer berdasarkan pada baris ke-6 adalah ....",
+        "fig": "g_c2",
+        "figCap": "Coding berikut digunakan untuk menjawab soal nomor 6 sampai 10.",
+        "figFirst": true,
+        "o": [
+          "Hasil pembagian : 4.0",
+          "Hasil pembagian : 8.0",
+          "Hasil pembagian : 12.0",
+          "Hasil pembagian : 16.0"
+        ],
+        "g": [
+          0
+        ],
+        "c": "cek",
+        "note": "Seperti nomor 9, kode baris 6 menulis (x/y), padahal variabelnya a dan b. Soal dijawab dengan a / b, sesuai kunci buku.",
+        "e": [
+          "Benar menurut kunci buku. Pembagian 8.0 / 2.0 = 4.0.",
+          "8.0 adalah nilai a, bukan hasil pembagian.",
+          "12.0 tidak didapat dari 8.0 dan 2.0.",
+          "16.0 adalah hasil perkalian (8.0 x 2.0), bukan pembagian."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "SDH",
+    "name": "Set H · Array & Perulangan Java",
+    "src": "Test Formatif 2 · coding ArraySD & TinggiBadan",
+    "title": "Struktur Data · Test Formatif 2: Array dan Perulangan pada Java (modul belum tertera)",
+    "ph": "Screenshot asli",
+    "kind": "screenshot",
+    "bk": [
+      2,
+      1,
+      2,
+      3,
+      1,
+      1,
+      2,
+      1,
+      1,
+      1
+    ],
+    "bkSrc": "Kunci Jawaban Tes Formatif 2 (foto kunci ketiga)",
+    "qs": [
+      {
+        "n": 1,
+        "pg": "pH2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Isi dari array Angka indeks ke-0 adalah ....",
+        "fig": "h_c1",
+        "figCap": "Coding di bawah ini digunakan untuk menjawab pertanyaan nomor 1 sampai 5.",
+        "figFirst": true,
+        "o": [
+          "1",
+          "3",
+          "5",
+          "7"
+        ],
+        "g": [
+          2
+        ],
+        "c": "tinggi",
+        "note": "Isi array setelah perulangan: Angka[0]=5, Angka[1]=6, Angka[2]=7, Angka[3]=8, Angka[4]=9.",
+        "e": [
+          "Nilai 1 tidak ada. Isi array dimulai dari x = 5.",
+          "Nilai 3 tidak ada. Isi array dimulai dari x = 5.",
+          "Benar menurut kunci buku. Perulangan pertama (i = 0): Angka[0] = x = 5, lalu x++ membuat x menjadi 6.",
+          "7 berada di indeks ke-2, bukan ke-0."
+        ]
+      },
+      {
+        "n": 2,
+        "pg": "pH2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Isi dari array Angka indeks ke-1 adalah ....",
+        "fig": "h_c1",
+        "figCap": "Coding di bawah ini digunakan untuk menjawab pertanyaan nomor 1 sampai 5.",
+        "figFirst": true,
+        "o": [
+          "2",
+          "6",
+          "3",
+          "8"
+        ],
+        "g": [
+          1
+        ],
+        "c": "tinggi",
+        "e": [
+          "Nilai 2 tidak ada di array.",
+          "Benar menurut kunci buku. Perulangan kedua (i = 1): Angka[1] = x = 6.",
+          "Nilai 3 tidak ada di array.",
+          "8 berada di indeks ke-3, bukan ke-1."
+        ]
+      },
+      {
+        "n": 3,
+        "pg": "pH2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Isi dari array Angka indeks ke-2 adalah ....",
+        "fig": "h_c1",
+        "figCap": "Coding di bawah ini digunakan untuk menjawab pertanyaan nomor 1 sampai 5.",
+        "figFirst": true,
+        "o": [
+          "9",
+          "3",
+          "7",
+          "4"
+        ],
+        "g": [
+          2
+        ],
+        "c": "tinggi",
+        "e": [
+          "9 berada di indeks ke-4, bukan ke-2.",
+          "Nilai 3 tidak ada di array.",
+          "Benar menurut kunci buku. Perulangan ketiga (i = 2): Angka[2] = x = 7.",
+          "Nilai 4 tidak ada di array."
+        ]
+      },
+      {
+        "n": 4,
+        "pg": "pH2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Isi dari array Angka indeks ke-3 adalah ....",
+        "fig": "h_c1",
+        "figCap": "Coding di bawah ini digunakan untuk menjawab pertanyaan nomor 1 sampai 5.",
+        "figFirst": true,
+        "o": [
+          "5",
+          "7",
+          "1",
+          "8"
+        ],
+        "g": [
+          3
+        ],
+        "c": "tinggi",
+        "e": [
+          "5 berada di indeks ke-0, bukan ke-3.",
+          "7 berada di indeks ke-2, bukan ke-3.",
+          "Nilai 1 tidak ada di array.",
+          "Benar menurut kunci buku. Perulangan keempat (i = 3): Angka[3] = x = 8."
+        ]
+      },
+      {
+        "n": 5,
+        "pg": "pH2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Isi dari array Angka indeks ke-4 adalah ....",
+        "fig": "h_c1",
+        "figCap": "Coding di bawah ini digunakan untuk menjawab pertanyaan nomor 1 sampai 5.",
+        "figFirst": true,
+        "o": [
+          "6",
+          "9",
+          "8",
+          "4"
+        ],
+        "g": [
+          1
+        ],
+        "c": "tinggi",
+        "e": [
+          "6 berada di indeks ke-1, bukan ke-4.",
+          "Benar menurut kunci buku. Perulangan kelima (i = 4): Angka[4] = x = 9. Perulangan berhenti karena Angka.length = 5.",
+          "8 berada di indeks ke-3, bukan ke-4.",
+          "Nilai 4 tidak ada di array."
+        ]
+      },
+      {
+        "n": 6,
+        "pg": "pH2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Isi dari array ATinggi [indeks ke-0][indeks ke-1] adalah ....",
+        "fig": "h_c2",
+        "figCap": "Coding di bawah ini digunakan untuk menjawab pertanyaan nomor 6 sampai 10.",
+        "figFirst": true,
+        "o": [
+          "151",
+          "170",
+          "190",
+          "150"
+        ],
+        "g": [
+          1
+        ],
+        "c": "cek",
+        "note": "Isi array pada baris 3 kode (int[][] ATinggi = ;) tidak terlihat di sumber, jadi jawaban tidak bisa dibuktikan dari kode yang tampil. Jawaban mengikuti kunci buku.",
+        "e": [
+          "Bukan jawaban kunci buku. Menurut pola kunci, 151 berada di ATinggi[1][0].",
+          "Benar menurut kunci buku. Menurut kunci buku, ATinggi[0][1] bernilai 170 (baris ke-0, kolom ke-1).",
+          "Bukan jawaban kunci buku. Menurut pola kunci, 190 berada di ATinggi[0][2].",
+          "Bukan jawaban kunci buku. Posisi 150 tidak bisa dibuktikan karena isi array tidak tampak."
+        ]
+      },
+      {
+        "n": 7,
+        "pg": "pH3",
+        "pgl": "Screenshot 3",
+        "pageTag": "screenshot 3",
+        "t": "Isi dari array ATinggi [indeks ke-0][indeks ke-2] adalah ....",
+        "fig": "h_c2",
+        "figCap": "Coding di bawah ini digunakan untuk menjawab pertanyaan nomor 6 sampai 10.",
+        "figFirst": true,
+        "o": [
+          "150",
+          "Tidak ada",
+          "190",
+          "151"
+        ],
+        "g": [
+          2
+        ],
+        "c": "cek",
+        "note": "Isi array pada baris 3 kode (int[][] ATinggi = ;) tidak terlihat di sumber, jadi jawaban tidak bisa dibuktikan dari kode yang tampil. Jawaban mengikuti kunci buku.",
+        "e": [
+          "Bukan jawaban kunci buku. Posisi 150 tidak bisa dibuktikan karena isi array tidak tampak.",
+          "Menurut pola kunci, yang tidak ada adalah indeks ke-3 (nomor 8), bukan indeks ke-2.",
+          "Benar menurut kunci buku. Menurut kunci buku, ATinggi[0][2] bernilai 190.",
+          "Bukan jawaban kunci buku. Menurut pola kunci, 151 berada di ATinggi[1][0]."
+        ]
+      },
+      {
+        "n": 8,
+        "pg": "pH3",
+        "pgl": "Screenshot 3",
+        "pageTag": "screenshot 3",
+        "t": "Isi dari array ATinggi [indeks ke-0][indeks ke-3] adalah ....",
+        "fig": "h_c2",
+        "figCap": "Coding di bawah ini digunakan untuk menjawab pertanyaan nomor 6 sampai 10.",
+        "figFirst": true,
+        "o": [
+          "150",
+          "Tidak ada",
+          "170",
+          "190"
+        ],
+        "g": [
+          1
+        ],
+        "c": "cek",
+        "note": "Isi array pada baris 3 kode (int[][] ATinggi = ;) tidak terlihat di sumber, jadi jawaban tidak bisa dibuktikan dari kode yang tampil. Jawaban mengikuti kunci buku.",
+        "e": [
+          "Bukan jawaban kunci buku. Posisi 150 tidak bisa dibuktikan karena isi array tidak tampak.",
+          "Benar menurut kunci buku. Menurut pola kunci, baris ke-0 hanya punya tiga elemen (indeks 0 sampai 2), jadi indeks ke-3 tidak ada. Pada Java sebenarnya, akses di luar batas array menimbulkan ArrayIndexOutOfBoundsException.",
+          "Bukan jawaban kunci buku. Menurut pola kunci, 170 berada di ATinggi[0][1].",
+          "Bukan jawaban kunci buku. Menurut pola kunci, 190 berada di ATinggi[0][2]."
+        ]
+      },
+      {
+        "n": 9,
+        "pg": "pH3",
+        "pgl": "Screenshot 3",
+        "pageTag": "screenshot 3",
+        "t": "Isi dari array ATinggi [indeks ke-1][indeks ke-1] adalah ....",
+        "fig": "h_c2",
+        "figCap": "Coding di bawah ini digunakan untuk menjawab pertanyaan nomor 6 sampai 10.",
+        "figFirst": true,
+        "o": [
+          "151",
+          "171",
+          "191",
+          "190"
+        ],
+        "g": [
+          1
+        ],
+        "c": "cek",
+        "note": "Isi array pada baris 3 kode (int[][] ATinggi = ;) tidak terlihat di sumber, jadi jawaban tidak bisa dibuktikan dari kode yang tampil. Jawaban mengikuti kunci buku.",
+        "e": [
+          "Bukan jawaban kunci buku. Menurut pola kunci, 151 berada di ATinggi[1][0].",
+          "Benar menurut kunci buku. Menurut kunci buku, ATinggi[1][1] bernilai 171 (baris ke-1, kolom ke-1).",
+          "Bukan jawaban kunci buku. Nilai 191 tidak bisa dibuktikan karena isi array tidak tampak.",
+          "Bukan jawaban kunci buku. Menurut pola kunci, 190 berada di ATinggi[0][2]."
+        ]
+      },
+      {
+        "n": 10,
+        "pg": "pH3",
+        "pgl": "Screenshot 3",
+        "pageTag": "screenshot 3",
+        "t": "Isi dari array ATinggi [indeks ke-1][indeks ke-0] adalah ....",
+        "fig": "h_c2",
+        "figCap": "Coding di bawah ini digunakan untuk menjawab pertanyaan nomor 6 sampai 10.",
+        "figFirst": true,
+        "o": [
+          "150",
+          "151",
+          "170",
+          "171"
+        ],
+        "g": [
+          1
+        ],
+        "c": "cek",
+        "note": "Isi array pada baris 3 kode (int[][] ATinggi = ;) tidak terlihat di sumber, jadi jawaban tidak bisa dibuktikan dari kode yang tampil. Jawaban mengikuti kunci buku.",
+        "e": [
+          "Bukan jawaban kunci buku. Posisi 150 tidak bisa dibuktikan karena isi array tidak tampak.",
+          "Benar menurut kunci buku. Menurut kunci buku, ATinggi[1][0] bernilai 151 (baris ke-1, kolom ke-0).",
+          "Bukan jawaban kunci buku. Menurut pola kunci, 170 berada di ATinggi[0][1].",
+          "Bukan jawaban kunci buku. Menurut pola kunci, 171 berada di ATinggi[1][1]."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "SDI",
+    "name": "Set I · List pada Java",
+    "src": "Test Formatif 3 · coding Latih1 & Latih2 (ArrayList)",
+    "title": "Struktur Data · Test Formatif 3: List pada Java (modul belum tertera)",
+    "ph": "Screenshot asli",
+    "kind": "screenshot",
+    "bk": [
+      3,
+      2,
+      2,
+      1,
+      3,
+      1,
+      2,
+      3,
+      0,
+      1
+    ],
+    "bkSrc": "Kunci Jawaban Tes Formatif 3 (foto kunci ketiga)",
+    "qs": [
+      {
+        "n": 1,
+        "pg": "pI2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Isi indeks ke-0 dari class Latih1 tersebut adalah ....",
+        "fig": "i_c1",
+        "figCap": "Coding di bawah ini digunakan untuk menjawab pertanyaan nomor 1 sampai 5.",
+        "figFirst": true,
+        "o": [
+          "6",
+          "O",
+          "N",
+          "1"
+        ],
+        "g": [
+          3
+        ],
+        "c": "tinggi",
+        "note": "Urutan isi list setelah baris 5 sampai 8: indeks 0 = 1, indeks 1 = 6, indeks 2 = N, indeks 3 = O.",
+        "e": [
+          "6 berada di indeks ke-1, bukan ke-0.",
+          "O berada di indeks ke-3, bukan ke-0.",
+          "N berada di indeks ke-2, bukan ke-0.",
+          "Benar menurut kunci buku. L.add(“1”) dijalankan pertama (baris 5), jadi 1 berada di indeks ke-0."
+        ]
+      },
+      {
+        "n": 2,
+        "pg": "pI2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Isi indeks ke-3 dari class Latih1 tersebut adalah ....",
+        "fig": "i_c1",
+        "figCap": "Coding di bawah ini digunakan untuk menjawab pertanyaan nomor 1 sampai 5.",
+        "figFirst": true,
+        "o": [
+          "1",
+          "N",
+          "O",
+          "6"
+        ],
+        "g": [
+          2
+        ],
+        "c": "tinggi",
+        "e": [
+          "1 berada di indeks ke-0, bukan ke-3.",
+          "N berada di indeks ke-2, bukan ke-3.",
+          "Benar menurut kunci buku. L.add(“O”) dijalankan keempat (baris 8), jadi O berada di indeks ke-3.",
+          "6 berada di indeks ke-1, bukan ke-3."
+        ]
+      },
+      {
+        "n": 3,
+        "pg": "pI2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Isi indeks ke-1 dari class Latih1 tersebut adalah ....",
+        "fig": "i_c1",
+        "figCap": "Coding di bawah ini digunakan untuk menjawab pertanyaan nomor 1 sampai 5.",
+        "figFirst": true,
+        "o": [
+          "N",
+          "1",
+          "6",
+          "O"
+        ],
+        "g": [
+          2
+        ],
+        "c": "tinggi",
+        "e": [
+          "N berada di indeks ke-2, bukan ke-1.",
+          "1 berada di indeks ke-0, bukan ke-1.",
+          "Benar menurut kunci buku. L.add(“6”) dijalankan kedua (baris 6), jadi 6 berada di indeks ke-1.",
+          "O berada di indeks ke-3, bukan ke-1."
+        ]
+      },
+      {
+        "n": 4,
+        "pg": "pI3",
+        "pgl": "Screenshot 3",
+        "pageTag": "screenshot 3",
+        "t": "Isi indeks ke-2 dari class Latih1 tersebut adalah ....",
+        "fig": "i_c1",
+        "figCap": "Coding di bawah ini digunakan untuk menjawab pertanyaan nomor 1 sampai 5.",
+        "figFirst": true,
+        "o": [
+          "6",
+          "N",
+          "1",
+          "O"
+        ],
+        "g": [
+          1
+        ],
+        "c": "tinggi",
+        "e": [
+          "6 berada di indeks ke-1, bukan ke-2.",
+          "Benar menurut kunci buku. L.add(“N”) dijalankan ketiga (baris 7), jadi N berada di indeks ke-2.",
+          "1 berada di indeks ke-0, bukan ke-2.",
+          "O berada di indeks ke-3, bukan ke-2."
+        ]
+      },
+      {
+        "n": 5,
+        "pg": "pI3",
+        "pgl": "Screenshot 3",
+        "pageTag": "screenshot 3",
+        "t": "Rangkaian output dari class Latih1 tersebut adalah ....",
+        "fig": "i_c1",
+        "figCap": "Coding di bawah ini digunakan untuk menjawab pertanyaan nomor 1 sampai 5.",
+        "figFirst": true,
+        "o": [
+          "6, 1, N, O",
+          "O, N, 6, 1",
+          "N, O, 1, 6",
+          "1, 6, N, O"
+        ],
+        "g": [
+          3
+        ],
+        "c": "tinggi",
+        "note": "Program sebenarnya juga mencetak tulisan “List Java” lebih dulu dan tanda -> setelah tiap data. Pilihan jawaban hanya membandingkan urutan datanya.",
+        "e": [
+          "Urutan 6 dan 1 tertukar. List menyimpan data sesuai urutan add: 1 lebih dulu dari 6.",
+          "Ini urutan terbalik. Perulangan for membaca list dari indeks ke-0.",
+          "Urutan ini salah. N dan O ditambahkan paling akhir, jadi dicetak paling akhir.",
+          "Benar menurut kunci buku. Perulangan for membaca list dari indeks ke-0 sesuai urutan add: 1, 6, N, O."
+        ]
+      },
+      {
+        "n": 6,
+        "pg": "pI3",
+        "pgl": "Screenshot 3",
+        "pageTag": "screenshot 3",
+        "t": "Huruf X pada baris ke-7 akan tersimpan pada linked list indeks ke- ....",
+        "fig": "i_c2",
+        "figCap": "Coding di bawah ini digunakan untuk menjawab pertanyaan nomor 6 sampai 10.",
+        "figFirst": true,
+        "o": [
+          "1",
+          "2",
+          "0",
+          "3"
+        ],
+        "g": [
+          1
+        ],
+        "c": "tinggi",
+        "note": "Soal menyebut linked list, sedangkan kode memakai ArrayList. Untuk soal ini yang dipakai adalah urutan indeks list-nya.",
+        "e": [
+          "Indeks ke-1 berisi B (ditambahkan kedua, baris 6).",
+          "Benar menurut kunci buku. X ditambahkan ketiga (baris 7): A di indeks 0, B di indeks 1, X di indeks 2.",
+          "Indeks ke-0 berisi A (ditambahkan pertama, baris 5).",
+          "Indeks ke-3 berisi Y (ditambahkan keempat, baris 8)."
+        ]
+      },
+      {
+        "n": 7,
+        "pg": "pI3",
+        "pgl": "Screenshot 3",
+        "pageTag": "screenshot 3",
+        "t": "Huruf A pada baris ke-5 akan tersimpan pada linked list indeks ke- ....",
+        "fig": "i_c2",
+        "figCap": "Coding di bawah ini digunakan untuk menjawab pertanyaan nomor 6 sampai 10.",
+        "figFirst": true,
+        "o": [
+          "1",
+          "2",
+          "0",
+          "3"
+        ],
+        "g": [
+          2
+        ],
+        "c": "tinggi",
+        "e": [
+          "Indeks ke-1 berisi B, bukan A.",
+          "Indeks ke-2 berisi X, bukan A.",
+          "Benar menurut kunci buku. A ditambahkan pertama (baris 5), jadi berada di indeks ke-0.",
+          "Indeks ke-3 berisi Y, bukan A."
+        ]
+      },
+      {
+        "n": 8,
+        "pg": "pI3",
+        "pgl": "Screenshot 3",
+        "pageTag": "screenshot 3",
+        "t": "Huruf Y pada baris ke-8 akan tersimpan pada linked list indeks ke- ....",
+        "fig": "i_c2",
+        "figCap": "Coding di bawah ini digunakan untuk menjawab pertanyaan nomor 6 sampai 10.",
+        "figFirst": true,
+        "o": [
+          "1",
+          "2",
+          "0",
+          "3"
+        ],
+        "g": [
+          3
+        ],
+        "c": "tinggi",
+        "e": [
+          "Indeks ke-1 berisi B, bukan Y.",
+          "Indeks ke-2 berisi X, bukan Y.",
+          "Indeks ke-0 berisi A, bukan Y.",
+          "Benar menurut kunci buku. Y ditambahkan keempat (baris 8), jadi berada di indeks ke-3."
+        ]
+      },
+      {
+        "n": 9,
+        "pg": "pI3",
+        "pgl": "Screenshot 3",
+        "pageTag": "screenshot 3",
+        "t": "Huruf B pada baris ke-6 akan tersimpan pada linked list indeks ke- ....",
+        "fig": "i_c2",
+        "figCap": "Coding di bawah ini digunakan untuk menjawab pertanyaan nomor 6 sampai 10.",
+        "figFirst": true,
+        "o": [
+          "1",
+          "2",
+          "0",
+          "3"
+        ],
+        "g": [
+          0
+        ],
+        "c": "tinggi",
+        "e": [
+          "Benar menurut kunci buku. B ditambahkan kedua (baris 6), jadi berada di indeks ke-1.",
+          "Indeks ke-2 berisi X, bukan B.",
+          "Indeks ke-0 berisi A, bukan B.",
+          "Indeks ke-3 berisi Y, bukan B."
+        ]
+      },
+      {
+        "n": 10,
+        "pg": "pI3",
+        "pgl": "Screenshot 3",
+        "pageTag": "screenshot 3",
+        "t": "Serangkaian huruf yang dihasilkan dari class Latih2 adalah ....",
+        "fig": "i_c2",
+        "figCap": "Coding di bawah ini digunakan untuk menjawab pertanyaan nomor 6 sampai 10.",
+        "figFirst": true,
+        "o": [
+          "Y, X, B, A",
+          "A, B, X, Y",
+          "B, X, A, Y",
+          "X, Y, A, B"
+        ],
+        "g": [
+          1
+        ],
+        "c": "tinggi",
+        "e": [
+          "Ini urutan terbalik. List dibaca dari indeks ke-0.",
+          "Benar menurut kunci buku. Perulangan for membaca list dari indeks ke-0 sesuai urutan add: A, B, X, Y.",
+          "Urutan ini salah. A ditambahkan paling awal, jadi dicetak paling awal.",
+          "Urutan ini salah. X dan Y ditambahkan paling akhir, jadi dicetak paling akhir."
+        ]
+      }
+    ]
   }
 ];
 
@@ -3124,6 +4057,12 @@ const $ = (s, r = document) => r.querySelector(s);
 /* gambar soal digambar ulang sebagai grafik vektor, mengikuti warna tema */
 const sym = (vb, inner, label) => `<svg viewBox="${vb}" role="img" aria-label="${label}" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" style="height:100%;width:auto;display:block">${inner}</svg>`;
 const FIG = {
+  g_c1: `<table class="codetbl" aria-label="Kode class Latihan1: variabel x dan y, penjumlahan dan pengurangan"><tbody><tr><td class="ln">1</td><td>class Latihan1{</td></tr><tr><td class="ln">2</td><td>public static void main(String[] args)</td></tr><tr><td class="ln">3</td><td>{ int x = 10;</td></tr><tr><td class="ln">4</td><td>int y = 5;</td></tr><tr><td class="ln">5</td><td>System.out.println(“Hasil penjumlahan: “ + (x+y));</td></tr><tr><td class="ln">6</td><td>System.out.println(“Hasil pengurangan: “ + (x-y));</td></tr><tr><td class="ln">7</td><td>}</td></tr><tr><td class="ln">8</td><td>}</td></tr></tbody></table>`,
+  g_c2: `<table class="codetbl" aria-label="Kode class Latih2: variabel a dan b, perkalian dan pembagian"><tbody><tr><td class="ln">1</td><td>class Latih2{</td></tr><tr><td class="ln">2</td><td>public static void main(String[] args)</td></tr><tr><td class="ln">3</td><td>{ double a = 8.0d;</td></tr><tr><td class="ln">4</td><td>double b = 2.0d;</td></tr><tr><td class="ln">5</td><td>System.out.println(“Hasil perkalian: “ + (x*y));</td></tr><tr><td class="ln">6</td><td>System.out.println(“Hasil pembagian: “ + (x/y));</td></tr><tr><td class="ln">7</td><td>}</td></tr><tr><td class="ln">8</td><td>}</td></tr></tbody></table>`,
+  h_c1: `<table class="codetbl" aria-label="Kode class ArraySD: array Angka diisi dalam perulangan"><tbody><tr><td class="ln">1</td><td>class ArraySD {</td></tr><tr><td class="ln">2</td><td>public static void main(String[] args){</td></tr><tr><td class="ln">3</td><td>int[] Angka = new int[5];</td></tr><tr><td class="ln">4</td><td>int x = 5;</td></tr><tr><td class="ln">5</td><td>for (int i = 0; i &lt; Angka.length; i++) {</td></tr><tr><td class="ln">6</td><td>Angka[i] = x;</td></tr><tr><td class="ln">7</td><td>x++;</td></tr><tr><td class="ln">8</td><td>System.out.println(Angka[i]);</td></tr><tr><td class="ln">9</td><td>}</td></tr><tr><td class="ln">10</td><td>}</td></tr><tr><td class="ln">11</td><td>}</td></tr></tbody></table>`,
+  h_c2: `<table class="codetbl" aria-label="Kode class TinggiBadan: array dua dimensi ATinggi dicetak dengan perulangan"><tbody><tr><td class="ln">1</td><td>class TinggiBadan {</td></tr><tr><td class="ln">2</td><td>public static void main(String[] args){</td></tr><tr><td class="ln">3</td><td>int[][] ATinggi = ;</td></tr><tr><td class="ln">4</td><td>for (int i = 0; i &lt; ATinggi.length; i++) {</td></tr><tr><td class="ln">5</td><td>for (int j = 0; j &lt; ATinggi[i].length; j++) {</td></tr><tr><td class="ln">6</td><td>System.out.print(ATinggi [i][j]+”,”);</td></tr><tr><td class="ln">7</td><td>}</td></tr><tr><td class="ln">8</td><td>System.out.println();</td></tr><tr><td class="ln">9</td><td>}</td></tr><tr><td class="ln">10</td><td>}</td></tr><tr><td class="ln">11</td><td>}</td></tr></tbody></table>`,
+  i_c1: `<table class="codetbl" aria-label="Kode class Latih1: List dengan ArrayList diisi empat data lalu dicetak"><tbody><tr><td class="ln">1</td><td>import java.util.*;</td></tr><tr><td class="ln">2</td><td>class Latih1{</td></tr><tr><td class="ln">3</td><td>public static void main(String[] args) {</td></tr><tr><td class="ln">4</td><td>List L = new ArrayList();</td></tr><tr><td class="ln">5</td><td>L.add(“1”);</td></tr><tr><td class="ln">6</td><td>L.add(“6”);</td></tr><tr><td class="ln">7</td><td>L.add(“N”);</td></tr><tr><td class="ln">8</td><td>L.add(“O”);</td></tr><tr><td class="ln">9</td><td>System.out.println(“List Java”);</td></tr><tr><td class="ln">10</td><td>for(Object queueList : L){</td></tr><tr><td class="ln">11</td><td>System.out.println(queueList+”-&gt;”);</td></tr><tr><td class="ln">12</td><td>}</td></tr><tr><td class="ln">13</td><td>}</td></tr><tr><td class="ln">14</td><td>}</td></tr></tbody></table>`,
+  i_c2: `<table class="codetbl" aria-label="Kode class Latih2: List dengan ArrayList diisi empat data lalu dicetak"><tbody><tr><td class="ln">1</td><td>import java.util.*;</td></tr><tr><td class="ln">2</td><td>class Latih2{</td></tr><tr><td class="ln">3</td><td>public static void main(String[] args) {</td></tr><tr><td class="ln">4</td><td>List L = new ArrayList();</td></tr><tr><td class="ln">5</td><td>L.add(“A”);</td></tr><tr><td class="ln">6</td><td>L.add(“B”);</td></tr><tr><td class="ln">7</td><td>L.add(“X”);</td></tr><tr><td class="ln">8</td><td>L.add(“Y”);</td></tr><tr><td class="ln">9</td><td>System.out.println(“List Java”);</td></tr><tr><td class="ln">10</td><td>for(Object queueList : L){</td></tr><tr><td class="ln">11</td><td>System.out.println(queueList+”-&gt;”);</td></tr><tr><td class="ln">12</td><td>}</td></tr><tr><td class="ln">13</td><td>}</td></tr><tr><td class="ln">14</td><td>}</td></tr></tbody></table>`,
   hari: `<table class="codetbl" aria-label="Kode: class hari { int akhir; }"><tbody><tr><td class="ln">1</td><td>class hari {</td></tr><tr><td class="ln">2</td><td>int akhir;</td></tr><tr><td class="ln">3</td><td>}</td></tr></tbody></table>`,
   arr1d: `<table class="codetbl grid" aria-label="Tabel satu baris: Novel, Linux, Windows, Mac, Android"><tbody><tr><td>Novel</td><td>Linux</td><td>Windows</td><td>Mac</td><td>Android</td></tr></tbody></table>`,
   arr2d: `<table class="codetbl grid" aria-label="Tabel 4 baris 3 kolom berisi nama warna"><tbody><tr><td>merah</td><td>hijau</td><td>putih</td></tr><tr><td>hitam</td><td>ungu</td><td>kuning</td></tr><tr><td>coklat</td><td>salem</td><td>biru</td></tr><tr><td>Abu-abu</td><td>pink</td><td>krem</td></tr></tbody></table>`,
@@ -3305,8 +4244,8 @@ function renderHero() {
     const st = statsOf(COURSES.flatMap(c => c.sets));
     $("#hero").innerHTML = `
       <div>
-        <div class="brand">${ICON.db.replace('width="24" height="24"', 'width="22" height="22"')} Universitas Terbuka · S1 Sistem Informasi · Semester 2</div>
-        <h1>Bank Soal<br>UAS</h1>
+        <div class="brand">${ICON.db.replace('width="24" height="24"', 'width="22" height="22"')} <span class="bl">Universitas Terbuka</span><span class="bs">UT</span> · S1 Sistem Informasi<span class="bx"> · Semester 2</span></div>
+        <h1>Bank Soal <br>UAS</h1>
         <p>Pilih mata kuliah untuk mulai berlatih. Soal disalin persis dari sumber, lengkap dengan diagram dan simbolnya, dan setiap pilihan punya pembahasan.</p>
       </div>
       <div class="hstats">${ring(st.total ? st.answered / st.total : 0, `${st.answered}<span style="font-size:15px;font-weight:500">/${st.total}</span>`, "terjawab")}
@@ -3345,13 +4284,13 @@ function renderTop() {
       }).join("")}
       <div class="soon" role="listitem"><b>Mata kuliah berikutnya</b><span>Kirim foto soal mata kuliah lain di chat. Nanti ditambahkan di sini sebagai kelompok sendiri, tanpa tercampur.</span></div>
     </div>
-    <div class="sect">Cara pakai</div>
-    <div class="card" style="font-size:14px;color:var(--muted)">Buka mata kuliah, pilih set soal, lalu jawab satu per satu. Setelah menjawab, pembahasan tiap pilihan langsung muncul. Isi kunci dari buku di tab <b style="color:var(--ink)">Kunci &amp; hasil</b> supaya penilaian memakai kunci resmi.</div>`;
+    <div class="sect howto">Cara pakai</div>
+    <div class="card howto" style="font-size:14px;color:var(--muted)">Buka mata kuliah, pilih set soal, lalu jawab satu per satu. Setelah menjawab, pembahasan tiap pilihan langsung muncul. Isi kunci dari buku di tab <b style="color:var(--ink)">Kunci &amp; hasil</b> supaya penilaian memakai kunci resmi.</div>`;
   } else {
     const c = course();
     el.innerHTML = `<div class="setswrap"><button type="button" class="arr l" data-arr="-1" aria-label="Set sebelumnya">‹</button><button type="button" class="arr r" data-arr="1" aria-label="Set berikutnya">›</button><div class="sets" id="sets" role="group" aria-label="Pilih set soal">${c.sets.map(s => {
       const st = statsOf([s]), pct = st.total ? Math.round(st.answered / st.total * 100) : 0;
-      return `<button type="button" data-set="${s.id}" aria-pressed="${s.id === setId}"><span class="sid">${s.id === "A" ? "Buku modul" : "Kuis latihan"}</span><b>${s.name}</b><span class="src">${s.src}</span><span class="mini"><i style="width:${pct}%"></i></span><span class="cnt">${st.answered}/${st.total} terjawab</span></button>`;
+      return `<button type="button" data-set="${s.id}" aria-pressed="${s.id === setId}"><span class="sh">${s.name.split(" · ")[0]}</span><span class="sid">${s.id === "A" ? "Buku modul" : "Kuis latihan"}</span><b>${s.name}</b><span class="src">${s.src}</span><span class="mini"><i style="width:${pct}%"></i></span><span class="cnt">${st.answered}/${st.total} terjawab</span></button>`;
     }).join("")}</div></div>
     <nav class="tabs" role="tablist" aria-label="Tampilan">
       <button role="tab" data-tab="latihan" aria-selected="${tab === "latihan"}">Latihan</button>
@@ -3397,7 +4336,7 @@ function viewLatihan() {
   }).join("");
   const badge = ef && ef.src === "dugaan" ? `<span class="badge">${q.c === "tinggi" ? "dugaan, yakin" : "dugaan, perlu cek"}</span>` : "";
   let note = "";
-  if (a === undefined) note = `<div class="note">${ICON.info}<span>Pilih satu jawaban. Pembahasan muncul setelah kamu menjawab.</span></div>`;
+  if (a === undefined) note = `<div class="note idle">${ICON.info}<span>Pilih satu jawaban. Pembahasan muncul setelah kamu menjawab.</span></div>`;
   else if (!ef) note = `<div class="note cek">${ICON.info}<span><strong>Jawabanmu ${L[a]} dicatat.</strong> Soal ini belum punya jawaban yang bisa dipastikan. Baca pembahasan di bawah, lalu isi kunci buku di tab Kunci &amp; hasil.</span></div>`;
   else {
     const ok = ef.idx.includes(a);
@@ -3406,7 +4345,7 @@ function viewLatihan() {
     note = ok ? `<div class="note ok">${ICON.ok}<span><strong>Benar</strong> ${who}.${badge}</span></div>`
               : `<div class="note no">${ICON.no}<span><strong>Salah</strong> ${who}. Jawabanmu ${L[a]}, jawaban yang dimaksud ${kk}.${badge}</span></div>`;
   }
-  const fig = (q.fig ? `<div class="fig">${FIG[q.fig]}</div>` : "") + (q.t2 ? `<p class="qtext qtext2">${q.t2}</p>` : "");
+  const fig = (q.figCap ? `<p class="figcap">${q.figCap}</p>` : "") + (q.fig ? `<div class="fig">${FIG[q.fig]}</div>` : "") + (q.t2 ? `<p class="qtext qtext2">${q.t2}</p>` : "");
   const done = allDone ? `<div class="done"><span>Semua soal di set ini sudah dijawab.</span><button class="btn small primary" type="button" data-tab="kunci">Lihat hasil</button></div>` : "";
   return `<div class="col">
   ${miss}
@@ -3414,8 +4353,8 @@ function viewLatihan() {
     <section class="card q ${animate ? "enter" : ""}">
       <div class="progress" aria-hidden="true"><i style="width:${cur / s.qs.length * 100}%"></i></div>
       <div class="eyebrow"><span>${gap ? `Soal ${q.n} · ke-${cur} dari ${s.qs.length}` : `Soal ${q.n} dari ${s.qs.length}`}</span><span>${s.name}${s.kind === "foto" ? " · " + q.pageTag : ""}</span></div>
-      <p class="qtext"><span class="qno">${q.n}.</span> ${q.t}</p>
-      ${fig}
+      ${q.figFirst ? fig : ""}<p class="qtext"><span class="qno">${q.n}.</span> ${q.t}</p>
+      ${q.figFirst ? "" : fig}
       <div class="opts">${opts}</div>
       ${note}
       ${a !== undefined ? whyBox(s, q, a) : ""}
@@ -3429,12 +4368,14 @@ function viewLatihan() {
   </div>`;
 }
 
+function semuaFig(q) { return (q.figCap ? `<p class="figcap">${q.figCap}</p>` : "") + (q.fig ? `<div class="fig">${FIG[q.fig]}</div>` : "") + (q.t2 ? `<p class="qtext qtext2">${q.t2}</p>` : ""); }
+
 function viewSemua() {
   return course().sets.map(s => `<div class="group-title">${s.title}</div>${(s.missing || s.dupnote) ? `<p class="src" style="margin:0 0 10px;color:var(--muted);font-size:13px">${s.missing ? `Soal ${s.missing.join(", ")} belum ada di bank ini (tidak ada di screenshot).` : ""} ${s.dupnote || ""}</p>` : ""}<div class="grid2">` + s.qs.map(q => `
     <article class="card item ${animate ? "enter" : ""}">
       <div class="eyebrow"><span>${s.name} · Soal ${q.n}</span>${s.kind === "foto" ? `<span>${q.pageTag}</span>` : ""}</div>
-      <p class="qtext"><span class="qno">${q.n}.</span> ${q.t}</p>
-      ${q.fig ? `<div class="fig">${FIG[q.fig]}</div>` : ""}${q.t2 ? `<p class="qtext qtext2">${q.t2}</p>` : ""}
+      ${q.figFirst ? semuaFig(q) : ""}<p class="qtext"><span class="qno">${q.n}.</span> ${q.t}</p>
+      ${q.figFirst ? "" : semuaFig(q)}
       <ol>${q.o.map((t, i) => `<li><span>${L[i]}</span><span>${q.oimg ? `<span class="sym">${FIG[q.oimg[i]]}</span>` : t}</span></li>`).join("")}</ol>
     </article>`).join("") + `</div>`).join("");
 }
@@ -3473,6 +4414,7 @@ function viewKunci() {
 }
 
 function render() {
+  document.body.dataset.page = page;
   renderHero(); renderTop();
   const ss = $("#sets"), sb = ss && ss.querySelector('[aria-pressed="true"]');
   if (sb) ss.scrollLeft = sb.offsetLeft - (ss.clientWidth - sb.offsetWidth) / 2;
