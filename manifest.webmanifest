@@ -1,0 +1,26 @@
+{
+  "name": "Bank Soal UAS UT",
+  "short_name": "Bank Soal",
+  "description": "Bank soal latihan UAS Semester 2 UT S1 Sistem Informasi",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0b1f4a",
+  "theme_color": "#0b1f4a",
+  "lang": "id",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
