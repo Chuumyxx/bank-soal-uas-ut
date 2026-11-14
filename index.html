@@ -284,6 +284,17 @@ nav.tabs button[aria-selected="true"] { background: var(--accent); color: var(--
   #sets.sets .src { display: none; }
 }
 @media (max-width: 640px) { .setswrap { margin-top: -48px; } .setswrap .arr { display: none; } }
+
+.codebox { margin: 0; overflow-x: auto; font: 13.5px/1.55 var(--f-mono); white-space: pre; color: var(--ink); }
+.fig:has(.codebox) { max-width: 560px; }
+.fig:has(.llf) { max-width: 540px; }
+
+.codetbl { border-collapse: collapse; font: 12.5px/1.55 var(--f-mono); color: var(--ink); min-width: 100%; }
+.codetbl td, .codetbl th { border: 1px solid var(--ink); padding: 1px 9px; white-space: pre; text-align: left; font-weight: 400; }
+.codetbl td.ln { width: 1%; text-align: left; padding-right: 14px; }
+.codetbl.grid td, .codetbl.grid th { padding: 4px 10px; }
+.fig:has(.codetbl) { max-width: 640px; padding: 0; overflow-x: auto; background: transparent; border: 0; border-radius: 0; }
+.fig:has(.llf) { max-width: 600px; }
 </style>
 
 <header class="hero"><div class="gut" id="hero"></div></header>
@@ -1540,6 +1551,1553 @@ const SETS = [
   }
 ];
 
+/* ===== Mata kuliah 2 Struktur Data (id set diawali SD, terpisah dari Basis Data); kunci buku (bk) dari foto Kunci Jawaban Tes Formatif ===== */
+const SETS_SD = [
+  {
+    "id": "SDA",
+    "name": "Set A · Algoritma, Stack & Queue",
+    "src": "Kuis latihan · algoritma, stack, queue, deque",
+    "title": "Struktur Data · Algoritma, Stack, Queue, dan Deque (modul belum tertera)",
+    "ph": "Screenshot asli",
+    "kind": "screenshot",
+    "qs": [
+      {
+        "n": 1,
+        "pg": "pSA1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Seseorang diberi tugas menduplikasi file yang berekstensi .pdf dari drive C menuju drive D. Kegiatan tersebut dapat diartikan sebagai ....",
+        "o": [
+          "algoritma",
+          "pemrograman",
+          "permasalahan",
+          "perumusan"
+        ],
+        "g": [
+          2
+        ],
+        "c": "tinggi",
+        "e": [
+          "Algoritma adalah urutan langkah untuk menyelesaikan masalah. Tugas menduplikasi file belum berupa langkah-langkahnya.",
+          "Pemrograman adalah menuliskan algoritma ke dalam bahasa pemrograman, bukan tugas yang diberikan.",
+          "Benar. Tugas yang diberikan (menduplikasi file dari drive C ke drive D) adalah masalah yang harus diselesaikan.",
+          "Perumusan adalah tahap menjelaskan dan mendefinisikan masalah, bukan tugas yang diberikan."
+        ]
+      },
+      {
+        "n": 2,
+        "pg": "pSA1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Berikut adalah alur kinerja dari pembuatan kopi:<br>• Siapkan cangkir kosong, sendok, tempat kopi, tempat gula, termos berisi air putih panas;<br>• Masukkan satu sendok kopi dan satu sendok gula ke dalam cangkir;<br>• Tuangkan air dalam termos ke dalam cangkir yang telah berisi kopi dan gula;<br>• Aduk isi cangkir dengan menggunakan sendok;<br>• Secangkir kopi panas siap dihidangkan.",
+        "t2": "Serangkaian alur di atas dapat disebut ....",
+        "o": [
+          "algoritma",
+          "pemrograman",
+          "permasalahan",
+          "perumusan"
+        ],
+        "g": [
+          0
+        ],
+        "c": "tinggi",
+        "e": [
+          "Benar. Serangkaian langkah terurut dan terhingga untuk menyelesaikan suatu persoalan disebut algoritma.",
+          "Pemrograman adalah penerapan algoritma ke dalam bahasa komputer, sedangkan alur kopi tidak berhubungan dengan komputer.",
+          "Permasalahan adalah tugas atau persoalan yang akan diselesaikan, bukan rangkaian langkah penyelesaiannya.",
+          "Perumusan adalah tahap menjelaskan masalah, bukan rangkaian langkah penyelesaian."
+        ]
+      },
+      {
+        "n": 3,
+        "pg": "pSA1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Jika tahapan dari algoritma ingin diimplementasikan ke dalam sebuah komputer, maka hal tersebut disebut dengan ....",
+        "o": [
+          "algoritma",
+          "pemrograman",
+          "permasalahan",
+          "perumusan"
+        ],
+        "g": [
+          1
+        ],
+        "c": "tinggi",
+        "e": [
+          "Algoritma adalah rangkaian langkahnya, bukan proses menerapkannya ke komputer.",
+          "Benar. Pemrograman adalah proses menerapkan (mengimplementasikan) algoritma ke komputer dengan bahasa pemrograman.",
+          "Permasalahan adalah persoalan yang akan diselesaikan.",
+          "Perumusan adalah tahap menjelaskan dan mendefinisikan masalah."
+        ]
+      },
+      {
+        "n": 4,
+        "pg": "pSA1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Istilah berikut yang bukan termasuk interface dalam struktur data, adalah ....",
+        "o": [
+          "queue, stack, dan deque",
+          "code",
+          "stack",
+          "SSet"
+        ],
+        "g": [
+          1
+        ],
+        "c": "tinggi",
+        "e": [
+          "Queue, stack, dan deque ketiganya adalah interface dalam struktur data.",
+          "Benar. Code bukan interface dalam struktur data.",
+          "Stack adalah interface (tumpukan, konsep LIFO).",
+          "SSet (sorted set, himpunan terurut) adalah interface untuk data yang terurut."
+        ]
+      },
+      {
+        "n": 5,
+        "pg": "pSA1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Operasi yang memiliki kemampuan untuk menghapus elemen di akhir queue adalah ....",
+        "o": [
+          "removeFirst()",
+          "removeLast()",
+          "remove()",
+          "removeOdd()"
+        ],
+        "g": [
+          2
+        ],
+        "c": "tinggi",
+        "note": "Kunci buku memilih remove() (C). Dugaan awal saya removeLast(), karena removeLast() dikenal sebagai operasi deque, sedangkan queue baku hanya punya remove(). Ikuti kunci buku.",
+        "e": [
+          "removeFirst() menghapus elemen di awal (depan), bukan di akhir.",
+          "removeLast() menghapus elemen di akhir pada deque, tetapi kunci buku memilih remove() untuk soal tentang queue ini.",
+          "Benar menurut kunci buku. remove() adalah operasi penghapusan elemen pada queue.",
+          "removeOdd() bukan operasi baku."
+        ]
+      },
+      {
+        "n": 6,
+        "pg": "pSA2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Operasi untuk menambahkan elemen x di awal stack adalah ....",
+        "o": [
+          "push()",
+          "add()",
+          "push(x)",
+          "add(x)"
+        ],
+        "g": [
+          3
+        ],
+        "c": "tinggi",
+        "e": [
+          "push() tanpa argumen tidak menyebutkan elemen x yang ditambahkan.",
+          "add() tanpa argumen tidak menyebutkan elemen x yang ditambahkan.",
+          "push(x) adalah nama operasi stack yang umum, tetapi kunci buku memilih add(x) untuk soal ini.",
+          "Benar menurut kunci buku. add(x) menambahkan elemen x."
+        ],
+        "note": "Kunci buku memilih add(x) (D). Dugaan awal saya push(x), karena itu nama operasi stack yang umum. Di modulmu penambahan elemen tampaknya ditulis add(x). Ikuti kunci buku."
+      },
+      {
+        "n": 7,
+        "pg": "pSA2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Operasi untuk menambahkan elemen pada akhir antrean deque adalah ....",
+        "o": [
+          "addLast(x)",
+          "addLast()",
+          "addOdd(x)",
+          "addOdd()"
+        ],
+        "g": [
+          0
+        ],
+        "c": "tinggi",
+        "e": [
+          "Benar. addLast(x) menambahkan elemen x di akhir deque.",
+          "addLast() tanpa argumen tidak menyebutkan elemen yang ditambahkan.",
+          "addOdd(x) bukan operasi baku.",
+          "addOdd() bukan operasi baku."
+        ]
+      },
+      {
+        "n": 8,
+        "pg": "pSA2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Penambahan elemen yang dapat dilakukan, baik di depan maupun di belakang antrean, disebut dengan ....",
+        "o": [
+          "deque",
+          "queue",
+          "uset",
+          "stack"
+        ],
+        "g": [
+          0
+        ],
+        "c": "tinggi",
+        "e": [
+          "Benar. Deque (double-ended queue) memungkinkan penambahan dan penghapusan di depan maupun di belakang.",
+          "Queue biasa menambah elemen hanya di belakang dan menghapus di depan.",
+          "USet (unordered set) adalah himpunan tanpa urutan.",
+          "Stack menambah dan menghapus elemen hanya di puncak."
+        ]
+      },
+      {
+        "n": 9,
+        "pg": "pSA2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Konsep dasar dari stack adalah ....",
+        "o": [
+          "FOLY",
+          "VIVO",
+          "LIFO",
+          "FIFO"
+        ],
+        "g": [
+          3
+        ],
+        "c": "tinggi",
+        "e": [
+          "FOLY bukan istilah baku.",
+          "VIVO bukan istilah baku.",
+          "LIFO (Last In First Out) adalah konsep dasar stack menurut teori umum, tetapi kunci buku tidak memilihnya untuk soal ini.",
+          "Pilihan kunci buku. Menurut teori umum FIFO (First In First Out) adalah konsep dasar queue."
+        ],
+        "note": "Perhatian: kunci buku memilih D (FIFO). Menurut teori umum, konsep dasar stack adalah LIFO (C), dan FIFO adalah konsep queue. Kemungkinan kunci bukunya keliru, atau redaksi soal aslinya berbeda (misalnya tentang queue). Aplikasi tetap memakai kunci buku sesuai fotomu, tetapi untuk ujian pastikan dengan modul atau dosenmu."
+      },
+      {
+        "n": 10,
+        "pg": "pSA2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Penerapan efisiensi pada operasi struktur data dapat dibagi dalam dua bagian, yaitu ....",
+        "o": [
+          "halaman dan tempat",
+          "ruang dan waktu",
+          "bentuk dan ukuran",
+          "panjang dan lebar."
+        ],
+        "g": [
+          1
+        ],
+        "c": "tinggi",
+        "e": [
+          "Halaman dan tempat bukan pembagian efisiensi struktur data.",
+          "Benar. Efisiensi dibagi menjadi efisiensi ruang (memori yang dipakai) dan efisiensi waktu (kecepatan operasi).",
+          "Bentuk dan ukuran bukan pembagian efisiensi struktur data.",
+          "Panjang dan lebar bukan pembagian efisiensi struktur data."
+        ]
+      }
+    ],
+    "bk": [
+      2,
+      0,
+      1,
+      1,
+      2,
+      3,
+      0,
+      0,
+      3,
+      1
+    ],
+    "bkSrc": "Kunci Jawaban Tes Formatif 1"
+  },
+  {
+    "id": "SDB",
+    "name": "Set B · Big-O & Operasi Dasar",
+    "src": "Kuis latihan · big-Oh, faktorial, operasi, running time",
+    "title": "Struktur Data · Big-Oh, Operasi Dasar, dan Running Time (modul belum tertera)",
+    "ph": "Screenshot asli",
+    "kind": "screenshot",
+    "dupnote": "Soal 2 di screenshot sama persis dengan soal 1 (kode dan pilihan sama), jadi tidak dimasukkan dua kali. Catatan: kunci buku soal 2 adalah B (O(n)), sedangkan soal 1 adalah C (O(1)). Jadi soal 2 yang asli mungkin berbeda dari yang tampil di screenshot. Kirim fotonya lagi kalau ada.",
+    "qs": [
+      {
+        "n": 1,
+        "pg": "pSB1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Terdapat programming seperti berikut:",
+        "fig": "code1",
+        "t2": "Nilai <i>big</i>-Oh dari <i>programming</i> di atas adalah ....",
+        "o": [
+          "O( )",
+          "O(n)",
+          "O(1)",
+          "O(2)"
+        ],
+        "g": [
+          2
+        ],
+        "c": "tinggi",
+        "e": [
+          "O( ) tidak berisi apa pun, jadi bukan penulisan big-Oh yang lengkap.",
+          "O(n) berarti waktu bertambah sebanding dengan n. Program ini tidak punya perulangan dan hanya mengakses satu elemen.",
+          "Benar. Program hanya mengakses dan mencetak array[0], satu langkah saja yang tidak bergantung pada ukuran array, sehingga O(1).",
+          "O(2) secara matematis sama dengan O(1) karena konstanta. Penulisan bakunya adalah O(1)."
+        ]
+      },
+      {
+        "n": 3,
+        "pg": "pSB1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Nilai 5 faktorial adalah ....",
+        "o": [
+          "6",
+          "24",
+          "120",
+          "720"
+        ],
+        "g": [
+          2
+        ],
+        "c": "tinggi",
+        "e": [
+          "6 adalah 3! (3 × 2 × 1).",
+          "24 adalah 4! (4 × 3 × 2 × 1).",
+          "Benar. 5! = 5 × 4 × 3 × 2 × 1 = 120.",
+          "720 adalah 6! (6 × 5 × 4 × 3 × 2 × 1)."
+        ]
+      },
+      {
+        "n": 4,
+        "pg": "pSB1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Operasi yang termasuk dalam perbandingan adalah ....",
+        "o": [
+          "+",
+          "AND",
+          "%",
+          "&gt;"
+        ],
+        "g": [
+          3
+        ],
+        "c": "tinggi",
+        "e": [
+          "+ adalah operasi aritmatika (penjumlahan).",
+          "AND adalah operasi Boolean (bitwise).",
+          "% adalah operasi aritmatika (sisa bagi).",
+          "Benar. &gt; (lebih besar dari) adalah operasi perbandingan."
+        ]
+      },
+      {
+        "n": 5,
+        "pg": "pSB2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Operasi yang termasuk dalam aritmatika adalah ....",
+        "o": [
+          "+",
+          "AND",
+          "%",
+          "&gt;"
+        ],
+        "g": [
+          0
+        ],
+        "c": "tinggi",
+        "note": "+ dan % sama-sama operasi aritmatika. Kunci buku memilih + (A).",
+        "e": [
+          "Benar menurut kunci buku. + (penjumlahan) adalah operasi aritmatika.",
+          "AND adalah operasi Boolean (bitwise), bukan aritmatika.",
+          "% (sisa bagi) secara umum juga operasi aritmatika, tetapi kunci buku memilih +.",
+          "&gt; adalah operasi perbandingan, bukan aritmatika."
+        ]
+      },
+      {
+        "n": 6,
+        "pg": "pSB2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Operasi yang termasuk dalam operasi word bitwise Boolean adalah ....",
+        "o": [
+          "+",
+          "AND",
+          "%",
+          "&gt;"
+        ],
+        "g": [
+          1
+        ],
+        "c": "tinggi",
+        "e": [
+          "+ adalah operasi aritmatika.",
+          "Benar. AND adalah operasi bitwise Boolean.",
+          "% adalah operasi aritmatika.",
+          "&gt; adalah operasi perbandingan."
+        ]
+      },
+      {
+        "n": 7,
+        "pg": "pSB2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Suatu istilah untuk membuat nilai running time sekecil mungkin, disebut dengan ....",
+        "o": [
+          "correctness",
+          "time complexctity",
+          "space compexcity",
+          "expected poli"
+        ],
+        "g": [
+          1
+        ],
+        "c": "tinggi",
+        "e": [
+          "Correctness adalah kebenaran fungsi dan program, bukan kecepatan waktu.",
+          "Benar. Time complexity (kompleksitas waktu) berkaitan dengan membuat running time sekecil mungkin.",
+          "Space complexity adalah penggunaan memori sekecil mungkin, bukan waktu.",
+          "Expected poli bukan istilah baku."
+        ]
+      },
+      {
+        "n": 8,
+        "pg": "pSB2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Kesesuaian fungsi dan program dalam struktur data perlu dicek kebenarannya. Istilah dari kasus ini adalah ....",
+        "o": [
+          "correctness",
+          "time complexctity",
+          "space compexcity",
+          "expected poli"
+        ],
+        "g": [
+          0
+        ],
+        "c": "tinggi",
+        "e": [
+          "Benar. Correctness adalah kesesuaian atau kebenaran fungsi dan program dengan yang diharapkan.",
+          "Time complexity berkaitan dengan waktu proses, bukan kebenaran.",
+          "Space complexity berkaitan dengan penggunaan memori, bukan kebenaran.",
+          "Expected poli bukan istilah baku."
+        ]
+      },
+      {
+        "n": 9,
+        "pg": "pSB2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Running time yang hampir mendekati target dikenal dengan istilah ....",
+        "o": [
+          "corretness",
+          "expected",
+          "worst-case",
+          "amortized"
+        ],
+        "g": [
+          3
+        ],
+        "c": "tinggi",
+        "e": [
+          "Corretness (correctness) adalah kebenaran program, bukan jenis running time.",
+          "Expected adalah running time yang diharapkan (rata-rata, biasanya pada algoritma acak), bukan pilihan kunci buku untuk soal ini.",
+          "Worst-case adalah running time terburuk (batas atas), bukan yang hampir mendekati target.",
+          "Benar menurut kunci buku. Amortized adalah running time rata-rata dari rangkaian operasi."
+        ]
+      },
+      {
+        "n": 10,
+        "pg": "pSB2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Hasil running times yang melebihi target dari pembuatan program disebut ....",
+        "o": [
+          "correctness",
+          "expected",
+          "worst-case",
+          "amortized"
+        ],
+        "g": [
+          1
+        ],
+        "c": "tinggi",
+        "note": "Kunci buku memilih expected (B). Dugaan awal saya worst-case. Ikuti kunci buku.",
+        "e": [
+          "Correctness adalah kebenaran program, bukan jenis running time.",
+          "Benar menurut kunci buku. Expected adalah running time yang diharapkan.",
+          "Worst-case adalah running time terburuk, tetapi bukan pilihan kunci buku untuk soal ini.",
+          "Amortized adalah rata-rata dari rangkaian operasi, bukan pilihan kunci buku untuk soal ini."
+        ]
+      }
+    ],
+    "bk": [
+      2,
+      1,
+      2,
+      3,
+      0,
+      1,
+      1,
+      0,
+      3,
+      1
+    ],
+    "bkSrc": "Kunci Jawaban Tes Formatif 2"
+  },
+  {
+    "id": "SDC",
+    "name": "Set C · Tipe Data & Linked List",
+    "src": "Kuis latihan · bahasa, compiler, tipe data, list",
+    "title": "Struktur Data · Bahasa Pemrograman, Tipe Data, dan Linked List (modul belum tertera)",
+    "ph": "Screenshot asli",
+    "kind": "screenshot",
+    "qs": [
+      {
+        "n": 1,
+        "pg": "pSC1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Bahasa pemrograman yang digunakan pada materi struktur data pada modul ini adalah ....",
+        "o": [
+          "C",
+          "C++",
+          "Java",
+          "Phyton"
+        ],
+        "g": [
+          2
+        ],
+        "c": "tinggi",
+        "note": "Kunci buku memilih Java (C). Contoh kode di Set B soal 1 memakai cout (gaya C++), jadi soal itu mungkin berasal dari modul atau ujian lain. Ikuti kunci buku.",
+        "e": [
+          "Bahasa C bukan bahasa yang dipakai modul menurut kunci buku.",
+          "C++ muncul pada contoh kode di Set B soal 1, tetapi kunci buku memilih Java untuk soal ini.",
+          "Benar menurut kunci buku. Modul memakai bahasa Java.",
+          "Phyton (Python) bukan bahasa yang dipakai modul menurut kunci buku."
+        ]
+      },
+      {
+        "n": 2,
+        "pg": "pSC1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Jenis compiler yang digunakan pada materi struktur data pada modul ini adalah ....",
+        "o": [
+          "Netbeans",
+          "Eclipse",
+          "Jcreator",
+          "BlueJ"
+        ],
+        "g": [
+          0
+        ],
+        "c": "tinggi",
+        "e": [
+          "Benar menurut kunci buku. Netbeans adalah compiler (IDE) yang dipakai modul.",
+          "Eclipse adalah IDE Java, tetapi bukan pilihan kunci buku.",
+          "Jcreator adalah IDE Java, tetapi bukan pilihan kunci buku.",
+          "BlueJ adalah IDE Java untuk pembelajaran, tetapi bukan pilihan kunci buku."
+        ]
+      },
+      {
+        "n": 3,
+        "pg": "pSC1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Data dengan nilai ”7,50” termasuk tipe data ....",
+        "o": [
+          "integer",
+          "string",
+          "floating point",
+          "character"
+        ],
+        "g": [
+          2
+        ],
+        "c": "tinggi",
+        "e": [
+          "Integer adalah bilangan bulat, sedangkan 7,50 punya bagian pecahan.",
+          "String adalah rangkaian teks, sedangkan 7,50 adalah bilangan.",
+          "Benar. Floating point adalah bilangan pecahan (desimal) seperti 7,50.",
+          "Character adalah satu karakter, bukan bilangan pecahan."
+        ]
+      },
+      {
+        "n": 4,
+        "pg": "pSC1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Data dengan nilai ”8” termasuk tipe data ....",
+        "o": [
+          "integer",
+          "string",
+          "floating point",
+          "character"
+        ],
+        "g": [
+          0
+        ],
+        "c": "tinggi",
+        "e": [
+          "Benar. 8 adalah bilangan bulat, yaitu integer.",
+          "String adalah rangkaian teks.",
+          "Floating point adalah bilangan pecahan, sedangkan 8 bilangan bulat.",
+          "Character adalah satu karakter."
+        ]
+      },
+      {
+        "n": 5,
+        "pg": "pSC1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Perintah untuk memindahkan kursor ke baris baru adalah ....",
+        "o": [
+          "’\\b’",
+          "’\\f’",
+          "’\\n’",
+          "’\\r’"
+        ],
+        "g": [
+          2
+        ],
+        "c": "tinggi",
+        "e": [
+          "\\b adalah backspace (mundur satu karakter).",
+          "\\f adalah form feed (ganti halaman).",
+          "Benar. \\n adalah newline (pindah ke baris baru).",
+          "\\r adalah carriage return (kembali ke awal baris)."
+        ]
+      },
+      {
+        "n": 6,
+        "pg": "pSC1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Teks ”materi struktur data”, termasuk dalam tipe data ....",
+        "o": [
+          "integer",
+          "string",
+          "floating point",
+          "character"
+        ],
+        "g": [
+          1
+        ],
+        "c": "tinggi",
+        "e": [
+          "Integer adalah bilangan bulat.",
+          "Benar. String adalah rangkaian karakter (teks).",
+          "Floating point adalah bilangan pecahan.",
+          "Character hanya satu karakter, sedangkan teks ini terdiri dari banyak karakter."
+        ]
+      },
+      {
+        "n": 7,
+        "pg": "pSC2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Jika Anda pahami kembali mengenai class, maka Linux dapat dikategorikan ke dalam class ....",
+        "o": [
+          "struktur data",
+          "sistem operasi",
+          "sistem informasi",
+          "struktur komputer"
+        ],
+        "g": [
+          1
+        ],
+        "c": "tinggi",
+        "e": [
+          "Struktur data adalah cara menyimpan dan mengatur data, bukan kategori Linux.",
+          "Benar. Linux adalah sistem operasi.",
+          "Sistem informasi adalah kumpulan komponen pengolah informasi, bukan kategori Linux.",
+          "Struktur komputer bukan kategori untuk Linux."
+        ]
+      },
+      {
+        "n": 8,
+        "pg": "pSC2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Jumlah elemen yang dimiliki array pada gambar berikut adalah ....",
+        "fig": "ll",
+        "o": [
+          "3",
+          "4",
+          "5",
+          "6"
+        ],
+        "g": [
+          3
+        ],
+        "c": "tinggi",
+        "note": "Kunci buku memilih 6 (D). Gambar yang saya gambar ulang hanya menampilkan tiga kotak node (dua di antaranya samar), jadi angka 6 tidak bisa saya jelaskan dari gambar itu. Gambar aslinya mungkin lebih lengkap. Ikuti kunci buku.",
+        "e": [
+          "Menurut kunci buku jumlah elemennya bukan 3.",
+          "Menurut kunci buku jumlah elemennya bukan 4.",
+          "Menurut kunci buku jumlah elemennya bukan 5.",
+          "Benar menurut kunci buku. Jumlah elemen yang dimiliki adalah 6."
+        ]
+      },
+      {
+        "n": 9,
+        "pg": "pSC2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Berdasarkan gambar array berikut, isi dari array adalah ....",
+        "fig": "ll",
+        "o": [
+          "satu, dua, tiga",
+          "satu, tiga",
+          "dua, satu",
+          "tiga, dua"
+        ],
+        "g": [
+          0
+        ],
+        "c": "tinggi",
+        "note": "Kunci buku memilih A (satu, dua, tiga). Gambar hanya menuliskan MSP, jadi isi ini tidak bisa saya jelaskan dari gambar. Ikuti kunci buku.",
+        "e": [
+          "Benar menurut kunci buku. Isi array adalah satu, dua, tiga.",
+          "Bukan pilihan kunci buku.",
+          "Bukan pilihan kunci buku.",
+          "Bukan pilihan kunci buku."
+        ]
+      },
+      {
+        "n": 10,
+        "pg": "pSC2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Berdasarkan gambar berikut, elemen pada list adalah ....",
+        "fig": "ll",
+        "o": [
+          "head",
+          "tail",
+          "MSP",
+          "Ø"
+        ],
+        "g": [
+          2
+        ],
+        "c": "tinggi",
+        "e": [
+          "Head adalah penunjuk ke node pertama, bukan elemen.",
+          "Tail adalah penunjuk ke node terakhir, bukan elemen.",
+          "Benar. MSP adalah nilai (element) yang disimpan pada node di dalam list.",
+          "Ø adalah penanda akhir list (null), bukan elemen."
+        ]
+      }
+    ],
+    "bk": [
+      2,
+      0,
+      2,
+      0,
+      2,
+      1,
+      1,
+      3,
+      0,
+      2
+    ],
+    "bkSrc": "Kunci Jawaban Tes Formatif 3"
+  },
+  {
+    "id": "SDD",
+    "name": "Set D · Variabel & Class Java",
+    "src": "Test Formatif 1 · variabel, tipe data, class",
+    "title": "Struktur Data · Test Formatif 1: Variabel, Tipe Data, dan Class pada Java (modul belum tertera)",
+    "ph": "Screenshot asli",
+    "kind": "screenshot",
+    "bk": [
+      3,
+      3,
+      1,
+      2,
+      2,
+      2,
+      1,
+      3,
+      2,
+      3
+    ],
+    "bkSrc": "Kunci Jawaban Tes Formatif 1 (foto kunci kedua)",
+    "qs": [
+      {
+        "n": 1,
+        "pg": "pSD1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Akan dibuat sebuah variabel hasil yang bertipe null dengan menggunakan bahasa pemrograman Java. Berdasarkan data tersebut, cara deklarasi variabel yang benar adalah ….",
+        "o": [
+          "null hasil;",
+          "null = hasil;",
+          "hasil= Null;",
+          "Integer status = null;"
+        ],
+        "g": [
+          3
+        ],
+        "c": "cek",
+        "note": "Di Java, null adalah nilai, bukan tipe data. Dari semua pilihan hanya D yang berbentuk deklarasi lengkap (tipe, nama, lalu nilai null). Soal menyebut variabel hasil, sedangkan pilihan D memakai nama status. Ikuti kunci buku.",
+        "e": [
+          "Tidak ada tanda sama dengan dan nilai. Selain itu null bukan tipe data, jadi tidak bisa dipakai sebagai tipe di depan nama variabel.",
+          "Urutannya terbalik. null adalah nilai, bukan nama variabel, jadi tidak bisa di sisi kiri tanda sama dengan.",
+          "Tidak ada tipe data di depan nama variabel, dan Null dengan huruf besar bukan nilai null di Java (yang benar null huruf kecil).",
+          "Benar menurut kunci buku. Bentuk deklarasi lengkap: tipe data (Integer), nama variabel, lalu nilai null, diakhiri titik koma."
+        ]
+      },
+      {
+        "n": 2,
+        "pg": "pSD1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Akan dibuat sebuah variabel status yang bertipe boolean dengan menggunakan bahasa pemrograman Java. Berdasarkan data tersebut, cara deklarasi variabel yang benar adalah ….",
+        "o": [
+          "status = Boolean;",
+          "boolean = iman;",
+          "status = boolean;",
+          "Boolean status ;"
+        ],
+        "g": [
+          3
+        ],
+        "c": "tinggi",
+        "note": "Di Java tipe bawaan ditulis boolean (huruf kecil), sedangkan Boolean (huruf besar) adalah kelas pembungkus. Kunci buku memilih D karena urutannya benar: tipe lebih dulu, lalu nama variabel.",
+        "e": [
+          "Tipe data (Boolean) berada di sisi kanan sebagai nilai, padahal tipe harus ditulis di depan nama variabel.",
+          "Urutannya salah. boolean adalah tipe data, bukan nama variabel yang diberi nilai iman.",
+          "Tipe data boolean berada di sisi kanan, padahal harus di depan nama variabel (boolean status;).",
+          "Benar menurut kunci buku. Urutan yang benar adalah tipe data lebih dulu, lalu nama variabel, diakhiri titik koma."
+        ]
+      },
+      {
+        "n": 3,
+        "pg": "pSD1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Akan dibuat sebuah variabel total yang bertipe integer dengan menggunakan bahasa pemrograman Java. Berdasarkan data tersebut, cara deklarasi variabel yang benar adalah ….",
+        "o": [
+          "total = integer;",
+          "integer total;",
+          "integer total;",
+          "totalinteger;"
+        ],
+        "g": [
+          1
+        ],
+        "c": "tinggi",
+        "note": "Pilihan B dan C tertulis sama di sumber. Kunci buku memilih B. Di Java, tipe bilangan bulat sebenarnya ditulis int (atau Integer), bukan integer.",
+        "e": [
+          "Urutannya terbalik. Tipe data integer berada di sisi kanan, padahal harus di depan nama variabel.",
+          "Benar menurut kunci buku. Tipe data (integer) lebih dulu, lalu nama variabel (total), diakhiri titik koma.",
+          "Pilihan ini tertulis sama dengan B di sumber. Kunci buku memilih B.",
+          "Tipe data dan nama variabel digabung tanpa spasi, jadi tidak terbaca sebagai deklarasi."
+        ]
+      },
+      {
+        "n": 4,
+        "pg": "pSD1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Terdapat variabel nilai yang bernilai 3,65. Maka jika akan dibuatkan sebuah variabel dengan bahasa pemrograman Java, tipe data yang dapat digunakan untuk mendeklarasikan variabel status tersebut adalah ….",
+        "o": [
+          "Integer",
+          "Boolean",
+          "Floating Point",
+          "String"
+        ],
+        "g": [
+          2
+        ],
+        "c": "tinggi",
+        "note": "Soal menyebut variabel nilai, lalu variabel status. Saya salin apa adanya.",
+        "e": [
+          "Integer hanya untuk bilangan bulat, sedangkan 3,65 punya bagian pecahan.",
+          "Boolean hanya bernilai benar atau salah (true atau false).",
+          "Benar menurut kunci buku. Floating point adalah tipe untuk bilangan pecahan (desimal) seperti 3,65.",
+          "String adalah rangkaian teks, bukan bilangan."
+        ]
+      },
+      {
+        "n": 5,
+        "pg": "pSD1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Berdasarkan deklarasi coding berikut, tipe data dari titik-titik yang diberikan adalah ….",
+        "fig": "hari",
+        "o": [
+          "String",
+          "Boolean",
+          "Character",
+          "Double"
+        ],
+        "g": [
+          2
+        ],
+        "c": "cek",
+        "note": "Pada kode yang tampil tidak ada titik-titik. Yang terlihat hanya int akhir;. Jadi alasan jawaban Character tidak bisa saya jelaskan dari gambar itu. Ikuti kunci buku.",
+        "e": [
+          "Bukan pilihan kunci buku. String adalah tipe untuk teks.",
+          "Bukan pilihan kunci buku. Boolean adalah tipe untuk nilai benar atau salah.",
+          "Benar menurut kunci buku. Character adalah tipe untuk satu karakter.",
+          "Bukan pilihan kunci buku. Double adalah tipe bilangan pecahan."
+        ]
+      },
+      {
+        "n": 6,
+        "pg": "pSD2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Berdasarkan deklarasi coding berikut, tipe data yang dapat digunakan dengan tanda “…” adalah …",
+        "fig": "hari",
+        "o": [
+          "Character",
+          "Boolean",
+          "String",
+          "Double"
+        ],
+        "g": [
+          2
+        ],
+        "c": "cek",
+        "note": "Pada kode yang tampil tidak ada tanda “…”. Jadi alasan jawaban String tidak bisa saya jelaskan dari gambar itu. Ikuti kunci buku.",
+        "e": [
+          "Character hanya untuk satu karakter, bukan pilihan kunci buku.",
+          "Boolean hanya untuk nilai benar atau salah.",
+          "Benar menurut kunci buku. String adalah tipe data untuk teks (rangkaian karakter).",
+          "Double adalah bilangan pecahan, bukan pilihan kunci buku."
+        ]
+      },
+      {
+        "n": 7,
+        "pg": "pSD2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Bahasa pemrograman Java termasuk dalam bahasa pemrograman yang berorientasi ….",
+        "o": [
+          "class",
+          "object",
+          "method",
+          "variabel"
+        ],
+        "g": [
+          1
+        ],
+        "c": "tinggi",
+        "e": [
+          "Class adalah cetak biru objek, bukan istilah orientasi bahasanya.",
+          "Benar menurut kunci buku. Java adalah bahasa pemrograman berorientasi objek (object-oriented programming).",
+          "Method adalah bagian program yang berisi perintah, bukan istilah orientasi bahasanya.",
+          "Variabel adalah tempat menyimpan data, bukan istilah orientasi bahasanya."
+        ]
+      },
+      {
+        "n": 8,
+        "pg": "pSD2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Berdasarkan coding berikut, kesalahan dalam pembuatan variabel dalam class Peran adalah ….",
+        "fig": "hari",
+        "o": [
+          "class",
+          "Peran",
+          "String antagonis;",
+          "Int age;"
+        ],
+        "g": [
+          3
+        ],
+        "c": "tinggi",
+        "note": "Pilihan di soal menyebut class Peran, variabel antagonis, dan age, yang tidak tampak pada kode yang ditampilkan (class hari). Saya salin apa adanya.",
+        "e": [
+          "class sudah ditulis benar sebagai kata kunci (huruf kecil).",
+          "Peran adalah nama class, penulisannya tidak salah.",
+          "String antagonis; sudah benar: tipe String, lalu nama variabel, diakhiri titik koma.",
+          "Benar menurut kunci buku. Int age; salah karena tipe data int harus ditulis dengan huruf kecil (int age;)."
+        ]
+      },
+      {
+        "n": 9,
+        "pg": "pSD2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Berdasarkan coding berikut, teks static termasuk dalam ….",
+        "fig": "hari",
+        "o": [
+          "class",
+          "object",
+          "method",
+          "variabel"
+        ],
+        "g": [
+          2
+        ],
+        "c": "tinggi",
+        "note": "Kode yang tampil tidak memuat kata static. Pada program Java, static paling umum dipakai pada method (public static void main). Ikuti kunci buku.",
+        "e": [
+          "Class adalah cetak biru objek, bukan bagian tempat static dipakai pada soal ini.",
+          "Object adalah wujud dari class, bukan jawaban kunci buku.",
+          "Benar menurut kunci buku. static adalah pengubah (modifier) yang dipakai pada method, misalnya public static void main.",
+          "Variabel adalah tempat menyimpan data, bukan jawaban kunci buku."
+        ]
+      },
+      {
+        "n": 10,
+        "pg": "pSD3",
+        "pgl": "Screenshot 3",
+        "pageTag": "screenshot 3",
+        "t": "Berdasarkan coding berikut, baris yang termasuk dalam badan class adalah ….",
+        "fig": "hari",
+        "o": [
+          "1",
+          "1, 2",
+          "1, 3",
+          "2"
+        ],
+        "g": [
+          3
+        ],
+        "c": "tinggi",
+        "e": [
+          "Baris 1 (class hari {) adalah kepala class, bukan badannya.",
+          "Baris 1 adalah kepala class, jadi tidak ikut badan class.",
+          "Baris 1 adalah kepala class dan baris 3 adalah kurung penutup, bukan isi badan class.",
+          "Benar menurut kunci buku. Badan class adalah isi di antara kurung kurawal buka dan tutup, yaitu baris 2 (int akhir;)."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "SDE",
+    "name": "Set E · Array pada Java",
+    "src": "Test Formatif 2 · array 1 dan 2 dimensi",
+    "title": "Struktur Data · Test Formatif 2: Array pada Java (modul belum tertera)",
+    "ph": "Screenshot asli",
+    "kind": "screenshot",
+    "bk": [
+      0,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      1,
+      2,
+      3
+    ],
+    "bkSrc": "Kunci Jawaban Tes Formatif 2 (foto kunci kedua)",
+    "qs": [
+      {
+        "n": 1,
+        "pg": "pSE1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Berdasarkan data berikut, dapat dibuat variabel array dengan dimensi ….",
+        "fig": "arr1d",
+        "o": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "g": [
+          0
+        ],
+        "c": "tinggi",
+        "e": [
+          "Benar menurut kunci buku. Data tersusun dalam satu baris saja, jadi cukup array satu dimensi.",
+          "Array dua dimensi dipakai untuk data berbentuk baris dan kolom, sedangkan data ini hanya satu baris.",
+          "Array tiga dimensi tidak diperlukan untuk satu baris data.",
+          "Array empat dimensi tidak diperlukan untuk satu baris data."
+        ]
+      },
+      {
+        "n": 2,
+        "pg": "pSE1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Ukuran dari array berikut adalah ….",
+        "fig": "arr2d",
+        "o": [
+          "[3][2]",
+          "[4][3]",
+          "[3][2]",
+          "[4][4]"
+        ],
+        "g": [
+          1
+        ],
+        "c": "tinggi",
+        "note": "Pilihan A dan C tertulis sama di sumber.",
+        "e": [
+          "[3][2] berarti 3 baris dan 2 kolom, sedangkan tabel punya 4 baris dan 3 kolom.",
+          "Benar menurut kunci buku. Tabel punya 4 baris dan 3 kolom, jadi ukurannya [4][3].",
+          "Pilihan ini tertulis sama dengan A di sumber, dan keduanya salah.",
+          "[4][4] berarti 4 kolom, sedangkan tabel hanya punya 3 kolom."
+        ]
+      },
+      {
+        "n": 3,
+        "pg": "pSE1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Diberikan ilustrasi array dataOs[2][5]. Data yang terdapat pada dataOs[1][1] adalah ….",
+        "fig": "dataos",
+        "o": [
+          "2002",
+          "2003",
+          "2007",
+          "2008"
+        ],
+        "g": [
+          1
+        ],
+        "c": "tinggi",
+        "e": [
+          "2002 berada di dataOs[1][0] (baris 1, kolom 0).",
+          "Benar menurut kunci buku. dataOs[1][1] adalah baris 1, kolom 1, yaitu 2003.",
+          "2007 berada di dataOs[1][2] (baris 1, kolom 2).",
+          "2008 berada di dataOs[1][3] (baris 1, kolom 3)."
+        ]
+      },
+      {
+        "n": 4,
+        "pg": "pSE1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Bentuk umum dari deklarasi array dimensi 2 adalah ….",
+        "o": [
+          "[]",
+          "[] []",
+          "[] [] []",
+          "[] [] [] []"
+        ],
+        "g": [
+          1
+        ],
+        "c": "tinggi",
+        "e": [
+          "Satu pasang kurung siku adalah array satu dimensi.",
+          "Benar menurut kunci buku. Array dua dimensi memakai dua pasang kurung siku, yaitu [][].",
+          "Tiga pasang kurung siku adalah array tiga dimensi.",
+          "Empat pasang kurung siku adalah array empat dimensi."
+        ]
+      },
+      {
+        "n": 5,
+        "pg": "pSE2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Kesalahan dalam coding deklarasi array 1 dimensi adalah ….",
+        "fig": "c_a5",
+        "o": [
+          "[]",
+          "Int",
+          "new",
+          "[5]"
+        ],
+        "g": [
+          1
+        ],
+        "c": "tinggi",
+        "e": [
+          "Kurung siku [] dipakai dengan benar untuk menyatakan array.",
+          "Benar menurut kunci buku. Int dengan huruf besar salah. Tipe data harus ditulis int dengan huruf kecil.",
+          "new sudah benar, dipakai untuk membuat array baru.",
+          "[5] sudah benar untuk menyatakan jumlah elemen array."
+        ]
+      },
+      {
+        "n": 6,
+        "pg": "pSE2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Isi dari titik-titik yang terdapat pada coding deklarasi array 1 dimensi (array bernilai) di bawah ini adalah ….",
+        "fig": "c_a6",
+        "o": [
+          "{}",
+          "=",
+          "[]",
+          "“ ”"
+        ],
+        "g": [
+          2
+        ],
+        "c": "tinggi",
+        "e": [
+          "Kurung kurawal dipakai untuk daftar nilai awal setelah tanda sama dengan, bukan di titik-titik ini.",
+          "Tanda sama dengan sudah ada setelah titik-titik, jadi tidak perlu diisi lagi.",
+          "Benar menurut kunci buku. Deklarasi array 1 dimensi ditulis String negara [] = {…}; titik-titik diisi kurung siku [].",
+          "Tanda kutip dipakai untuk nilai teks, bukan untuk menyatakan array."
+        ]
+      },
+      {
+        "n": 7,
+        "pg": "pSE3",
+        "pgl": "Screenshot 3",
+        "pageTag": "screenshot 3",
+        "t": "Keluaran dari coding berikut, pada urutan ketiga dari lima data tersebut adalah ….",
+        "fig": "c_a7",
+        "o": [
+          "Australia",
+          "Ceko",
+          "Jepang",
+          "Indonesia"
+        ],
+        "g": [
+          2
+        ],
+        "c": "tinggi",
+        "e": [
+          "Australia ada di cetakA[0], urutan pertama.",
+          "Ceko ada di cetakA[1], urutan kedua.",
+          "Benar menurut kunci buku. Urutan ketiga adalah cetakA[2] (indeks mulai dari 0), yaitu Jepang.",
+          "Indonesia ada di cetakA[3], urutan keempat."
+        ]
+      },
+      {
+        "n": 8,
+        "pg": "pSE4",
+        "pgl": "Screenshot 4",
+        "pageTag": "screenshot 4",
+        "t": "Berdasarkan coding berikut, akan ditampilkan urutan kedua adalah ….",
+        "fig": "c_a8",
+        "o": [
+          "Australia",
+          "Ceko",
+          "Jepang",
+          "Indonesia"
+        ],
+        "g": [
+          1
+        ],
+        "c": "tinggi",
+        "e": [
+          "Australia ada di cetakA[0][0], bukan yang dicetak baris 16.",
+          "Benar menurut kunci buku. Baris 16 mencetak cetakA[0][1], yaitu Ceko.",
+          "Jepang ada di cetakA[0][2], bukan yang dicetak baris 16.",
+          "Indonesia ada di cetakA[0][3], bukan yang dicetak baris 16."
+        ]
+      },
+      {
+        "n": 9,
+        "pg": "pSE5",
+        "pgl": "Screenshot 5",
+        "pageTag": "screenshot 5",
+        "t": "Isi dari titik-titik yang terdapat pada coding deklarasi array 2 dimensi (array bernilai) di bawah ini adalah ….",
+        "fig": "c_a9",
+        "o": [
+          "[",
+          "]",
+          "{",
+          "}"
+        ],
+        "g": [
+          2
+        ],
+        "c": "tinggi",
+        "e": [
+          "Kurung siku dipakai pada deklarasi tipe, bukan untuk membuka baris data.",
+          "Kurung siku dipakai pada deklarasi tipe, bukan untuk membuka baris data.",
+          "Benar menurut kunci buku. Setiap baris data array dua dimensi dibuka dengan kurung kurawal. Baris kedua (Canberra, …) dibuka dengan {.",
+          "Kurung kurawal tutup sudah ada di akhir baris pertama (Kanada”}), yang hilang adalah pembukanya."
+        ]
+      },
+      {
+        "n": 10,
+        "pg": "pSE5",
+        "pgl": "Screenshot 5",
+        "pageTag": "screenshot 5",
+        "t": "Kesalahan dalam coding deklarasi array 2 dimensi di bawah ini adalah….",
+        "fig": "c_a10",
+        "o": [
+          "int[][]",
+          "A = new",
+          "new int",
+          "int[4][][5]"
+        ],
+        "g": [
+          3
+        ],
+        "c": "tinggi",
+        "e": [
+          "int[][] adalah deklarasi tipe array dua dimensi yang benar.",
+          "A = new adalah bagian pembuatan array yang benar.",
+          "new int adalah bagian pembuatan array yang benar.",
+          "Benar menurut kunci buku. int[4][][5] salah karena memakai tiga pasang kurung. Array dua dimensi hanya dua, misalnya new int[4][5]."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "SDF",
+    "name": "Set F · Linked List",
+    "src": "Test Formatif 3 · singly, circularly, doubly",
+    "title": "Struktur Data · Test Formatif 3: Linked List (modul belum tertera)",
+    "ph": "Screenshot asli",
+    "kind": "screenshot",
+    "bk": [
+      3,
+      0,
+      0,
+      1,
+      0,
+      1,
+      2,
+      3,
+      1,
+      2
+    ],
+    "bkSrc": "Kunci Jawaban Tes Formatif 3 (foto kunci kedua)",
+    "qs": [
+      {
+        "n": 1,
+        "pg": "pSF1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Terdapat bagian yang dilingkari pada gambar berikut, bagian tersebut termasuk dalam bagian ….",
+        "fig": "cir1",
+        "o": [
+          "Head",
+          "Tail",
+          "Penunjuk arah",
+          "Data"
+        ],
+        "g": [
+          3
+        ],
+        "c": "tinggi",
+        "e": [
+          "Head adalah penunjuk ke node pertama, sedangkan yang dilingkari adalah isi node.",
+          "Tail adalah node terakhir, sedangkan yang dilingkari adalah isi node.",
+          "Penunjuk arah (next) adalah panah ke node berikutnya, sedangkan yang dilingkari adalah isi node.",
+          "Benar menurut kunci buku. Bagian yang dilingkari adalah tempat nilai (element) MSP disimpan, yaitu data."
+        ]
+      },
+      {
+        "n": 2,
+        "pg": "pSF1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Terdapat bagian yang dilingkari pada gambar berikut, bagian tersebut termasuk dalam bagian ….",
+        "fig": "cir2",
+        "o": [
+          "Tail",
+          "Data",
+          "Penunjuk arah",
+          "Head"
+        ],
+        "g": [
+          0
+        ],
+        "c": "tinggi",
+        "e": [
+          "Benar menurut kunci buku. Yang dilingkari adalah node paling akhir pada list, yaitu tail.",
+          "Data adalah isi node (element), sedangkan yang dilingkari adalah node terakhir.",
+          "Penunjuk arah adalah panah ke node berikutnya, bukan node terakhir.",
+          "Head adalah node pertama, sedangkan yang dilingkari adalah node terakhir."
+        ]
+      },
+      {
+        "n": 3,
+        "pg": "pSF1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Terdapat bagian yang dilingkari pada gambar berikut, bagian tersebut termasuk dalam bagian ….",
+        "fig": "cir3",
+        "o": [
+          "Penunjuk arah",
+          "Head",
+          "Data",
+          "Tail"
+        ],
+        "g": [
+          0
+        ],
+        "c": "tinggi",
+        "e": [
+          "Benar menurut kunci buku. Yang dilingkari adalah bagian next, yaitu penunjuk ke node berikutnya.",
+          "Head adalah node pertama, bukan bagian penunjuk di dalam node.",
+          "Data adalah isi node (element), sedangkan yang dilingkari adalah bagian penunjuk.",
+          "Tail adalah node terakhir, bukan bagian penunjuk di dalam node."
+        ]
+      },
+      {
+        "n": 4,
+        "pg": "pSF1",
+        "pgl": "Screenshot 1",
+        "pageTag": "screenshot 1",
+        "t": "Terdapat bagian yang dilingkari pada gambar berikut, bagian tersebut termasuk dalam bagian ….",
+        "fig": "cir4",
+        "o": [
+          "Tail",
+          "Head",
+          "Data",
+          "Penunjuk arah"
+        ],
+        "g": [
+          1
+        ],
+        "c": "tinggi",
+        "e": [
+          "Tail adalah node terakhir, sedangkan yang dilingkari adalah node pertama.",
+          "Benar menurut kunci buku. Yang dilingkari adalah node paling awal pada list, yaitu head.",
+          "Data adalah isi node (element), sedangkan yang dilingkari adalah node pertama.",
+          "Penunjuk arah adalah panah ke node berikutnya, bukan node pertama."
+        ]
+      },
+      {
+        "n": 5,
+        "pg": "pSF2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Gambar berikut termasuk ilustrasi dari jenis linked list ….",
+        "fig": "ll5",
+        "o": [
+          "Singly linked list",
+          "Circularly linked list",
+          "Doubly linked list",
+          "Rotasi circularly linked list"
+        ],
+        "g": [
+          0
+        ],
+        "c": "tinggi",
+        "e": [
+          "Benar menurut kunci buku. Setiap node hanya menunjuk satu arah ke node berikutnya, dan node terakhir menunjuk null (Ø).",
+          "Circularly linked list punya node terakhir yang menunjuk kembali ke node pertama, sedangkan di sini berakhir di Ø.",
+          "Doubly linked list punya penunjuk ke dua arah (next dan prev), sedangkan di sini hanya satu arah.",
+          "Rotasi circularly linked list adalah proses memutar list melingkar, bukan jenis list satu arah ini."
+        ]
+      },
+      {
+        "n": 6,
+        "pg": "pSF2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Gambar berikut termasuk ilustrasi dari jenis linked list ….",
+        "fig": "ll6",
+        "o": [
+          "Singly linked list",
+          "Circularly linked list",
+          "Doubly linked list",
+          "Rotasi circularly linked list"
+        ],
+        "g": [
+          1
+        ],
+        "c": "tinggi",
+        "e": [
+          "Singly linked list berakhir di null, sedangkan di sini node terakhir menunjuk kembali ke node pertama.",
+          "Benar menurut kunci buku. Node terakhir (BOS) menunjuk kembali ke node pertama (LAX), sehingga list berbentuk lingkaran.",
+          "Doubly linked list punya penunjuk ke dua arah (next dan prev), sedangkan di sini hanya satu arah.",
+          "Rotasi circularly linked list adalah proses memutar list melingkar, bukan jenis list pada gambar."
+        ]
+      },
+      {
+        "n": 7,
+        "pg": "pSF2",
+        "pgl": "Screenshot 2",
+        "pageTag": "screenshot 2",
+        "t": "Gambar berikut termasuk ilustrasi dari jenis linked list ….",
+        "fig": "ll7",
+        "o": [
+          "Singly linked list",
+          "Circularly linked list",
+          "Doubly linked list",
+          "Rotasi circularly linked list"
+        ],
+        "g": [
+          2
+        ],
+        "c": "tinggi",
+        "e": [
+          "Singly linked list hanya punya penunjuk satu arah, sedangkan di sini ada next dan prev.",
+          "Circularly linked list node terakhirnya menunjuk ke node pertama, sedangkan di sini ada header dan trailer.",
+          "Benar menurut kunci buku. Setiap node punya penunjuk next dan prev (dua arah), dengan header dan trailer di ujung list.",
+          "Rotasi circularly linked list adalah proses memutar list melingkar, bukan jenis list pada gambar."
+        ]
+      },
+      {
+        "n": 8,
+        "pg": "pSF3",
+        "pgl": "Screenshot 3",
+        "pageTag": "screenshot 3",
+        "t": "Gambar (a) menuju (b) merupakan ilustrasi memproses node pada singly linked list, yaitu proses ….",
+        "fig": "ll8",
+        "o": [
+          "Rotasi node",
+          "Perubahan node",
+          "Penghapusan node",
+          "Penyisipan node"
+        ],
+        "g": [
+          3
+        ],
+        "c": "tinggi",
+        "e": [
+          "Rotasi node menggeser posisi head dan tail tanpa menambah atau mengurangi node, sedangkan di (b) ada node baru.",
+          "Perubahan node mengganti isi node yang sudah ada, sedangkan di (b) jumlah node bertambah.",
+          "Penghapusan node mengurangi jumlah node, sedangkan di (b) node justru bertambah.",
+          "Benar menurut kunci buku. Pada (b) ada node baru LAX di depan MSP (jumlah node bertambah dari 3 menjadi 4), yaitu penyisipan node."
+        ]
+      },
+      {
+        "n": 9,
+        "pg": "pSF3",
+        "pgl": "Screenshot 3",
+        "pageTag": "screenshot 3",
+        "t": "Gambar (a) menuju (b) merupakan ilustrasi memproses node pada circularly linked list, yaitu proses ….",
+        "fig": "ll9",
+        "o": [
+          "Penyisipan node",
+          "Rotasi node",
+          "Penghapusan node",
+          "Perubahan node"
+        ],
+        "g": [
+          1
+        ],
+        "c": "tinggi",
+        "e": [
+          "Penyisipan node menambah node baru, sedangkan jumlah node di (a) dan (b) sama (LAX, MSP, ATL, BOS).",
+          "Benar menurut kunci buku. Jumlah node tetap sama, tetapi tail dan head berpindah satu node (tail ke LAX, head ke MSP), yaitu rotasi node.",
+          "Penghapusan node mengurangi jumlah node, sedangkan di (b) semua node masih ada.",
+          "Perubahan node mengganti isi node, sedangkan isi node di (b) masih sama."
+        ]
+      },
+      {
+        "n": 10,
+        "pg": "pSF3",
+        "pgl": "Screenshot 3",
+        "pageTag": "screenshot 3",
+        "t": "Gambar (a) menuju (b) merupakan ilustrasi memproses node pada doubly linked lists, yaitu proses ….",
+        "fig": "ll10",
+        "o": [
+          "Rotasi node",
+          "Perubahan node",
+          "Penghapusan node",
+          "Penyisipan node"
+        ],
+        "g": [
+          2
+        ],
+        "c": "tinggi",
+        "e": [
+          "Rotasi node menggeser posisi tanpa mengubah jumlah node, sedangkan di (b) jumlah node berkurang.",
+          "Perubahan node mengganti isi node, sedangkan di (b) ada node yang hilang.",
+          "Benar menurut kunci buku. Node PVD ada di (a) tetapi tidak ada di (b), yaitu penghapusan node.",
+          "Penyisipan node menambah node, sedangkan di (b) node justru berkurang."
+        ]
+      }
+    ]
+  }
+];
+
 const L = ["A", "B", "C", "D"];
 const $ = (s, r = document) => r.querySelector(s);
 
@@ -1547,6 +3105,31 @@ const $ = (s, r = document) => r.querySelector(s);
 /* gambar soal digambar ulang sebagai grafik vektor, mengikuti warna tema */
 const sym = (vb, inner, label) => `<svg viewBox="${vb}" role="img" aria-label="${label}" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" style="height:100%;width:auto;display:block">${inner}</svg>`;
 const FIG = {
+  hari: `<table class="codetbl" aria-label="Kode: class hari { int akhir; }"><tbody><tr><td class="ln">1</td><td>class hari {</td></tr><tr><td class="ln">2</td><td>int akhir;</td></tr><tr><td class="ln">3</td><td>}</td></tr></tbody></table>`,
+  arr1d: `<table class="codetbl grid" aria-label="Tabel satu baris: Novel, Linux, Windows, Mac, Android"><tbody><tr><td>Novel</td><td>Linux</td><td>Windows</td><td>Mac</td><td>Android</td></tr></tbody></table>`,
+  arr2d: `<table class="codetbl grid" aria-label="Tabel 4 baris 3 kolom berisi nama warna"><tbody><tr><td>merah</td><td>hijau</td><td>putih</td></tr><tr><td>hitam</td><td>ungu</td><td>kuning</td></tr><tr><td>coklat</td><td>salem</td><td>biru</td></tr><tr><td>Abu-abu</td><td>pink</td><td>krem</td></tr></tbody></table>`,
+  dataos: `<table class="codetbl grid" aria-label="Tabel dataOs: baris 0 Novel, Linux, Windows, Mac, Android; baris 1 2002, 2003, 2007, 2008, 2010"><tbody><tr><th></th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th></tr><tr><th>0</th><td>Novel</td><td>Linux</td><td>Windows</td><td>Mac</td><td>Android</td></tr><tr><th>1</th><td>2002</td><td>2003</td><td>2007</td><td>2008</td><td>2010</td></tr></tbody></table>`,
+  c_a5: `<table class="codetbl" aria-label="Kode array satu dimensi dengan Int A = new int[5]"><tbody><tr><td class="ln">1</td><td>public class arraySatuDimensi</td></tr><tr><td class="ln">2</td><td>{ public static void main (String</td></tr><tr><td class="ln">3</td><td>args[] )</td></tr><tr><td class="ln">4</td><td>{ Int A = new int[5];</td></tr><tr><td class="ln">5</td><td>}</td></tr><tr><td class="ln"></td><td>}</td></tr></tbody></table>`,
+  c_a6: `<table class="codetbl" aria-label="Kode array satu dimensi: String negara titik-titik = nilai negara"><tbody><tr><td class="ln">1</td><td>public class arraySatuDimensi</td></tr><tr><td class="ln">2</td><td>{ public static void main (String args[] )</td></tr><tr><td class="ln">3</td><td>  { String negara ............ = {“Australia”, “Ceko”,</td></tr><tr><td class="ln">4</td><td>“Jepang”, “Indonesia”, “Canada”};</td></tr><tr><td class="ln">5</td><td>  }</td></tr><tr><td class="ln">6</td><td>}</td></tr></tbody></table>`,
+  c_a7: `<table class="codetbl" aria-label="Kode arrayCetak1: array String lima isi dicetak dengan perulangan"><tbody><tr><td class="ln">1</td><td>public class arrayCetak1</td></tr><tr><td class="ln">2</td><td>{ public static void main (String args[] )</td></tr><tr><td class="ln">3</td><td>  { String [] cetakA;</td></tr><tr><td class="ln">4</td><td>    cetakA = new String[5];</td></tr><tr><td class="ln">5</td><td>    cetakA[0] = “Australia”;</td></tr><tr><td class="ln">6</td><td>    cetakA[1] = “Ceko”;</td></tr><tr><td class="ln">7</td><td>    cetakA[2] = “Jepang”;</td></tr><tr><td class="ln">8</td><td>    cetakA[3] = “Indonesia”;</td></tr><tr><td class="ln">9</td><td>    cetakA[4] = “Kanada”;</td></tr><tr><td class="ln">10</td><td>    System.out.println(“Menampilkan urutan</td></tr><tr><td class="ln">11</td><td>negara ke-2 yaitu:”);</td></tr><tr><td class="ln">12</td><td>    System.out.println(cetakA[1]);</td></tr><tr><td class="ln">13</td><td>    for (int i=0; i&lt;5; i++)</td></tr><tr><td class="ln">14</td><td>    {</td></tr><tr><td class="ln">15</td><td>      System.out.println(“Menampilkan seluruh</td></tr><tr><td class="ln">16</td><td>urutan array:”);</td></tr><tr><td class="ln">17</td><td>      System.out.println(cetakA[i]);</td></tr><tr><td class="ln">18</td><td>    }</td></tr><tr><td class="ln">19</td><td>  }</td></tr><tr><td class="ln">20</td><td>}</td></tr></tbody></table>`,
+  c_a8: `<table class="codetbl" aria-label="Kode arrayCetak2: array dua dimensi String[2][5] dicetak dengan dua perulangan"><tbody><tr><td class="ln">1</td><td>public class arrayCetak2</td></tr><tr><td class="ln">2</td><td>{ public static void main (String args[] )</td></tr><tr><td class="ln">3</td><td>  { String [][] cetakA;</td></tr><tr><td class="ln">4</td><td>    cetakA = new String[2][5];</td></tr><tr><td class="ln">5</td><td>    cetakA[0][0] = “Australia”;</td></tr><tr><td class="ln">6</td><td>    cetakA[0][1] = “Ceko”;</td></tr><tr><td class="ln">7</td><td>    cetakA[0][2] = “Jepang”;</td></tr><tr><td class="ln">8</td><td>    cetakA[0][3] = “Indonesia”;</td></tr><tr><td class="ln">9</td><td>    cetakA[0][4] = “Kanada”;</td></tr><tr><td class="ln">10</td><td>    cetakA[1][0] = “Carberra”;</td></tr><tr><td class="ln">11</td><td>    cetakA[1][1] = “Praha”;</td></tr><tr><td class="ln">12</td><td>    cetakA[1][2] = “Tokyo”;</td></tr><tr><td class="ln">13</td><td>    cetakA[1][3] = “Jakarta”;</td></tr><tr><td class="ln">14</td><td>    cetakA[1][4] = “Ottawa”;</td></tr><tr><td class="ln">15</td><td>    System.out.println(“Menampilkan urutan</td></tr><tr><td class="ln"></td><td>negara ke-2 yaitu:”);</td></tr><tr><td class="ln">16</td><td>    System.out.println(cetakA[0][1]);</td></tr><tr><td class="ln">17</td><td>    for (int i=0; i&lt;2; i++)</td></tr><tr><td class="ln">18</td><td>    { for (int j=0; j&lt;5; j++)</td></tr><tr><td class="ln">19</td><td>      { System.out.println(“Menampilkan seluruh</td></tr><tr><td class="ln"></td><td>urutan array:”);</td></tr><tr><td class="ln">20</td><td>        System.out.println(cetakA[i][j]);</td></tr><tr><td class="ln">21</td><td>      }</td></tr><tr><td class="ln">22</td><td>    }</td></tr><tr><td class="ln">23</td><td>  }</td></tr><tr><td class="ln">24</td><td>}</td></tr></tbody></table>`,
+  c_a9: `<table class="codetbl" aria-label="Kode array dua dimensi dengan nilai awal bersarang; ada bagian titik-titik sebelum Canberra"><tbody><tr><td class="ln">1</td><td>public class arrayDuaDimensi</td></tr><tr><td class="ln">2</td><td>{ public static void main (String args[] )</td></tr><tr><td class="ln">3</td><td>  {String negara[][] = {{“Australia”, “Ceko”,</td></tr><tr><td class="ln"></td><td>“Jepang”, Indonesia”, “Kanada”}, … ”Canberra”,</td></tr><tr><td class="ln"></td><td>“Praha”, “Tokyo”, “Jakarta”, “Ottawa”}};</td></tr><tr><td class="ln">4</td><td>  }</td></tr><tr><td class="ln">5</td><td>}</td></tr></tbody></table>`,
+  c_a10: `<table class="codetbl" aria-label="Kode array dua dimensi: int[][] A = new int[4][][5]"><tbody><tr><td class="ln">1</td><td>public class arrayDuaDimensi</td></tr><tr><td class="ln">2</td><td>{ public static void main</td></tr><tr><td class="ln">3</td><td>(String args[] )</td></tr><tr><td class="ln">4</td><td>  { int[][] A = new int[4][][5];</td></tr><tr><td class="ln">5</td><td>  }</td></tr><tr><td class="ln"></td><td>}</td></tr></tbody></table>`,
+  cir1: `<svg class="llf" viewBox="-10 0 480 130" role="img" aria-label="Diagram linked list: tiga node dengan satu bagian dilingkari dan diberi tanda tanya" style="width:100%;height:auto;display:block;color:var(--ink)"><defs><marker id="mk_cir1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs><rect x="20" y="30" width="72" height="34" fill="none" stroke="var(--muted)" stroke-dasharray="4 4" stroke-width="1.6"/><path d="M66 30V64" fill="none" fill="none" stroke="var(--muted)" stroke-dasharray="4 4" stroke-width="1.6"/><circle cx="79.0" cy="47.0" r="3.2" fill="currentColor"/><rect x="170" y="30" width="72" height="34" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M216 30V64" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="193.0" y="52.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">MSP</text><circle cx="229.0" cy="47.0" r="3.2" fill="currentColor"/><rect x="320" y="30" width="72" height="34" fill="none" stroke="var(--muted)" stroke-dasharray="4 4" stroke-width="1.6"/><path d="M366 30V64" fill="none" fill="none" stroke="var(--muted)" stroke-dasharray="4 4" stroke-width="1.6"/><circle cx="379.0" cy="47.0" r="3.2" fill="currentColor"/><path d="M79.0 47.0L166 47.0" fill="none" stroke="var(--muted)" stroke-width="2" marker-end="url(#mk_cir1)"/><path d="M229.0 47.0L316 47.0" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#mk_cir1)"/><path d="M379.0 47.0L440 47.0" fill="none" stroke="var(--muted)" stroke-width="2" marker-end="url(#mk_cir1)"/><ellipse cx="193" cy="47" rx="30" ry="27" fill="none" stroke="var(--accent)" stroke-width="3.5"/><path d="M209.5 71.3L223.5 100" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#mk_cir1)"/><text x="223.5" y="120" text-anchor="middle" font-size="20" font-weight="400" font-family="var(--f-ui)" style="fill:var(--ink)">?</text></svg>`,
+  cir2: `<svg class="llf" viewBox="-10 0 480 130" role="img" aria-label="Diagram linked list: tiga node dengan satu bagian dilingkari dan diberi tanda tanya" style="width:100%;height:auto;display:block;color:var(--ink)"><defs><marker id="mk_cir2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs><rect x="20" y="30" width="72" height="34" fill="none" stroke="var(--muted)" stroke-dasharray="4 4" stroke-width="1.6"/><path d="M66 30V64" fill="none" fill="none" stroke="var(--muted)" stroke-dasharray="4 4" stroke-width="1.6"/><circle cx="79.0" cy="47.0" r="3.2" fill="currentColor"/><rect x="170" y="30" width="72" height="34" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M216 30V64" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="193.0" y="52.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">MSP</text><circle cx="229.0" cy="47.0" r="3.2" fill="currentColor"/><rect x="320" y="30" width="72" height="34" fill="none" stroke="var(--muted)" stroke-dasharray="4 4" stroke-width="1.6"/><path d="M366 30V64" fill="none" fill="none" stroke="var(--muted)" stroke-dasharray="4 4" stroke-width="1.6"/><circle cx="379.0" cy="47.0" r="3.2" fill="currentColor"/><path d="M79.0 47.0L166 47.0" fill="none" stroke="var(--muted)" stroke-width="2" marker-end="url(#mk_cir2)"/><path d="M229.0 47.0L316 47.0" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#mk_cir2)"/><path d="M379.0 47.0L440 47.0" fill="none" stroke="var(--muted)" stroke-width="2" marker-end="url(#mk_cir2)"/><ellipse cx="356" cy="47" rx="56" ry="27" fill="none" stroke="var(--accent)" stroke-width="3.5"/><path d="M386.8 71.3L400.8 100" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#mk_cir2)"/><text x="400.8" y="120" text-anchor="middle" font-size="20" font-weight="400" font-family="var(--f-ui)" style="fill:var(--ink)">?</text></svg>`,
+  cir3: `<svg class="llf" viewBox="-10 0 480 130" role="img" aria-label="Diagram linked list: tiga node dengan satu bagian dilingkari dan diberi tanda tanya" style="width:100%;height:auto;display:block;color:var(--ink)"><defs><marker id="mk_cir3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs><rect x="20" y="30" width="72" height="34" fill="none" stroke="var(--muted)" stroke-dasharray="4 4" stroke-width="1.6"/><path d="M66 30V64" fill="none" fill="none" stroke="var(--muted)" stroke-dasharray="4 4" stroke-width="1.6"/><circle cx="79.0" cy="47.0" r="3.2" fill="currentColor"/><rect x="170" y="30" width="72" height="34" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M216 30V64" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="193.0" y="52.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">MSP</text><circle cx="229.0" cy="47.0" r="3.2" fill="currentColor"/><rect x="320" y="30" width="72" height="34" fill="none" stroke="var(--muted)" stroke-dasharray="4 4" stroke-width="1.6"/><path d="M366 30V64" fill="none" fill="none" stroke="var(--muted)" stroke-dasharray="4 4" stroke-width="1.6"/><circle cx="379.0" cy="47.0" r="3.2" fill="currentColor"/><path d="M79.0 47.0L166 47.0" fill="none" stroke="var(--muted)" stroke-width="2" marker-end="url(#mk_cir3)"/><path d="M229.0 47.0L316 47.0" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#mk_cir3)"/><path d="M379.0 47.0L440 47.0" fill="none" stroke="var(--muted)" stroke-width="2" marker-end="url(#mk_cir3)"/><ellipse cx="232" cy="47" rx="25" ry="25" fill="none" stroke="var(--accent)" stroke-width="3.5"/><path d="M245.75 69.5L259.75 100" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#mk_cir3)"/><text x="259.75" y="120" text-anchor="middle" font-size="20" font-weight="400" font-family="var(--f-ui)" style="fill:var(--ink)">?</text></svg>`,
+  cir4: `<svg class="llf" viewBox="-10 0 480 130" role="img" aria-label="Diagram linked list: tiga node dengan satu bagian dilingkari dan diberi tanda tanya" style="width:100%;height:auto;display:block;color:var(--ink)"><defs><marker id="mk_cir4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs><rect x="20" y="30" width="72" height="34" fill="none" stroke="var(--muted)" stroke-dasharray="4 4" stroke-width="1.6"/><path d="M66 30V64" fill="none" fill="none" stroke="var(--muted)" stroke-dasharray="4 4" stroke-width="1.6"/><circle cx="79.0" cy="47.0" r="3.2" fill="currentColor"/><rect x="170" y="30" width="72" height="34" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M216 30V64" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="193.0" y="52.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">MSP</text><circle cx="229.0" cy="47.0" r="3.2" fill="currentColor"/><rect x="320" y="30" width="72" height="34" fill="none" stroke="var(--muted)" stroke-dasharray="4 4" stroke-width="1.6"/><path d="M366 30V64" fill="none" fill="none" stroke="var(--muted)" stroke-dasharray="4 4" stroke-width="1.6"/><circle cx="379.0" cy="47.0" r="3.2" fill="currentColor"/><path d="M79.0 47.0L166 47.0" fill="none" stroke="var(--muted)" stroke-width="2" marker-end="url(#mk_cir4)"/><path d="M229.0 47.0L316 47.0" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#mk_cir4)"/><path d="M379.0 47.0L440 47.0" fill="none" stroke="var(--muted)" stroke-width="2" marker-end="url(#mk_cir4)"/><ellipse cx="56" cy="47" rx="56" ry="27" fill="none" stroke="var(--accent)" stroke-width="3.5"/><path d="M86.80000000000001 71.3L100.80000000000001 100" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#mk_cir4)"/><text x="100.80000000000001" y="120" text-anchor="middle" font-size="20" font-weight="400" font-family="var(--f-ui)" style="fill:var(--ink)">?</text></svg>`,
+  ll5: `<svg class="llf" viewBox="0 0 540 112" role="img" aria-label="Diagram singly linked list: LAX, MSP, ATL, BOS; head menunjuk LAX, tail menunjuk BOS, node terakhir menunjuk null" style="width:100%;height:auto;display:block;color:var(--ink)"><defs><marker id="mk_ll5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs><rect x="30" y="30" width="72" height="34" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M76 30V64" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="53.0" y="52.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">LAX</text><circle cx="89.0" cy="47.0" r="3.2" fill="currentColor"/><rect x="150" y="30" width="72" height="34" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M196 30V64" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="173.0" y="52.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">MSP</text><circle cx="209.0" cy="47.0" r="3.2" fill="currentColor"/><rect x="270" y="30" width="72" height="34" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M316 30V64" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="293.0" y="52.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">ATL</text><circle cx="329.0" cy="47.0" r="3.2" fill="currentColor"/><rect x="390" y="30" width="72" height="34" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M436 30V64" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="413.0" y="52.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">BOS</text><circle cx="449.0" cy="47.0" r="3.2" fill="currentColor"/><path d="M89.0 47.0L147 47.0" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#mk_ll5)"/><path d="M209.0 47.0L267 47.0" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#mk_ll5)"/><path d="M329.0 47.0L387 47.0" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#mk_ll5)"/><path d="M449.0 47.0L480 47.0" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#mk_ll5)"/><text x="488" y="56.0" text-anchor="start" font-size="26" font-weight="400" font-family="var(--f-ui)" style="fill:var(--ink)">Ø</text><text x="8" y="104" text-anchor="start" font-size="12" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">head</text><path d="M24 90L44 68" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" marker-end="url(#mk_ll5)"/><text x="392" y="104" text-anchor="start" font-size="12" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">tail</text><path d="M404 90L422 68" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" marker-end="url(#mk_ll5)"/></svg>`,
+  ll6: `<svg class="llf" viewBox="0 0 540 138" role="img" aria-label="Diagram circularly linked list: LAX, MSP, ATL, BOS; node terakhir menunjuk kembali ke LAX; head menunjuk LAX, tail menunjuk BOS" style="width:100%;height:auto;display:block;color:var(--ink)"><defs><marker id="mk_ll6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs><rect x="30" y="46" width="72" height="34" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M76 46V80" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="53.0" y="68.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">LAX</text><circle cx="89.0" cy="63.0" r="3.2" fill="currentColor"/><rect x="150" y="46" width="72" height="34" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M196 46V80" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="173.0" y="68.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">MSP</text><circle cx="209.0" cy="63.0" r="3.2" fill="currentColor"/><rect x="270" y="46" width="72" height="34" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M316 46V80" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="293.0" y="68.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">ATL</text><circle cx="329.0" cy="63.0" r="3.2" fill="currentColor"/><rect x="390" y="46" width="72" height="34" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M436 46V80" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="413.0" y="68.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">BOS</text><circle cx="449.0" cy="63.0" r="3.2" fill="currentColor"/><path d="M89.0 63.0L147 63.0" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#mk_ll6)"/><path d="M209.0 63.0L267 63.0" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#mk_ll6)"/><path d="M329.0 63.0L387 63.0" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#mk_ll6)"/><path d="M449.0 63.0H479.0C507.0 63.0 507.0 128 469.0 128H80C44 128 52 104 62 82" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#mk_ll6)"/><text x="8" y="22" text-anchor="start" font-size="12" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">head</text><path d="M24 26L44 44" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" marker-end="url(#mk_ll6)"/><text x="386" y="22" text-anchor="start" font-size="12" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">tail</text><path d="M404 26L420 44" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" marker-end="url(#mk_ll6)"/></svg>`,
+  ll7: `<svg class="llf" viewBox="0 0 570 108" role="img" aria-label="Diagram doubly linked list: header, JFK, PVD, SFO, trailer; setiap node punya penunjuk next dan prev" style="width:100%;height:auto;display:block;color:var(--ink)"><defs><marker id="mk_ll7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs><rect x="10" y="40" width="64" height="32" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M42 40V72" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="58" cy="56" r="3.2" fill="currentColor"/><rect x="118" y="40" width="78" height="32" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M138 40V72M176 40V72" fill="none" stroke="var(--accent)" stroke-width="2"/><circle cx="128" cy="56" r="3.2" fill="currentColor"/><circle cx="186" cy="56" r="3.2" fill="currentColor"/><text x="157.0" y="61" text-anchor="middle" font-size="12" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">JFK</text><rect x="240" y="40" width="78" height="32" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M260 40V72M298 40V72" fill="none" stroke="var(--accent)" stroke-width="2"/><circle cx="250" cy="56" r="3.2" fill="currentColor"/><circle cx="308" cy="56" r="3.2" fill="currentColor"/><text x="279.0" y="61" text-anchor="middle" font-size="12" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">PVD</text><rect x="362" y="40" width="78" height="32" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M382 40V72M420 40V72" fill="none" stroke="var(--accent)" stroke-width="2"/><circle cx="372" cy="56" r="3.2" fill="currentColor"/><circle cx="430" cy="56" r="3.2" fill="currentColor"/><text x="401.0" y="61" text-anchor="middle" font-size="12" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">SFO</text><rect x="484" y="40" width="64" height="32" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M516 40V72" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="500" cy="56" r="3.2" fill="currentColor"/><path d="M74 50L116 50" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll7)"/><path d="M118 63L76 63" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll7)"/><text x="96.0" y="34" text-anchor="middle" font-size="11" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">next</text><text x="96.0" y="90" text-anchor="middle" font-size="11" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">prev</text><path d="M196 50L238 50" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll7)"/><path d="M240 63L198 63" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll7)"/><text x="218.0" y="34" text-anchor="middle" font-size="11" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">next</text><text x="218.0" y="90" text-anchor="middle" font-size="11" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">prev</text><path d="M318 50L360 50" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll7)"/><path d="M362 63L320 63" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll7)"/><text x="340.0" y="34" text-anchor="middle" font-size="11" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">next</text><text x="340.0" y="90" text-anchor="middle" font-size="11" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">prev</text><path d="M440 50L482 50" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll7)"/><path d="M484 63L442 63" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll7)"/><text x="462.0" y="34" text-anchor="middle" font-size="11" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">next</text><text x="462.0" y="90" text-anchor="middle" font-size="11" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">prev</text><text x="12" y="18" text-anchor="start" font-size="11" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">header</text><text x="486" y="18" text-anchor="start" font-size="11" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">trailer</text></svg>`,
+  ll8: `<svg class="llf" viewBox="0 0 540 226" role="img" aria-label="Diagram singly linked list: (a) head, MSP, ATL, BOS; (b) head, LAX, MSP, ATL, BOS. Node LAX ditambahkan di depan" style="width:100%;height:auto;display:block;color:var(--ink)"><defs><marker id="mk_ll8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs><rect x="140" y="44" width="72" height="34" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M186 44V78" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="163.0" y="66.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">MSP</text><circle cx="199.0" cy="61.0" r="3.2" fill="currentColor"/><rect x="260" y="44" width="72" height="34" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M306 44V78" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="283.0" y="66.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">ATL</text><circle cx="319.0" cy="61.0" r="3.2" fill="currentColor"/><rect x="380" y="44" width="72" height="34" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M426 44V78" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="403.0" y="66.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">BOS</text><circle cx="439.0" cy="61.0" r="3.2" fill="currentColor"/><path d="M199.0 61.0L257 61.0" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#mk_ll8)"/><path d="M319.0 61.0L377 61.0" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#mk_ll8)"/><path d="M439.0 61.0L470 61.0" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#mk_ll8)"/><text x="478" y="70.0" text-anchor="start" font-size="26" font-weight="400" font-family="var(--f-ui)" style="fill:var(--ink)">Ø</text><text x="118" y="18" text-anchor="start" font-size="12" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">head</text><path d="M134 22L152 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" marker-end="url(#mk_ll8)"/><text x="250" y="100" text-anchor="middle" font-size="12" font-weight="400" font-family="var(--f-ui)" style="fill:var(--ink)">(a)</text><rect x="20" y="150" width="72" height="34" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M66 150V184" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="43.0" y="172.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">LAX</text><circle cx="79.0" cy="167.0" r="3.2" fill="currentColor"/><rect x="140" y="150" width="72" height="34" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M186 150V184" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="163.0" y="172.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">MSP</text><circle cx="199.0" cy="167.0" r="3.2" fill="currentColor"/><rect x="260" y="150" width="72" height="34" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M306 150V184" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="283.0" y="172.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">ATL</text><circle cx="319.0" cy="167.0" r="3.2" fill="currentColor"/><rect x="380" y="150" width="72" height="34" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M426 150V184" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="403.0" y="172.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">BOS</text><circle cx="439.0" cy="167.0" r="3.2" fill="currentColor"/><path d="M79.0 167.0L137 167.0" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#mk_ll8)"/><path d="M199.0 167.0L257 167.0" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#mk_ll8)"/><path d="M319.0 167.0L377 167.0" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#mk_ll8)"/><path d="M439.0 167.0L470 167.0" fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#mk_ll8)"/><text x="478" y="176.0" text-anchor="start" font-size="26" font-weight="400" font-family="var(--f-ui)" style="fill:var(--ink)">Ø</text><text x="70" y="124" text-anchor="start" font-size="12" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">head</text><path d="M88 128L102 148" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" marker-end="url(#mk_ll8)"/><text x="250" y="214" text-anchor="middle" font-size="12" font-weight="400" font-family="var(--f-ui)" style="fill:var(--ink)">(b)</text></svg>`,
+  ll9: `<svg class="llf" viewBox="0 0 570 186" role="img" aria-label="Diagram circularly linked list: (a) head menunjuk LAX dan tail menunjuk BOS; (b) tail menunjuk LAX dan head menunjuk MSP (rotasi)" style="width:100%;height:auto;display:block;color:var(--ink)"><defs><marker id="mk_ll9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs><rect x="100" y="14" width="68" height="30" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M140 14V44" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="120.0" y="34.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">LAX</text><circle cx="154.0" cy="29.0" r="3.2" fill="currentColor"/><rect x="186" y="66" width="68" height="30" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M226 66V96" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="206.0" y="86.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">MSP</text><circle cx="240.0" cy="81.0" r="3.2" fill="currentColor"/><rect x="100" y="118" width="68" height="30" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M140 118V148" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="120.0" y="138.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">ATL</text><circle cx="154.0" cy="133.0" r="3.2" fill="currentColor"/><rect x="14" y="66" width="68" height="30" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M54 66V96" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="34.0" y="86.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">BOS</text><circle cx="68.0" cy="81.0" r="3.2" fill="currentColor"/><path d="M64 81C64 46 74 29 98 29" fill="none" stroke="currentColor" stroke-width="1.8" marker-end="url(#mk_ll9)"/><path d="M154 29C206 29 220 44 220 64" fill="none" stroke="currentColor" stroke-width="1.8" marker-end="url(#mk_ll9)"/><path d="M240 81C240 112 220 133 172 133" fill="none" stroke="currentColor" stroke-width="1.8" marker-end="url(#mk_ll9)"/><path d="M146 133C112 160 40 158 40 98" fill="none" stroke="currentColor" stroke-width="1.8" marker-end="url(#mk_ll9)"/><text x="0" y="44" text-anchor="start" font-size="12" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">tail</text><path d="M26 48L16 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" marker-end="url(#mk_ll9)"/><text x="68" y="8" text-anchor="start" font-size="12" font-weight="400" font-family="var(--f-ui)" style="fill:var(--ink)">(head)</text><path d="M108 12L116 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#mk_ll9)"/><text x="140" y="176" text-anchor="middle" font-size="12" font-weight="400" font-family="var(--f-ui)" style="fill:var(--ink)">(a)</text><g transform="translate(290 0)"><rect x="100" y="14" width="68" height="30" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M140 14V44" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="120.0" y="34.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">LAX</text><circle cx="154.0" cy="29.0" r="3.2" fill="currentColor"/><rect x="186" y="66" width="68" height="30" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M226 66V96" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="206.0" y="86.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">MSP</text><circle cx="240.0" cy="81.0" r="3.2" fill="currentColor"/><rect x="100" y="118" width="68" height="30" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M140 118V148" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="120.0" y="138.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">ATL</text><circle cx="154.0" cy="133.0" r="3.2" fill="currentColor"/><rect x="14" y="66" width="68" height="30" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M54 66V96" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="34.0" y="86.0" text-anchor="middle" font-size="13" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">BOS</text><circle cx="68.0" cy="81.0" r="3.2" fill="currentColor"/><path d="M64 81C64 46 74 29 98 29" fill="none" stroke="currentColor" stroke-width="1.8" marker-end="url(#mk_ll9)"/><path d="M154 29C206 29 220 44 220 64" fill="none" stroke="currentColor" stroke-width="1.8" marker-end="url(#mk_ll9)"/><path d="M240 81C240 112 220 133 172 133" fill="none" stroke="currentColor" stroke-width="1.8" marker-end="url(#mk_ll9)"/><path d="M146 133C112 160 40 158 40 98" fill="none" stroke="currentColor" stroke-width="1.8" marker-end="url(#mk_ll9)"/><text x="0" y="22" text-anchor="start" font-size="12" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">tail</text><path d="M26 26L102 22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" marker-end="url(#mk_ll9)"/><text x="236" y="22" text-anchor="middle" font-size="12" font-weight="400" font-family="var(--f-ui)" style="fill:var(--ink)">(head)</text><path d="M236 28V62" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#mk_ll9)"/><text x="140" y="176" text-anchor="middle" font-size="12" font-weight="400" font-family="var(--f-ui)" style="fill:var(--ink)">(b)</text></g></svg>`,
+  ll10: `<svg class="llf" viewBox="0 0 590 224" role="img" aria-label="Diagram doubly linked list: (a) header, BWI, JFK, PVD, SFO, trailer; (b) header, BWI, JFK, SFO, trailer (node PVD tidak ada)" style="width:100%;height:auto;display:block;color:var(--ink)"><defs><marker id="mk_ll10" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs><rect x="10" y="36" width="64" height="32" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M42 36V68" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="58" cy="52" r="3.2" fill="currentColor"/><rect x="100" y="36" width="74" height="32" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M120 36V68M154 36V68" fill="none" stroke="var(--accent)" stroke-width="2"/><circle cx="110" cy="52" r="3.2" fill="currentColor"/><circle cx="164" cy="52" r="3.2" fill="currentColor"/><text x="137.0" y="57" text-anchor="middle" font-size="12" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">BWI</text><rect x="200" y="36" width="74" height="32" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M220 36V68M254 36V68" fill="none" stroke="var(--accent)" stroke-width="2"/><circle cx="210" cy="52" r="3.2" fill="currentColor"/><circle cx="264" cy="52" r="3.2" fill="currentColor"/><text x="237.0" y="57" text-anchor="middle" font-size="12" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">JFK</text><rect x="300" y="36" width="74" height="32" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M320 36V68M354 36V68" fill="none" stroke="var(--accent)" stroke-width="2"/><circle cx="310" cy="52" r="3.2" fill="currentColor"/><circle cx="364" cy="52" r="3.2" fill="currentColor"/><text x="337.0" y="57" text-anchor="middle" font-size="12" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">PVD</text><rect x="400" y="36" width="74" height="32" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M420 36V68M454 36V68" fill="none" stroke="var(--accent)" stroke-width="2"/><circle cx="410" cy="52" r="3.2" fill="currentColor"/><circle cx="464" cy="52" r="3.2" fill="currentColor"/><text x="437.0" y="57" text-anchor="middle" font-size="12" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">SFO</text><rect x="500" y="36" width="64" height="32" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M532 36V68" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="516" cy="52" r="3.2" fill="currentColor"/><path d="M74 46L98 46" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll10)"/><path d="M100 59L76 59" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll10)"/><path d="M174 46L198 46" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll10)"/><path d="M200 59L176 59" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll10)"/><path d="M274 46L298 46" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll10)"/><path d="M300 59L276 59" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll10)"/><path d="M374 46L398 46" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll10)"/><path d="M400 59L376 59" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll10)"/><path d="M474 46L498 46" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll10)"/><path d="M500 59L476 59" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll10)"/><text x="12" y="20" text-anchor="start" font-size="11" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">header</text><text x="502" y="20" text-anchor="start" font-size="11" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">trailer</text><text x="295" y="100" text-anchor="middle" font-size="12" font-weight="400" font-family="var(--f-ui)" style="fill:var(--ink)">(a)</text><rect x="10" y="150" width="64" height="32" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M42 150V182" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="58" cy="166" r="3.2" fill="currentColor"/><rect x="100" y="150" width="74" height="32" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M120 150V182M154 150V182" fill="none" stroke="var(--accent)" stroke-width="2"/><circle cx="110" cy="166" r="3.2" fill="currentColor"/><circle cx="164" cy="166" r="3.2" fill="currentColor"/><text x="137.0" y="171" text-anchor="middle" font-size="12" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">BWI</text><rect x="200" y="150" width="74" height="32" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M220 150V182M254 150V182" fill="none" stroke="var(--accent)" stroke-width="2"/><circle cx="210" cy="166" r="3.2" fill="currentColor"/><circle cx="264" cy="166" r="3.2" fill="currentColor"/><text x="237.0" y="171" text-anchor="middle" font-size="12" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">JFK</text><rect x="300" y="150" width="74" height="32" stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"/><path d="M320 150V182M354 150V182" fill="none" stroke="var(--accent)" stroke-width="2"/><circle cx="310" cy="166" r="3.2" fill="currentColor"/><circle cx="364" cy="166" r="3.2" fill="currentColor"/><text x="337.0" y="171" text-anchor="middle" font-size="12" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">SFO</text><rect x="400" y="150" width="64" height="32" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M432 150V182" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="416" cy="166" r="3.2" fill="currentColor"/><path d="M74 160L98 160" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll10)"/><path d="M100 173L76 173" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll10)"/><path d="M174 160L198 160" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll10)"/><path d="M200 173L176 173" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll10)"/><path d="M274 160L298 160" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll10)"/><path d="M300 173L276 173" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll10)"/><path d="M374 160L398 160" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll10)"/><path d="M400 173L376 173" fill="none" stroke="currentColor" stroke-width="1.6" marker-end="url(#mk_ll10)"/><text x="12" y="134" text-anchor="start" font-size="11" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">header</text><text x="402" y="134" text-anchor="start" font-size="11" font-weight="700" font-family="var(--f-ui)" style="fill:var(--ink)">trailer</text><text x="260" y="214" text-anchor="middle" font-size="12" font-weight="400" font-family="var(--f-ui)" style="fill:var(--ink)">(b)</text></svg>`,
+  code1: `<pre class="codebox">Void printNilaiArray(int array[ ])
+{
+        cout&lt;&lt;array[0];
+}</pre>`,
+  ll: `<svg class="llf" viewBox="0 192 540 118" role="img" aria-label="Diagram linked list: tiga node, node tengah berisi MSP (element dan next), dua node lain samar. Head menunjuk node pertama, tail menunjuk node terakhir, dan node terakhir menunjuk null (Ø)" style="width:100%;height:auto;display:block;color:var(--ink)"><defs><marker id="llh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs><g fill="none" stroke="var(--muted)" stroke-width="1.6" stroke-dasharray="4 4"><rect x="92" y="203" width="90" height="40"/><path d="M137 203V243"/><rect x="365" y="203" width="90" height="40"/><path d="M410 203V243"/></g><g stroke="var(--accent)" stroke-width="2" style="fill:var(--accent-soft)"><rect x="228" y="203" width="90" height="40"/><path d="M273 203V243" fill="none"/></g><g fill="none" stroke-width="2"><path d="M160 224H224" stroke="var(--muted)" marker-end="url(#llh)"/><path d="M296 224H360" stroke="currentColor" marker-end="url(#llh)"/><path d="M433 224H497" stroke="var(--muted)" marker-end="url(#llh)"/></g><g fill="currentColor"><circle cx="160" cy="224" r="3.5"/><circle cx="296" cy="224" r="3.5"/><circle cx="433" cy="224" r="3.5"/></g><g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"><path d="M52 268L78 246" marker-end="url(#llh)"/><path d="M340 270L362 246" marker-end="url(#llh)"/></g><g style="fill:var(--ink)"><text x="251" y="229" text-anchor="middle" font-size="15" font-weight="700" font-family="var(--f-ui)">MSP</text><text x="268" y="262" text-anchor="middle" font-size="12" font-style="italic" font-family="var(--f-ui)">element next</text><text x="30" y="292" font-size="20" font-family="var(--f-ui)">head</text><text x="314" y="296" font-size="20" font-family="var(--f-ui)">tail</text><text x="503" y="234" font-size="28" font-family="var(--f-ui)">Ø</text></g></svg>`,
   Qk_1m: sym("0 0 110 60", "<path d=\"M8 38H62V14H104M30 38L16 28M30 38L16 48M42 28V48\"/>", "Kaki gagak dan satu garis tegak (satu-ke-banyak)"),
   Qs_rect: sym("0 0 120 70", "<rect x=\"8\" y=\"8\" width=\"104\" height=\"54\"/>", "Persegi panjang"),
   Qs_oval: sym("0 0 120 70", "<ellipse cx=\"60\" cy=\"35\" rx=\"50\" ry=\"26\"/>", "Oval"),
@@ -1589,8 +3172,10 @@ binlog_do_db=rumahsakit</mark></pre><p>Once you restarted MySQL server, p</p></d
 };
 
 const COURSES = [
-  { id: "basis-data", code: "MSIM4206", name: "Basis Data", sks: 3, info: "Modul 1-9 · Ruliah & Andri Suryadi · Penerbit Universitas Terbuka", sets: SETS }
+  { id: "basis-data", code: "MSIM4206", name: "Basis Data", sks: 3, info: "Modul 1-9 · Ruliah & Andri Suryadi · Penerbit Universitas Terbuka", sets: SETS },
+  { id: "struktur-data", code: "Kode MK belum tertera", name: "Struktur Data", info: "Soal latihan dari screenshot · modul belum tertera", sets: SETS_SD }
 ];
+const cCode = c => c.code + (c.sks ? ` · ${c.sks} sks` : "");
 
 const ICON = {
   ok: '<svg class="mark" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
@@ -1612,7 +3197,7 @@ let ans = store.get("bank.ans", null);
 let keys = store.get("bank.keys", null);
 if (!ans) ans = { A: store.get("bdm1.ans", {}), B: {}, C: {}, D: {}, E: {}, F: {}, G: {}, H: {}, I: {}, J: {}, K: {}, L: {}, M: {}, N: {}, O: {}, P: {}, Q: {}, R: {} };
 if (!keys) keys = { A: store.get("bdm1.keys", {}), B: {}, C: {}, D: {}, E: {}, F: {}, G: {}, H: {}, I: {}, J: {}, K: {}, L: {}, M: {}, N: {}, O: {}, P: {}, Q: {}, R: {} };
-SETS.forEach(s => { ans[s.id] = ans[s.id] || {}; keys[s.id] = keys[s.id] || {}; });
+COURSES.flatMap(c => c.sets).forEach(s => { ans[s.id] = ans[s.id] || {}; keys[s.id] = keys[s.id] || {}; });
 const save = () => { store.set("bank.ans", ans); store.set("bank.keys", keys); };
 
 
@@ -1659,9 +3244,13 @@ const curSet = () => course().sets.find(s => s.id === setId);
 const curQ = () => curSet().qs[cur - 1];
 
 /* kunci efektif: kunci buku bila diisi, jika tidak dugaan pembahasan */
+const SET_BY_ID = Object.fromEntries(COURSES.flatMap(c => c.sets).map(s => [s.id, s]));
+const bookKey = (sid, n) => { const s = SET_BY_ID[sid]; return s && s.bk ? s.bk[n - 1] : undefined; };
 function effective(sid, q) {
   const k = keys[sid][q.n];
   if (k !== undefined) return { idx: [k], src: "buku" };
+  const b = bookKey(sid, q.n);
+  if (b !== undefined) return { idx: [b], src: "buku" };
   if (q.g) return { idx: q.g, src: "dugaan" };
   return null;
 }
@@ -1710,7 +3299,7 @@ function renderHero() {
       <div>
         <button class="back" type="button" data-home>${ICON.back} Mata kuliah</button>
         <button class="back snd" type="button" data-snd aria-pressed="${snd.on}" aria-label="Suara ${snd.on ? "nyala" : "mati"}">${snd.on ? ICON.sndOn : ICON.sndOff} Suara ${snd.on ? "nyala" : "mati"}</button>
-        <div class="brand">${c.code} · ${c.sks} sks</div>
+        <div class="brand">${cCode(c)}</div>
         <h1>${c.name}</h1>
         <p>${c.info}</p>
       </div>
@@ -1727,7 +3316,7 @@ function renderTop() {
         const st = statsOf(c.sets), pct = st.total ? Math.round(st.answered / st.total * 100) : 0;
         return `<button type="button" class="course" role="listitem" data-open="${c.id}">
           <span class="ico">${ICON.db}</span>
-          <span class="sid">${c.code} · ${c.sks} sks</span>
+          <span class="sid">${cCode(c)}</span>
           <b>${c.name}</b>
           <span class="src">${c.info}</span>
           <span class="chips"><span class="chip">${c.sets.length} set</span><span class="chip">${st.total} soal</span><span class="chip">${st.answered} terjawab</span></span>
@@ -1776,7 +3365,7 @@ function viewLatihan() {
   const allDone = s.qs.every(x => ans[s.id][x.n] !== undefined);
   const pager = s.qs.map((x, i) => `<button type="button" data-go="${i + 1}" class="${status(s.id, x)}" ${i + 1 === cur ? 'aria-current="true"' : ""} aria-label="Soal ${x.n}">${x.n}</button>`).join("");
   const gap = s.qs.some((x, i) => x.n !== i + 1);
-  const miss = s.missing ? `<div class="note cek" style="margin:0 0 12px">${ICON.info}<span>Soal ${s.missing.join(", ")} belum ada di bank ini (tidak ada di screenshot yang dikirim), jadi nomornya dilewati. Kirim fotonya kalau ada.</span></div>` : "";
+  const miss = (s.missing || s.dupnote) ? `<div class="note cek" style="margin:0 0 12px">${ICON.info}<span>${s.missing ? `Soal ${s.missing.join(", ")} belum ada di bank ini (tidak ada di screenshot yang dikirim), jadi nomornya dilewati. Kirim fotonya kalau ada.` : ""} ${s.dupnote || ""}</span></div>` : "";
   const opts = q.o.map((txt, i) => {
     let c = "opt", mark = "";
     if (a === i) c += " sel";
@@ -1822,7 +3411,7 @@ function viewLatihan() {
 }
 
 function viewSemua() {
-  return course().sets.map(s => `<div class="group-title">${s.title}</div>${s.missing ? `<p class="src" style="margin:0 0 10px;color:var(--muted);font-size:13px">Soal ${s.missing.join(", ")} belum ada di bank ini (tidak ada di screenshot).</p>` : ""}<div class="grid2">` + s.qs.map(q => `
+  return course().sets.map(s => `<div class="group-title">${s.title}</div>${(s.missing || s.dupnote) ? `<p class="src" style="margin:0 0 10px;color:var(--muted);font-size:13px">${s.missing ? `Soal ${s.missing.join(", ")} belum ada di bank ini (tidak ada di screenshot).` : ""} ${s.dupnote || ""}</p>` : ""}<div class="grid2">` + s.qs.map(q => `
     <article class="card item ${animate ? "enter" : ""}">
       <div class="eyebrow"><span>${s.name} · Soal ${q.n}</span>${s.kind === "foto" ? `<span>${q.pageTag}</span>` : ""}</div>
       <p class="qtext"><span class="qno">${q.n}.</span> ${q.t}</p>
@@ -1834,10 +3423,10 @@ function viewSemua() {
 function viewKunci() {
   const s = curSet();
   const st = statsOf([s]);
-  const nkeys = s.qs.filter(q => keys[s.id][q.n] !== undefined).length;
+  const nkeys = s.qs.filter(q => keys[s.id][q.n] !== undefined || bookKey(s.id, q.n) !== undefined).length;
   const score = st.graded ? Math.round(st.right / st.graded * 100) : null;
   const rows = s.qs.map(q => {
-    const k = keys[s.id][q.n], a = ans[s.id][q.n], ef = effective(s.id, q);
+    const k = keys[s.id][q.n] !== undefined ? keys[s.id][q.n] : bookKey(s.id, q.n), a = ans[s.id][q.n], ef = effective(s.id, q);
     let sts;
     if (a === undefined) sts = `<span class="keystate">${ef ? (ef.src === "buku" ? "Kunci buku terisi" : "Pakai dugaan pembahasan") : "Belum ada kunci"} · belum dijawab</span>`;
     else if (!ef) sts = `<span class="keystate">Dijawab ${L[a]} · belum bisa dinilai</span>`;
@@ -1855,7 +3444,7 @@ function viewKunci() {
         <div><b>${st.graded ? st.right + "/" + st.graded : "-"}</b><span>Benar dari yang dinilai</span></div>
       </div>
     </div>
-    <div class="warn">Belum ada kunci resmi buku. Penilaian memakai kunci buku bila kamu isi di bawah. Jika kosong, aplikasi memakai dugaan pembahasan, dan soal yang ditandai perlu cek bisa keliru. Isi kunci hanya dari halaman kunci jawaban bukumu.</div>
+    ${s.bk ? `<div class="warn">Kunci buku untuk set ini sudah terpasang dari foto “${s.bkSrc}” yang kamu kirim. Penilaian memakai kunci itu. Kamu masih bisa mengubahnya di bawah bila ada koreksi dari bukumu.</div>` : `<div class="warn">Belum ada kunci resmi buku. Penilaian memakai kunci buku bila kamu isi di bawah. Jika kosong, aplikasi memakai dugaan pembahasan, dan soal yang ditandai perlu cek bisa keliru. Isi kunci hanya dari halaman kunci jawaban bukumu.</div>`}
     ${rows}
     <div class="nav" style="justify-content:flex-start;flex-wrap:wrap">
       <button class="btn" type="button" id="reset-ans">Ulangi latihan set ini</button>
@@ -1895,7 +3484,7 @@ document.addEventListener("click", e => {
   const t = e.target.closest("button"); if (!t) return;
   if (t.hasAttribute("data-snd")) { snd.toggle(); renderHero(); return; }
   if (t.hasAttribute("data-home")) { go("mapel"); route("mapel"); return; }
-  if (t.dataset.open) { courseId = t.dataset.open; cur = 1; go("latihan"); route("latihan"); return; }
+  if (t.dataset.open) { courseId = t.dataset.open; setId = course().sets[0].id; cur = 1; go("latihan"); route("latihan"); return; }
   if (t.dataset.arr) { const ss = $("#sets"); if (ss) ss.scrollBy({ left: Number(t.dataset.arr) * ss.clientWidth * 0.8, behavior: "smooth" }); return; }
   if (t.dataset.set) { setId = t.dataset.set; cur = 1; animate = true; render(); alignTo(".setswrap", true); return; }
   if (t.dataset.tab) { go(t.dataset.tab); route(t.dataset.tab); return; }
