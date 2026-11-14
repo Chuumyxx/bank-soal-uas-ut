@@ -77,7 +77,7 @@ svg { display: block; }
 .hnums span { font-size: 12px; color: rgba(255,255,255,.7); }
 
 /* set cards */
-.sets { margin-top: -62px; position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
+.sets { margin-top: -62px; position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
 .sets button { text-align: left; border: 1px solid var(--line); background: var(--surface); border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 3px; box-shadow: var(--shadow); min-height: 92px; }
 .sets .sid { font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .sets b { font-family: var(--f-display); font-weight: 600; font-size: 17px; letter-spacing: -.01em; }
@@ -236,6 +236,40 @@ nav.tabs button[aria-selected="true"] { background: var(--accent); color: var(--
 .conf .c-link { color: var(--accent); }
 .conf pre { margin: 10px 0; font-family: var(--f-mono); font-size: 13.5px; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere; }
 .conf mark { background: var(--accent-soft); color: var(--ink); padding: 2px 6px; border-radius: 4px; display: inline-block; }
+.fig:has(.web) { max-width: 640px; padding: 0; overflow: hidden; }
+.web { font-family: var(--f-ui); font-size: 12px; color: var(--ink); }
+.web .w-bar { padding: 7px 12px; background: var(--surface); border-bottom: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+.web .w-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; padding: 9px 12px; background: #3d5a80; color: #fff; font-size: 11px; }
+.web .w-nav b { font-weight: 600; margin-right: 6px; }
+.web .w-s { background: #fff; color: #7a8696; padding: 2px 22px 2px 6px; border-radius: 2px; }
+.web .w-b { background: #5b8c3a; padding: 2px 8px; border-radius: 2px; }
+.web .w-body { padding: 14px 14px 16px; }
+.web h4 { margin: 0 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--line); font-family: var(--f-display); font-size: 17px; font-weight: 600; }
+.web .w-cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; align-items: start; }
+.web .w-cols p { margin: 6px 0; }
+.web .sm { font-size: 11px; color: var(--muted); }
+.web .w-v { aspect-ratio: 16 / 10; display: grid; place-items: center; position: relative; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+.web .w-v span { position: absolute; top: 6px; left: 8px; font-size: 10px; color: var(--muted); }
+.web .w-v i { width: 0; height: 0; border-left: 14px solid var(--accent); border-top: 9px solid transparent; border-bottom: 9px solid transparent; }
+.web .w-v b { position: absolute; bottom: 6px; font-size: 13px; }
+.web .w-dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px; margin-top: 14px; }
+.web .w-dl > div { padding: 7px 8px; border: 1px solid var(--line); border-radius: 4px; font-size: 11px; background: var(--surface); }
+.web .w-dl small { display: block; font-size: 10px; color: var(--muted); }
+.web .w-dl .w-g { background: #5b8c3a; border-color: #5b8c3a; color: #fff; font-weight: 600; font-size: 12px; }
+.web .w-dl .w-g small { color: #e6f0dc; font-weight: 400; }
+@media (max-width: 520px) { .web .w-cols { grid-template-columns: 1fr; } }
+@media (max-width: 640px) {
+  .sets { display: flex; overflow-x: auto; scroll-snap-type: x proximity; margin-top: -48px; padding: 4px 2px 10px; scrollbar-width: none; }
+  .sets::-webkit-scrollbar { display: none; }
+  .sets button { flex: 0 0 74%; scroll-snap-align: center; min-height: 0; }
+}
+.back.snd { margin-left: 8px; }
+.fig:has(.dt) { max-width: 640px; padding: 0; overflow-x: auto; }
+.dt { width: 100%; border-collapse: collapse; font-family: var(--f-ui); font-size: 13px; }
+.dt th { background: var(--accent); color: var(--accent-ink); font-weight: 600; text-align: center; padding: 9px 8px; border-right: 1px solid var(--accent-ink); white-space: normal; }
+.dt td { text-align: center; padding: 9px 8px; border-bottom: 1px solid var(--accent); }
+.opt span { overflow-wrap: anywhere; }
+@media (max-width: 520px) { .dt { font-size: 11.5px; } .dt th, .dt td { padding: 8px 4px; } }
 </style>
 
 <header class="hero"><div class="gut" id="hero"></div></header>
@@ -564,6 +598,932 @@ const SETS = [
             "Benar. CHANGE MASTER TO ... mengarahkan slave ke master (host, user, password, file log, dan posisi log)."] }
     ]
   }
+  ,
+  {
+    id: "E", name: "Set E · Ubuntu & Jaringan", src: "Kuis latihan · Test Formatif 2",
+    title: "Basis Data · VirtualBox, Ubuntu, dan Perintah Jaringan (Test Formatif 2, modul belum tertera)", ph: "Screenshot asli", kind: "screenshot",
+    qs: [
+      { n: 1, pg: "pE1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Aplikasi yang berguna sebagai mesin virtual adalah ....",
+        o: ["MySQL", "PhpMyAdmin", "Ubuntu", "VirtualBox"], g: [3], c: "tinggi",
+        e: ["MySQL adalah sistem manajemen basis data, bukan mesin virtual.",
+            "PhpMyAdmin adalah alat berbasis web untuk mengelola basis data MySQL.",
+            "Ubuntu adalah sistem operasi. Ubuntu bisa dijalankan di dalam mesin virtual, tetapi bukan mesin virtualnya.",
+            "Benar. VirtualBox adalah aplikasi virtualisasi yang membuat komputer virtual, tempat sistem operasi lain seperti Ubuntu bisa dipasang."] },
+      { n: 2, pg: "pE1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Sebuah partisi yang berfungsi sebagai penyimpan cadangan memori (RAM) adalah ....",
+        o: ["Swap", "Hard disk", "Partition", "Table"], g: [0], c: "tinggi",
+        e: ["Benar. Swap adalah partisi (atau ruang) di disk yang dipakai sebagai cadangan memori ketika RAM penuh.",
+            "Hard disk adalah perangkat penyimpanan fisik, bukan partisi yang khusus berfungsi sebagai cadangan RAM.",
+            "Partition adalah istilah umum untuk bagian disk, tidak menyebut fungsi cadangan RAM.",
+            "Table adalah struktur penyimpanan data di basis data, bukan partisi."] },
+      { n: 3, pg: "pE1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Perintah untuk mengetahui alamat ip address pada sistem operasi windows di sebuah command prompt adalah ....",
+        o: ["MySQL", "ipconfig", "ping", "cmd"], g: [1], c: "tinggi",
+        e: ["MySQL adalah sistem basis data, bukan perintah jaringan.",
+            "Benar. ipconfig menampilkan konfigurasi jaringan, termasuk IP address, di command prompt Windows.",
+            "ping dipakai untuk menguji apakah sebuah komputer dapat dihubungi, bukan untuk melihat IP address sendiri.",
+            "cmd adalah program command prompt itu sendiri, bukan perintah di dalamnya."] },
+      { n: 4, pg: "pE1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Dalam sistem operasi Ubuntu, tampilan untuk mengetahui ip address komputer adalah ....",
+        o: ["Comand Prompt", "Folder", "Wired", "ipconfig"], g: [2], c: "tinggi",
+        e: ["Command Prompt adalah antarmuka perintah di Windows, bukan di Ubuntu. (Di sumber ditulis Comand.)",
+            "Folder adalah pengelola berkas dan tidak menampilkan IP address.",
+            "Benar. Di Ubuntu, pengaturan jaringan Wired (Settings, lalu Network, lalu Wired) menampilkan IP address komputer.",
+            "ipconfig adalah perintah Windows. Di Ubuntu perintahnya ifconfig atau ip a, dan soal menanyakan tampilan."] },
+      { n: 5, pg: "pE1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Pada pemasangan sistem operasi ubuntu, fungsi dari pemilihan disk awal ubuntu adalah sebagai ....",
+        o: ["Tempat penyimpanan disk awal", "Awal pemilihan disk yang pertama kali dilakukan", "Awal pemilhan jaringan", "Tempat sementara penyimpanan data"], g: null, c: "cek",
+        note: "Redaksi soal dan pilihan ambigu, jadi jawabannya belum bisa dipastikan. A paling mendekati, karena memilih disk menentukan tempat Ubuntu disimpan, tetapi B hanya mengulang kata soal. Cocokkan dengan kunci buku atau modul.",
+        e: ["Paling dekat dengan fungsi memilih disk: menentukan disk tempat Ubuntu disimpan. Redaksinya tidak sepenuhnya jelas.",
+            "Hanya mengulang kata pada soal (awal pemilihan disk) dan tidak menjelaskan fungsinya.",
+            "Pemilihan jaringan adalah langkah lain dalam pemasangan, bukan pemilihan disk. (Di sumber ditulis pemilhan.)",
+            "Tempat sementara penyimpanan data lebih mirip fungsi RAM atau swap, bukan pemilihan disk awal."] },
+      { n: 6, pg: "pE1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Jika Anda ingin mengetahui terlebih dahulu sistem operasi ubuntu tanpa perlu dilakukan pemasangan maka pada saat proses pemasangan Anda pilih menu ....",
+        o: ["Install Ubuntu", "Select Ubuntu", "Try Ubuntu", "Delete Ubuntu"], g: [2], c: "tinggi",
+        e: ["Install Ubuntu justru memasang Ubuntu ke disk.",
+            "Select Ubuntu bukan menu yang dipakai untuk mencoba Ubuntu.",
+            "Benar. Try Ubuntu menjalankan Ubuntu dari media pemasangan (mode coba) tanpa memasang ke disk.",
+            "Delete Ubuntu menghapus, bukan mencoba."] },
+      { n: 7, pg: "pE2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Cara <i>shortcut</i> membuka cmd melalui keyboard pada sistem operasi windows adalah dengan menekan ....",
+        o: ["Win+Alt+S", "Win+S", "Win+D", "Win+R"], g: [3], c: "tinggi",
+        e: ["Win+Alt+S bukan pintasan untuk membuka cmd.",
+            "Win+S membuka pencarian Windows. cmd bisa diketik di sana, tetapi itu bukan pintasan standar untuk membukanya.",
+            "Win+D menampilkan atau menyembunyikan desktop.",
+            "Benar. Win+R membuka kotak Run, lalu ketik cmd dan tekan Enter untuk membuka command prompt."] },
+      { n: 8, pg: "pE2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Diketahui gambar berikut ini.",
+        fig: "web",
+        o: ["Disediakan tempat penyimpanan sebesar 736 MB", "Disediakan tempat penyimpanan swap sebesar 9998MB", "Disediakan tempat penyimpanan swal sebesar 736MB", "Tidak ada jawaban yang benar"], g: null, c: "cek",
+        note: "Soal ini hanya berbunyi Diketahui gambar berikut ini dan tidak memuat kalimat tanya. Gambar (halaman unduh XAMPP) tidak memuat angka 736 MB atau 9998 MB, jadi bagian soal kemungkinan terpotong di screenshot. Jawabannya belum bisa ditentukan. Logo XAMPP pada gambar tidak digambar ulang.",
+        e: ["Menyebut ukuran penyimpanan 736 MB. Angka ini tidak terlihat pada gambar.",
+            "Menyebut swap 9998MB. Swap adalah ruang cadangan RAM, dan angkanya tidak terlihat pada gambar.",
+            "Sama seperti A tetapi tertulis swal, kemungkinan salah ketik dari swap. Angkanya tidak terlihat pada gambar.",
+            "Bisa benar jika gambar memang tidak memuat informasi penyimpanan, tetapi karena kalimat tanyanya tidak ada, belum bisa dipastikan."] },
+      { n: 9, pg: "pE3", pgl: "Screenshot 3", pageTag: "screenshot 3",
+        t: "Dalam Diketahui IP Address komputer 1 adalah 192.168.1.1 dan IP Address komputer 2 adalah 192.168.1.2. Jika ingin mengetahui koneksi telah tersambung dari komputer 1 ke komputer 2 maka perintah yang ditulis adalah ...",
+        o: ["ipconfig", "ping 192.168.1.2", "ping 192.168.1.1", "ping 192.168.2.1"], g: [1], c: "tinggi",
+        e: ["ipconfig hanya menampilkan konfigurasi komputer sendiri, tidak menguji koneksi ke komputer lain.",
+            "Benar. Dari komputer 1, ping ke IP komputer 2 (192.168.1.2) menguji apakah komputer 2 dapat dihubungi.",
+            "192.168.1.1 adalah IP komputer 1 sendiri, jadi ini menguji komputer sendiri.",
+            "192.168.2.1 berada di jaringan lain dan bukan IP komputer 2."] },
+      { n: 10, pg: "pE3", pgl: "Screenshot 3", pageTag: "screenshot 3",
+        t: "Dalam Diketahui IP Address komputer 1 adalah 192.168.1.1 dan IP Address komputer 2 adalah 192.168.1.2. Jika ingin mengetahui koneksi telah tersambung dari komputer 2 ke komputer 1 maka perintah yang ditulis adalah ....",
+        o: ["ipconfig", "ping 192.168.1.2", "ping 192.168.1.1", "ping 192.168.2.1"], g: [2], c: "tinggi",
+        e: ["ipconfig hanya menampilkan konfigurasi komputer sendiri, tidak menguji koneksi ke komputer lain.",
+            "192.168.1.2 adalah IP komputer 2 sendiri. Perintah ini dijalankan dari komputer 2, jadi menguji dirinya sendiri.",
+            "Benar. Dari komputer 2, ping ke IP komputer 1 (192.168.1.1) menguji apakah komputer 1 dapat dihubungi.",
+            "192.168.2.1 berada di jaringan lain dan bukan IP komputer 1."] }
+    ]
+  }
+  ,
+  {
+    id: "F", name: "Set F · Transaksi & Trigger", src: "Kuis latihan · transaksi MySQL",
+    title: "Basis Data · Transaksi, Trigger, dan Storage Engine (modul belum tertera)", ph: "Screenshot asli", kind: "screenshot",
+    qs: [
+      { n: 1, pg: "pF1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Untuk memulai transaksi, maka perintah yang dapat digunakan adalah ....",
+        o: ["before", "start transaction", "after", "finish transaction"], g: [1], c: "tinggi",
+        e: ["before adalah waktu eksekusi trigger (sebelum insert, update, atau delete), bukan perintah memulai transaksi.",
+            "Benar. START TRANSACTION (atau BEGIN) memulai sebuah transaksi.",
+            "after adalah waktu eksekusi trigger (setelah sebuah kejadian), bukan perintah memulai transaksi.",
+            "finish transaction bukan sintaks SQL. Transaksi diakhiri dengan COMMIT atau ROLLBACK."] },
+      { n: 2, pg: "pF1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Perintah yang digunakan untuk membatalkan sebuah transaksi adalah ....",
+        o: ["commit", "start", "failed", "rollback"], g: [3], c: "tinggi",
+        e: ["commit menyimpan perubahan transaksi secara permanen, bukan membatalkan.",
+            "start memulai, bukan membatalkan.",
+            "failed bukan perintah SQL.",
+            "Benar. ROLLBACK membatalkan perubahan dalam transaksi dan mengembalikan data ke kondisi sebelum transaksi dimulai."] },
+      { n: 3, pg: "pF1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "<i>Procedure-procedure</i> transaksi di halaman phpmyadmin disimpan dalam menu....",
+        o: ["structure", "SQL", "operation", "routine"], g: [3], c: "tinggi",
+        e: ["Structure menampilkan struktur tabel (kolom, tipe data, indeks), bukan tempat prosedur.",
+            "SQL adalah tab untuk menulis dan menjalankan query.",
+            "Operation berisi pengaturan seperti mengganti nama atau menyalin tabel.",
+            "Benar. Stored procedure dan function di phpMyAdmin disimpan dan dikelola pada tab Routines."] },
+      { n: 4, pg: "pF1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Perintah untuk memanggil transaksi yang sudah tersimpan adalah ....",
+        o: ["insert", "update", "transaction", "call"], g: [3], c: "tinggi",
+        e: ["insert menambah data baru, bukan memanggil prosedur.",
+            "update mengubah data yang sudah ada, bukan memanggil prosedur.",
+            "transaction bukan perintah untuk memanggil prosedur tersimpan.",
+            "Benar. CALL nama_prosedur; menjalankan prosedur tersimpan."] },
+      { n: 5, pg: "pF1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Fungsi dari trigger supaya <i>event</i> terjadi setelah dilakukan penghapusan data adalah ....",
+        o: ["Before Insert", "After Update", "Before Delete", "After Delete"], g: [3], c: "tinggi",
+        e: ["Before Insert berjalan sebelum data ditambahkan.",
+            "After Update berjalan setelah data diubah, bukan dihapus.",
+            "Before Delete berjalan sebelum data dihapus, sedangkan soal meminta setelah penghapusan.",
+            "Benar. After Delete berjalan setelah data dihapus."] },
+      { n: 6, pg: "pF1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Sebuah <i>event</i> yang akan melaksanakan perintah jika ada pemicu adalah ....",
+        o: ["transaksi", "check point", "rollback", "trigger"], g: [3], c: "tinggi",
+        e: ["Transaksi adalah kumpulan operasi yang dijalankan sebagai satu kesatuan, bukan yang dijalankan oleh pemicu.",
+            "Check point adalah titik pemulihan, bukan pelaksana perintah karena pemicu.",
+            "Rollback adalah pembatalan transaksi.",
+            "Benar. Trigger (pemicu) menjalankan perintah secara otomatis ketika terjadi insert, update, atau delete."] },
+      { n: 7, pg: "pF1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Sebuah storage engine yang mendukung fasilitas transaksi adalah ....",
+        o: ["MySQL", "MariaDB", "InnoDB", "SQL"], g: [2], c: "tinggi",
+        e: ["MySQL adalah sistem manajemen basis data, bukan nama storage engine.",
+            "MariaDB juga sistem manajemen basis data (turunan MySQL), bukan nama storage engine.",
+            "Benar. InnoDB adalah storage engine yang mendukung transaksi (ACID). Engine MyISAM tidak mendukungnya.",
+            "SQL adalah bahasa query, bukan storage engine."] },
+      { n: 8, pg: "pF2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Diketahui sebuah transaksi dengan nama trans_ubah_data. Cara menjalankan transaksi tersebut adalah ....",
+        o: ["call trans_ubah_data;", "start trans_ubah_data;", "stop trans_ubah_data;", "insert trans_ubah_data;"], g: [0], c: "tinggi",
+        e: ["Benar. Prosedur tersimpan dijalankan dengan CALL nama_prosedur;",
+            "start dipakai untuk memulai transaksi (START TRANSACTION) atau slave, bukan menjalankan prosedur tersimpan.",
+            "stop bukan perintah untuk menjalankan prosedur.",
+            "insert dipakai untuk menambah data."] },
+      { n: 9, pg: "pF2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Fungsi dari checkpoint adalah ....",
+        o: ["menjalankan transaksi", "membatalkan seluruh transaksi", "menyelesaikan sebagian transaksi", "mengembalikan transaksi ke posisi tertentu"], g: [3], c: "cek",
+        e: ["Menjalankan transaksi adalah fungsi START TRANSACTION atau CALL, bukan checkpoint.",
+            "Membatalkan seluruh transaksi adalah fungsi rollback (lihat soal 10).",
+            "Menyelesaikan sebagian transaksi bukan fungsi checkpoint.",
+            "Kemungkinan jawabannya. Checkpoint menandai titik tertentu sehingga transaksi dapat dikembalikan ke posisi itu. Cocokkan dengan kunci buku."] },
+      { n: 10, pg: "pF2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Fungsi dari rollback adalah ....",
+        o: ["menjalankan transaksi", "membatalkan seluruh transaksi", "menyelesaikan sebagian transaksi", "mengembalikan transaksi ke posisi tertentu"], g: [1], c: "tinggi",
+        e: ["Menjalankan transaksi adalah fungsi START TRANSACTION atau CALL.",
+            "Benar. Rollback membatalkan seluruh perubahan dalam transaksi yang belum di-commit.",
+            "Menyelesaikan sebagian transaksi bukan fungsi rollback.",
+            "Mengembalikan ke posisi tertentu lebih mirip checkpoint atau savepoint, sedangkan rollback membatalkan seluruh transaksi."] }
+    ]
+  }
+  ,
+  {
+    id: "G", name: "Set G · MySQL ODBC & Access", src: "Kuis latihan · Microsoft Access",
+    title: "Basis Data · MySQL ODBC dan Microsoft Access (modul belum tertera)", ph: "Screenshot asli", kind: "screenshot",
+    qs: [
+      { n: 1, pg: "pG1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Fungsi dari MySQL <i>Open Database Connectivity</i> adalah sebagai ....",
+        o: ["basis Data", "aplikasi basis data", "driver penghubung MySQL dengan Microsoft Access", "kontrol Admin MySQL"], g: [2], c: "tinggi",
+        e: ["ODBC bukan basis data, melainkan penghubung ke basis data.",
+            "ODBC bukan aplikasi basis data.",
+            "Benar. MySQL ODBC (Connector/ODBC) adalah driver yang menghubungkan aplikasi seperti Microsoft Access dengan MySQL.",
+            "Mengelola dan mengontrol MySQL adalah fungsi alat admin seperti phpMyAdmin, bukan ODBC."] },
+      { n: 2, pg: "pG1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Pada Microsoft Access langkah untuk menghubungkan ke MySQL adalah ....",
+        o: ["External Data ➜ New Source ➜ From File", "External Data ➜ New Source ➜ From Online Services", "External Data ➜ New Source ➜ From Other Sources ➜ ODBC", "External Data ➜ New Source ➜ From Other Sources ➜ Outlook"], g: [2], c: "tinggi",
+        e: ["From File dipakai untuk mengambil data dari berkas seperti Excel atau teks, bukan dari server MySQL.",
+            "From Online Services dipakai untuk layanan online, bukan untuk MySQL lokal.",
+            "Benar. Lewat From Other Sources lalu ODBC, Access terhubung ke sumber data melalui driver ODBC, termasuk MySQL.",
+            "Outlook dipakai untuk mengambil data dari folder Outlook, bukan dari MySQL."] },
+      { n: 3, pg: "pG1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Fungsi dari menu design menu pada form Microsoft Access adalah ....",
+        o: ["modifikasi tampilan switchboard", "modifikasi tampilan report", "modifikasi tampilan basis data", "modifikasi tampilan form"], g: [3], c: "tinggi",
+        e: ["Switchboard dibuat dan diatur lewat Switchboard Manager, bukan menu design form.",
+            "Tampilan report diubah lewat design report, bukan design form.",
+            "Basis data adalah kumpulan tabel dan objek, bukan tampilan yang diubah dengan design form.",
+            "Benar. Menu design pada form dipakai untuk mengubah tampilan form: menambah kontrol, tombol, dan mengatur tata letak."] },
+      { n: 4, pg: "pG1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Sebuah komponen untuk menampilkan data secara terurut dan memudahkan pengguna untuk dapat memilih adalah ....",
+        o: ["Combo box", "Form", "Report", "Semua Salah"], g: [0], c: "tinggi",
+        e: ["Benar. Combo box adalah kotak daftar tarik-turun yang menampilkan pilihan data secara terurut sehingga pengguna tinggal memilih.",
+            "Form adalah wadah untuk memasukkan dan menampilkan data, bukan komponen pemilih.",
+            "Report adalah laporan untuk dicetak atau dilihat, bukan komponen pemilih.",
+            "Tidak tepat, karena Combo box adalah jawaban yang benar."] },
+      { n: 5, pg: "pG1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Jika akan membuat sebuah tombol hapus maka tahapan yang dapat dilakukan adalah ....",
+        o: ["Menu design ➜ Button ➜ tempatkan pada form ➜ Record operation ➜ add new record ➜ Pilih opsi Text ➜ Ganti nama menjadi Baru ➜ Next ➜ Finish.", "Menu design ➜ Button ➜ tempatkan pada form ➜ Record operation ➜ delete record ➜ Pilih opsi Text ➜ Ganti nama menjadi Hapus ➜ Next ➜ Finish.", "Menu design ➜ Button ➜ tempatkan pada form ➜ Record navigation ➜ Go to previous record ➜ Pilih opsi picture ➜ Next ➜ Finish.", "Menu design ➜ Button ➜ tempatkan pada form ➜ Record navigation ➜ Go to next record ➜ Pilih opsi picture ➜ Next ➜ Finish."], g: [1], c: "tinggi",
+        e: ["Add new record membuat tombol untuk menambah data baru (diberi nama Baru), bukan tombol hapus.",
+            "Benar. Tombol hapus dibuat dari kategori Record Operations dengan aksi Delete Record, lalu diberi nama Hapus.",
+            "Go to previous record membuat tombol untuk pindah ke data sebelumnya.",
+            "Go to next record membuat tombol untuk pindah ke data berikutnya."] },
+      { n: 6, pg: "pG1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Jika akan membuat sebuah tombol ke data berikutnya maka tahapan yang dapat dilakukan adalah ....",
+        o: ["Menu design ➜ Button ➜ tempatkan pada form ➜ Record operation ➜ add new record ➜ Pilih opsi Text ➜ Ganti nama menjadi Baru ➜ Next ➜ Finish.", "Menu design ➜ Button ➜ tempatkan pada form ➜ Record operation ➜ delete record ➜ Pilih opsi Text ➜ Ganti nama menjadi Hapus ➜ Next ➜ Finish.", "Menu design ➜ Button ➜ tempatkan pada form ➜ Record navigation ➜ Go to previous record ➜ Pilih opsi picture ➜ Next ➜ Finish.", "Menu design ➜ Button ➜ tempatkan pada form ➜ Record navigation ➜ Go to next record ➜ Pilih opsi picture ➜ Next ➜ Finish."], g: [3], c: "tinggi",
+        e: ["Add new record membuat tombol untuk menambah data baru, bukan pindah ke data berikutnya.",
+            "Delete record membuat tombol hapus, bukan pindah data.",
+            "Go to previous record membuat tombol ke data sebelumnya, bukan berikutnya.",
+            "Benar. Tombol ke data berikutnya dibuat dari kategori Record Navigation dengan aksi Go to next record."] },
+      { n: 7, pg: "pG2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Fungsi dari menu query adalah untuk ....",
+        o: ["membuat form", "modifikasi data dari basis data", "membuat report", "semua salah"], g: [1], c: "tinggi",
+        e: ["Form dibuat lewat menu Form, bukan Query.",
+            "Benar. Query dipakai untuk mengambil, menyaring, dan mengolah data dari basis data, termasuk memodifikasinya (update, hapus, tambah).",
+            "Report dibuat lewat menu Report, bukan Query.",
+            "Tidak tepat, karena B benar."] },
+      { n: 8, pg: "pG2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Sebuah menu untuk mengkoordinasikan menu menjadi tersetruktur disebut .....",
+        o: ["Switchboard", "Report", "File", "Query"], g: [0], c: "tinggi",
+        e: ["Benar. Switchboard adalah menu utama yang menghubungkan dan mengatur akses ke form, report, dan objek lain secara terstruktur.",
+            "Report adalah laporan, bukan menu pengatur.",
+            "File bukan nama menu pengatur di Access.",
+            "Query dipakai untuk mengambil dan mengolah data, bukan mengatur menu."] },
+      { n: 9, pg: "pG2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Untuk menghilangkan navigasi berada pada menu ....",
+        o: ["Access option ➜ Database", "Access option ➜ General", "Access option ➜ Option", "Access option ➜ Current Database"], g: [3], c: "tinggi",
+        e: ["Database bukan nama kategori di Access Options. Kategori yang dimaksud adalah Current Database.",
+            "General berisi pengaturan umum, bukan pengaturan navigasi database.",
+            "Option bukan nama kategori di Access Options.",
+            "Benar. Pengaturan Navigation (menampilkan atau menyembunyikan Navigation Pane) ada di Access Options, kategori Current Database."] },
+      { n: 10, pg: "pG2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Langkah untuk menampilkan agar menu switchboard pertama kali muncul adalah ....",
+        o: ["Access option ➜ Current Database ➜ Display form", "Access option ➜ Current Database ➜ Display navigation", "Access option ➜ Current Database ➜ Application tittle", "Access option ➜ Current Database ➜ Document Window Option"], g: [0], c: "tinggi",
+        e: ["Benar. Display Form menentukan form yang tampil pertama kali saat database dibuka. Pilih form Switchboard di sini.",
+            "Display navigation mengatur tampilan panel navigasi, bukan form yang pertama muncul.",
+            "Application title mengatur judul jendela aplikasi, bukan form awal.",
+            "Document Window Options mengatur mode jendela dokumen (tab atau jendela bertumpuk), bukan form awal."] }
+    ]
+  }
+  ,
+  {
+    id: "H", name: "Set H · Konsep DBMS & Tujuan", src: "Kuis latihan · konsep basis data",
+    title: "Basis Data · DBMS, Tujuan Basis Data, dan Tahapan Pengembangan (modul belum tertera)", ph: "Screenshot asli", kind: "screenshot",
+    qs: [
+      { n: 1, pg: "pH1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Cara kerja <i>Database Management System</i> dipengaruhi oleh metode penyimpanan dan metode ....",
+        o: ["akses", "input", "proses", "output"], g: [0], c: "tinggi",
+        e: ["Benar. Cara kerja DBMS dipengaruhi oleh metode penyimpanan data dan metode akses data.",
+            "Input adalah masukan data, bukan metode yang mempengaruhi cara kerja DBMS bersama metode penyimpanan.",
+            "Proses adalah pengolahan, bukan pasangan dari metode penyimpanan dalam kalimat ini.",
+            "Output adalah keluaran, bukan pasangan dari metode penyimpanan dalam kalimat ini."] },
+      { n: 2, pg: "pH1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Untuk membaca <i>record</i> program aplikasi memanggil ....",
+        o: ["database", "sistem", "DBMS", "RDBMS"], g: [2], c: "tinggi",
+        e: ["Database adalah kumpulan data yang dikelola, bukan yang dipanggil langsung oleh program aplikasi.",
+            "Sistem terlalu umum dan bukan yang membaca record dari basis data.",
+            "Benar. Program aplikasi tidak membaca berkas data langsung. Ia memanggil DBMS, dan DBMS yang membaca record dari database.",
+            "RDBMS adalah DBMS untuk model relasional saja, sedangkan soal menanyakan perantara secara umum, yaitu DBMS."] },
+      { n: 3, pg: "pH1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Salah satu kriteria yang harus dimiliki perangkat lunak <i>Database Management System</i> adalah ....",
+        o: ["standarisasi logical", "integrity control", "database indenpendence", "recovery data"], g: null, c: "cek",
+        note: "Tiga pilihan (integrity control, database independence, recovery data) sama-sama dikenal sebagai kemampuan DBMS, jadi jawabannya tergantung daftar kriteria di modulmu dan belum bisa dipastikan. Cocokkan dengan kunci buku.",
+        e: ["Standarisasi logical bukan istilah baku untuk kriteria DBMS.",
+            "Integrity control (pengendalian integritas data) adalah kemampuan yang umum dimiliki DBMS.",
+            "Database independence (kemandirian data dari program) adalah ciri yang umum dikaitkan dengan DBMS. (Di sumber ditulis indenpendence.)",
+            "Recovery data (pemulihan data) adalah kemampuan yang umum dimiliki DBMS."] },
+      { n: 4, pg: "pH1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Organisasi Berkas dapat disamakan dengan istilah organisasi ....",
+        o: ["sistem basis data", "sistem database", "sistem terintegrasi", "basis data"], g: null, c: "cek",
+        note: "Sistem basis data dan sistem database artinya sama, jadi keduanya tidak mungkin dibedakan sebagai jawaban. Jawabannya bergantung pada istilah di modulmu dan belum bisa dipastikan. Cocokkan dengan kunci buku.",
+        e: ["Sistem basis data adalah istilah lain dari sistem database (lihat pilihan B), sehingga sulit dibedakan darinya.",
+            "Sistem database sama artinya dengan sistem basis data (lihat pilihan A).",
+            "Sistem terintegrasi menyebut data yang saling terhubung. Tergantung istilah di modul, bisa menjadi pembanding organisasi berkas.",
+            "Basis data adalah kumpulan data itu sendiri, sedangkan soal menanyakan jenis organisasi."] },
+      { n: 5, pg: "pH1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Dengan pengembangan basis data yaitu informasi akan didapatkan secara utuh adalah tujuan dari ....",
+        o: ["penyediaan akses fleksibel", "pemeliharaan integritas data", "proteksi data kerusakan", "penyedia sarana penggunaan bersama"], g: [1], c: "cek",
+        e: ["Akses fleksibel berkaitan dengan kemudahan mengambil data (lihat soal 6), bukan keutuhan informasi.",
+            "Kemungkinan jawabannya. Integritas data menjaga data tetap utuh, akurat, dan konsisten, sehingga informasi diperoleh secara utuh. Cocokkan dengan kunci buku.",
+            "Proteksi data kerusakan berkaitan dengan menjaga data dari kerusakan atau kehilangan. Ini bisa menjadi alternatif jika modulmu mengartikan utuh sebagai tidak rusak.",
+            "Sarana penggunaan bersama berkaitan dengan data yang dipakai bersama oleh banyak pengguna."] },
+      { n: 6, pg: "pH1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Kemudahan dalam akses data adalah salah satu tujuan dari pengembangan sistem basis data pada hal ....",
+        o: ["penyediaan akses fleksibel", "pemeliharaan integritas data", "proteksi data kerusakan", "penyedia sarana penggunaan bersama"], g: [0], c: "tinggi",
+        e: ["Benar. Kemudahan akses data sejalan dengan tujuan penyediaan akses yang fleksibel.",
+            "Pemeliharaan integritas berkaitan dengan keakuratan dan konsistensi data, bukan kemudahan akses.",
+            "Proteksi berkaitan dengan menjaga data dari kerusakan, bukan kemudahan akses.",
+            "Penggunaan bersama berkaitan dengan banyak pengguna berbagi data, bukan kemudahan akses."] },
+      { n: 7, pg: "pH2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Salah satu tujuan dari pengembangan sistem basis data adalah dapat membuat produktivitas meningkat. Maksudnya ....",
+        o: ["melakukan pengecekan terhadap kerangkapan data", "menghilangkan ketergantungan program", "membuat standar definisi", "proses pencarian data menjadi lebih cepat"], g: null, c: "cek",
+        note: "Pilihan B dan D sama-sama bisa dikaitkan dengan produktivitas (program tidak perlu diubah, atau pencarian data lebih cepat). Jawabannya bergantung pada redaksi modulmu dan belum bisa dipastikan. Cocokkan dengan kunci buku.",
+        e: ["Pengecekan kerangkapan (redundansi) data berkaitan dengan integritas dan efisiensi, bukan secara langsung produktivitas.",
+            "Menghilangkan ketergantungan program (kemandirian data) membuat program tidak perlu diubah ketika struktur data berubah, sehingga kerja lebih produktif. Bisa menjadi jawabannya.",
+            "Standar definisi berkaitan dengan keseragaman penulisan dan definisi data.",
+            "Pencarian data yang lebih cepat meningkatkan produktivitas pengguna. Bisa menjadi jawabannya."] },
+      { n: 8, pg: "pH2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Pada tahapan pengembangan dengan 3 tahapan, tahapan pada saat menentukan alternatif pemecahan masalah terjadi pada ....",
+        o: ["analisis", "perancangan", "implementasi", "semua salah"], g: [1], c: "cek",
+        e: ["Analisis mempelajari sistem yang berjalan, mengidentifikasi masalah, dan menentukan kebutuhan. Kalau modulmu memasukkan alternatif pemecahan ke tahap ini, jawabannya A.",
+            "Kemungkinan jawabannya. Pada tahap perancangan dicari dan dipilih alternatif pemecahan masalah, lalu dibuat rancangannya. Cocokkan dengan kunci buku.",
+            "Implementasi mengubah rancangan menjadi program (lihat soal 9), bukan menentukan alternatif.",
+            "Tidak tepat jika salah satu tahap di atas benar."] },
+      { n: 9, pg: "pH2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Pada pengembangan sistem basis data 3 tahapan, proses konversi desain menjadi program terjadi pada tahapan ....",
+        o: ["analisis", "perancangan", "implementasi", "semua salah"], g: [2], c: "tinggi",
+        e: ["Analisis mempelajari masalah dan kebutuhan, belum membuat program.",
+            "Perancangan menghasilkan desain, belum mengubahnya menjadi program.",
+            "Benar. Implementasi adalah tahap mengubah (mengonversi) desain menjadi program.",
+            "Tidak tepat, karena implementasi adalah jawaban yang benar."] },
+      { n: 10, pg: "pH2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Perancangan basis data dilakukan dengan menentukan kebutuhan ... dalam basis data berdasarkan model sistem.",
+        o: ["file-file", "field-field", "atribut", "relasi"], g: [0], c: "cek",
+        e: ["Kemungkinan jawabannya. Perancangan basis data menentukan file-file (tabel) yang dibutuhkan berdasarkan model sistem. Cocokkan dengan kunci buku.",
+            "Field-field adalah rincian di dalam file, ditentukan setelah file-nya.",
+            "Atribut adalah rincian properti entitas, dan ini ditentukan lebih rinci dari file.",
+            "Relasi adalah hubungan antar file atau tabel, ditentukan setelah file-nya ada."] }
+    ]
+  }
+  ,
+  {
+    id: "I", name: "Set I · Basis Data Terdistribusi", src: "Kuis latihan · basis data terdistribusi",
+    title: "Basis Data · Basis Data Terdistribusi (modul belum tertera)", ph: "Screenshot asli", kind: "screenshot", missing: [7],
+    qs: [
+      { n: 1, pg: "pI1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "DBMS yang digunakan pada setiap node adalah ....",
+        o: ["homogeneous", "heterogeneous", "loose Integration", "tight Integration"], g: [0], c: "cek",
+        note: "Kalimat soal tidak menyebut DBMS yang sama atau berbeda. Menurut definisi umum, homogeneous berarti DBMS yang sama dipakai di setiap node, sehingga saya menduga A. Cocokkan dengan kunci buku.",
+        e: ["Kemungkinan jawabannya. Pada basis data terdistribusi homogeneous, DBMS yang sama dipakai di setiap node.",
+            "Heterogeneous berarti DBMS yang dipakai bisa berbeda-beda di tiap node.",
+            "Loose integration berkaitan dengan tingkat keterpaduan antar-DBMS, bukan jenis DBMS pada setiap node.",
+            "Tight integration berkaitan dengan tingkat keterpaduan antar-DBMS, bukan jenis DBMS pada setiap node."] },
+      { n: 2, pg: "pI1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "DBMS bekerja secara independen, meneruskan pesan bolak-balik untuk berbagi pembaruan data adalah ....",
+        o: ["homogeneous", "heterogeneous", "autonomous", "nonautonomous"], g: [2], c: "tinggi",
+        e: ["Homogeneous menyangkut kesamaan DBMS di tiap node, bukan cara kerjanya.",
+            "Heterogeneous menyangkut perbedaan DBMS di tiap node, bukan cara kerjanya.",
+            "Benar. Pada sistem autonomous, setiap DBMS bekerja secara independen dan saling meneruskan pesan untuk berbagi pembaruan data.",
+            "Nonautonomous memakai satu DBMS yang mengoordinasikan seluruh node (lihat soal 3), bukan bekerja independen."] },
+      { n: 3, pg: "pI1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "DBMS mengoordinasikan akses dan pembaruan basis data di seluruh node adalah ....",
+        o: ["homogeneous", "heterogeneous", "autonomous", "nonautonomous"], g: [3], c: "tinggi",
+        e: ["Homogeneous menyangkut kesamaan DBMS di tiap node, bukan koordinasi.",
+            "Heterogeneous menyangkut perbedaan DBMS di tiap node, bukan koordinasi.",
+            "Autonomous justru bekerja independen di tiap node (lihat soal 2), tanpa koordinasi pusat.",
+            "Benar. Pada sistem nonautonomous, ada DBMS yang mengoordinasikan akses dan pembaruan data di seluruh node."] },
+      { n: 4, pg: "pI1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Dalam strategi distribusi basis data terdapat teknologi yang dapat bekerja sebagai penggandaan adalah ....",
+        o: ["replikasi", "partisi horizontal", "partisi vertikal", "kombinasi"], g: [0], c: "tinggi",
+        e: ["Benar. Replikasi adalah penggandaan data ke beberapa lokasi.",
+            "Partisi horizontal membagi baris tabel ke beberapa lokasi, bukan menggandakan.",
+            "Partisi vertikal membagi kolom tabel ke beberapa lokasi, bukan menggandakan.",
+            "Kombinasi memakai gabungan partisi, bukan penggandaan."] },
+      { n: 5, pg: "pI1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Beberapa baris tabel atau relasi ditempatkan ke dalam relasi dasar di satu <i>server</i>, dan baris lainnya ditempatkan ke relasi dasar di lokasi lain <i>server</i>. Pernyataan tersebut merupakan strategi distribusi basis data ....",
+        o: ["replikasi", "partisi horizontal", "partisi vertikal", "kombinasi"], g: [1], c: "tinggi",
+        e: ["Replikasi menggandakan data, sedangkan di sini barisnya dibagi.",
+            "Benar. Partisi horizontal membagi baris-baris tabel ke relasi dasar di server yang berbeda.",
+            "Partisi vertikal membagi kolom, bukan baris.",
+            "Kombinasi menggabungkan partisi horizontal dan vertikal, sedangkan soal hanya menyebut pembagian baris."] },
+      { n: 6, pg: "pI1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "DBMS memungkinkan beberapa kolom dari suatu relasi diproyeksikan ke dalam relasi dasar pada salah satu <i>server</i>, dan kolom lain diproyeksikan ke dalam relasi dasar di <i>server</i> lain. Pernyataan tersebut merupakan pernyataan dari ....",
+        o: ["replikasi", "partisi horizontal", "partisi vertikal", "kombinasi"], g: [2], c: "tinggi",
+        e: ["Replikasi menggandakan data, sedangkan di sini kolomnya dibagi.",
+            "Partisi horizontal membagi baris, bukan kolom.",
+            "Benar. Partisi vertikal membagi kolom-kolom relasi (diproyeksikan) ke server yang berbeda.",
+            "Kombinasi menggabungkan partisi horizontal dan vertikal, sedangkan soal hanya menyebut pembagian kolom."] },
+      { n: 8, pg: "pI2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Setiap transaksi dapat berjalan tanpa koordinasi di seluruh jaringan. Jadi, jika salah satu basis data mati, sibuk, atau terputus, transaksi dapat ditangani sesuai keinginan pengguna. Merupakan pengertian dari ....",
+        o: ["distribusi", "partisi", "autonomous", "decoupling node"], g: [3], c: "cek",
+        note: "Di soal 2, autonomous dijelaskan sebagai DBMS yang bekerja independen dan saling meneruskan pesan. Kalimat soal ini lebih mirip pengertian decoupling node (node saling lepas), tetapi istilah di modulmu menentukan. Cocokkan dengan kunci buku.",
+        e: ["Distribusi adalah penyebaran data ke beberapa lokasi, bukan pengertian tentang transaksi tanpa koordinasi.",
+            "Partisi adalah pembagian data (baris atau kolom), bukan pengertian tentang transaksi tanpa koordinasi.",
+            "Autonomous berkaitan dengan DBMS yang bekerja independen (lihat soal 2). Bisa menjadi jawabannya jika modulmu memakai istilah ini untuk pengertian di soal.",
+            "Kemungkinan jawabannya. Decoupling node berarti tiap node terlepas, sehingga transaksi berjalan tanpa koordinasi seluruh jaringan dan tetap bisa ditangani meski satu basis data mati, sibuk, atau terputus."] },
+      { n: 9, pg: "pI2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Strategi yang memakai partisi horizontal dengan partisi vertikal adalah ....",
+        o: ["replikasi", "partisi horizontal", "partisi vertikal", "kombinasi"], g: [3], c: "tinggi",
+        e: ["Replikasi menggandakan data, bukan menggabungkan dua jenis partisi.",
+            "Partisi horizontal saja hanya membagi baris.",
+            "Partisi vertikal saja hanya membagi kolom.",
+            "Benar. Kombinasi memakai partisi horizontal dan partisi vertikal sekaligus."] },
+      { n: 10, pg: "pI2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Salah satu prinsip dari desain basis data terdistribusi adalah harus ....",
+        o: ["disimpan di cloud", "dapat menekan biaya operasional", "disimpan di server dimana data sering diakses", "dapat dipahami oleh steakholder"], g: [2], c: "cek",
+        e: ["Penyimpanan di cloud adalah pilihan teknologi, bukan prinsip desain basis data terdistribusi.",
+            "Menekan biaya adalah tujuan umum sebuah sistem, bukan prinsip khas desain basis data terdistribusi.",
+            "Kemungkinan jawabannya. Prinsip desain basis data terdistribusi adalah menempatkan data di server tempat data itu paling sering diakses. Cocokkan dengan kunci buku.",
+            "Dapat dipahami pemangku kepentingan adalah syarat desain secara umum. (Di sumber ditulis steakholder.)"] }
+    ]
+  }
+  ,
+  {
+    id: "J", name: "Set J · Transaksi & Deadlock", src: "Kuis latihan · transaksi dan deadlock",
+    title: "Basis Data · Sifat Transaksi, Commit/Rollback, dan Deadlock (modul belum tertera)", ph: "Screenshot asli", kind: "screenshot",
+    qs: [
+      { n: 1, pg: "pJ1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Tindakan yang dilakukan semua atau tidak sama sekali pengertian dari sifat transaksi ....",
+        o: ["atomicity", "consistency", "isolation", "durability"], g: [0], c: "tinggi",
+        e: ["Benar. Atomicity berarti semua tindakan dalam transaksi dilakukan seluruhnya atau tidak sama sekali (all or nothing).",
+            "Consistency berarti transaksi membawa basis data dari satu keadaan valid ke keadaan valid lainnya.",
+            "Isolation berarti transaksi tidak saling mengganggu saat berjalan bersamaan.",
+            "Durability berarti hasil transaksi yang sudah di-commit tersimpan permanen."] },
+      { n: 2, pg: "pJ1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Setiap transaksi tidak boleh terpengaruh oleh transaksi lain secara bersamaan merupakan sifat dari ....",
+        o: ["atomicity", "consistency", "isolation", "durability"], g: [2], c: "tinggi",
+        e: ["Atomicity menyangkut semua atau tidak sama sekali, bukan pengaruh antar transaksi.",
+            "Consistency menyangkut keadaan data yang tetap valid, bukan pengaruh antar transaksi.",
+            "Benar. Isolation menjaga agar setiap transaksi tidak terpengaruh oleh transaksi lain yang berjalan bersamaan.",
+            "Durability menyangkut hasil yang tersimpan permanen setelah commit."] },
+      { n: 3, pg: "pJ1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Jika akses basis data diakses secara bersamaan dan properti-properti transaksi tidak terjadi maka kemungkinan yang terjadi adalah ....",
+        o: ["recovery", "data yang konsisten", "data yang tidak konsisten", "deadlock"], g: [2], c: "tinggi",
+        e: ["Recovery adalah proses pemulihan data setelah kegagalan, bukan akibat langsung hilangnya properti transaksi.",
+            "Data konsisten justru hasil jika properti transaksi (ACID) terjaga.",
+            "Benar. Tanpa properti transaksi, akses bersamaan dapat menghasilkan data yang tidak konsisten.",
+            "Deadlock terjadi ketika transaksi saling menunggu kunci, bukan akibat langsung hilangnya properti transaksi."] },
+      { n: 4, pg: "pJ1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Keadaan jika transaksi yang berhasil secara keseluruhan dan terjadi perubahan data adalah ....",
+        o: ["abort", "finish", "rollback", "commit"], g: [3], c: "tinggi",
+        e: ["Abort adalah keadaan transaksi dihentikan karena gagal, bukan berhasil.",
+            "Finish bukan istilah baku untuk keadaan transaksi yang berhasil menyimpan perubahan.",
+            "Rollback membatalkan perubahan, bukan menyimpannya.",
+            "Benar. Commit adalah keadaan transaksi berhasil seluruhnya dan perubahan datanya disimpan permanen."] },
+      { n: 5, pg: "pJ1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Keadaan di mana kondisi transaksi dianggap belum dikerjakan adalah ....",
+        o: ["abort", "finish", "rollback", "commit"], g: [0], c: "cek",
+        note: "Abort dan rollback sama-sama berarti pembatalan. Saya menduga A karena rollback dipakai sebagai jawaban soal 7 dan 10 (sebagai cara atau tindakan), tetapi jawabannya bergantung pada istilah di modulmu. Cocokkan dengan kunci buku.",
+        e: ["Kemungkinan jawabannya. Pada abort, transaksi dihentikan dan perubahannya dibatalkan sehingga dianggap belum pernah dikerjakan.",
+            "Finish bukan istilah baku untuk keadaan transaksi.",
+            "Rollback adalah tindakan membatalkan perubahan. Bisa menjadi jawabannya jika modulmu memakai rollback untuk keadaan ini.",
+            "Commit adalah kebalikannya: transaksi berhasil dan perubahan disimpan."] },
+      { n: 6, pg: "pJ1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Keadaan di mana transaksi berjalan secara serial adalah ....",
+        o: ["serializability", "deadlock", "conflict", "commit"], g: [0], c: "tinggi",
+        e: ["Benar. Serializability adalah keadaan ketika transaksi-transaksi berjalan atau berhasil setara dengan berjalan secara serial (berurutan satu per satu).",
+            "Deadlock adalah keadaan transaksi saling menunggu tanpa ujung.",
+            "Conflict adalah bentrokan antar transaksi pada data yang sama.",
+            "Commit adalah penyimpanan permanen hasil transaksi, bukan cara berjalannya transaksi."] },
+      { n: 7, pg: "pJ2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Salah satu cara jika terjadi konflik dalam transaksi adalah ....",
+        o: ["swap", "finish", "rollback", "commit"], g: [2], c: "tinggi",
+        e: ["Swap bukan cara menangani konflik transaksi. (Swap adalah ruang cadangan RAM.)",
+            "Finish bukan cara menangani konflik transaksi.",
+            "Benar. Rollback membatalkan transaksi yang bermasalah dan mengembalikan data ke keadaan sebelumnya.",
+            "Commit menyimpan perubahan, bukan menyelesaikan konflik."] },
+      { n: 8, pg: "pJ2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Pada <i>lock base protocols mode</i> di mana data dapat dibaca dan ditulis adalah ....",
+        o: ["lock-s", "lock-x", "growing phase", "shrinking phase"], g: [1], c: "tinggi",
+        e: ["Lock-S (shared lock) hanya mengizinkan data dibaca (lihat soal 9).",
+            "Benar. Lock-X (exclusive lock) memungkinkan data dibaca dan ditulis oleh satu transaksi.",
+            "Growing phase adalah fase memperoleh kunci, bukan mode kunci.",
+            "Shrinking phase adalah fase melepas kunci, bukan mode kunci."] },
+      { n: 9, pg: "pJ2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Pada <i>lock base protocols mode</i> di mana data dapat dibaca adalah ....",
+        o: ["lock-s", "lock-x", "growing phase", "shrinking phase"], g: [0], c: "tinggi",
+        e: ["Benar. Lock-S (shared lock) mengizinkan data dibaca, dan bisa dipegang beberapa transaksi sekaligus.",
+            "Lock-X (exclusive lock) mengizinkan baca dan tulis (lihat soal 8).",
+            "Growing phase adalah fase memperoleh kunci, bukan mode kunci.",
+            "Shrinking phase adalah fase melepas kunci, bukan mode kunci."] },
+      { n: 10, pg: "pJ2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Cara pada <i>deadlock recovery</i> supaya keadaan menjadi seperti sebelum terjadinya deadlock adalah ....",
+        o: ["abort", "finish", "rollback", "commit"], g: [2], c: "tinggi",
+        e: ["Abort menghentikan transaksi. Kalau modulmu memakai abort untuk memulihkan deadlock, ini bisa menjadi jawabannya.",
+            "Finish bukan istilah baku pemulihan deadlock.",
+            "Benar. Rollback mengembalikan keadaan data seperti sebelum terjadinya deadlock.",
+            "Commit menyimpan perubahan, bukan mengembalikan keadaan."] }
+    ]
+  }
+  ,
+  {
+    id: "K", name: "Set K · Perintah SQL", src: "Kuis latihan · SQL dasar",
+    title: "Basis Data · Perintah SQL: DDL, DML, dan SELECT (modul belum tertera)", ph: "Screenshot asli", kind: "screenshot",
+    qs: [
+      { n: 1, pg: "pK1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Perintah SQL yang digunakan untuk membuat basis data adalah ....",
+        o: ["CREATE", "ALTER", "DROP", "SELECT"], g: [0], c: "tinggi",
+        e: ["Benar. CREATE DATABASE membuat basis data baru.",
+            "ALTER mengubah struktur objek yang sudah ada, bukan membuat basis data.",
+            "DROP menghapus, bukan membuat.",
+            "SELECT mengambil data, bukan membuat basis data."] },
+      { n: 2, pg: "pK1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Perintah SQL yang digunakan untuk menghapus basis data adalah adalah ....",
+        o: ["CREATE", "ALTER", "DROP", "SELECT"], g: [2], c: "tinggi",
+        e: ["CREATE membuat, bukan menghapus.",
+            "ALTER mengubah struktur, bukan menghapus basis data.",
+            "Benar. DROP DATABASE menghapus basis data beserta isinya.",
+            "SELECT mengambil data, bukan menghapus basis data."] },
+      { n: 3, pg: "pK1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Terdapat sebuah tabel dengan nama pasien dan atribut : id_pasien, nama_pasien, alamat_pasien, no_hp dan jenis_kelamin. Jika akan mengambil data seluruh pasien maka SQL yang dibuat adalah ....",
+        o: ["SELECT FROM DOKTER", "SELECT * FROM PASIEN", "SELECT nama pasien, alamat pasien from pasien", "DELETE * FROM PASIEN"], g: [1], c: "tinggi",
+        e: ["Salah. Tidak ada kolom yang dipilih, dan tabelnya DOKTER, bukan PASIEN.",
+            "Benar. SELECT * mengambil semua kolom, dan FROM PASIEN mengambil dari tabel pasien, sehingga seluruh data pasien tampil.",
+            "Hanya mengambil sebagian kolom, sedangkan soal meminta seluruh data pasien. Nama kolomnya juga salah, seharusnya nama_pasien dan alamat_pasien.",
+            "DELETE menghapus data, bukan mengambilnya."] },
+      { n: 4, pg: "pK1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Terdapat sebuah tabel dengan nama pasien dan atribut : id_pasien, nama_pasien, alamat_pasien, no_hp dan jenis_kelamin. Jika akan mengambil data pasien nama dan alamat pasien dan jenis kelaminnya L (laki-laki) maka SQL yang dibuat adalah ....",
+        o: ["SELECT * FROM PASIEN", "SELECT id_pasien, nama_pasien, alamat_pasien FROM pasien", "SELECT id_pasien, nama_pasien, alamat_pasien FROM pasien WHERE jenis_kelamin='L’", "SELECT id_pasien, nama_pasien, alamat_pasien FROM pasien WHERE jenis ='L’"], g: [2], c: "tinggi",
+        e: ["Mengambil semua kolom dari semua pasien, tanpa syarat jenis kelamin L.",
+            "Mengambil kolom yang dipilih, tetapi tanpa syarat jenis kelamin L, sehingga semua pasien tampil.",
+            "Benar. Ada kolom yang dipilih dan syarat WHERE jenis_kelamin = L, sehingga hanya pasien laki-laki yang tampil.",
+            "Syaratnya memakai kolom jenis, padahal nama kolomnya jenis_kelamin, jadi query ini error."] },
+      { n: 5, pg: "pK1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Berikut perintah untuk mengurutkan data dari yang terbesar ke terkecil adalah ....",
+        o: ["GROUP BY", "ORDER BY", "ORDER BY ASC", "ORDER BY DESC"], g: [3], c: "tinggi",
+        e: ["GROUP BY mengelompokkan data, bukan mengurutkan.",
+            "ORDER BY saja mengurutkan, dan tanpa tambahan urutannya naik (terkecil ke terbesar).",
+            "ORDER BY ASC mengurutkan dari terkecil ke terbesar (naik).",
+            "Benar. ORDER BY DESC mengurutkan dari terbesar ke terkecil (menurun)."] },
+      { n: 6, pg: "pK1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Keyword SQL yang berfungsi mengelompokkan data dengan menghilangkan data yang sama dalam satu tabel adalah ….",
+        o: ["SELECT", "GROUP BY", "LIKE", "INSERT"], g: [1], c: "tinggi",
+        e: ["SELECT mengambil data, bukan mengelompokkan.",
+            "Benar. GROUP BY mengelompokkan baris yang bernilai sama sehingga tampil satu kali. (DISTINCT juga menghilangkan data kembar, tetapi tidak ada di pilihan.)",
+            "LIKE mencocokkan pola teks, bukan mengelompokkan.",
+            "INSERT menambah data, bukan mengelompokkan."] },
+      { n: 7, pg: "pK2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Keyword SQL yang berfungsi untuk melakukan pengurutan data secara menurun adalah ….",
+        o: ["ASC", "DESC", "LIKE", "ASCII"], g: [1], c: "tinggi",
+        e: ["ASC mengurutkan secara menaik (ascending).",
+            "Benar. DESC mengurutkan secara menurun (descending).",
+            "LIKE mencocokkan pola teks, bukan mengurutkan.",
+            "ASCII adalah kode karakter, bukan keyword pengurutan."] },
+      { n: 8, pg: "pK2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Sebuah kumpulan perintah SQL yang berfungsi untuk proses pengolahan data dalam setiap tabel basis data, disebut dengan ….",
+        o: ["DDL", "DCL", "TCL", "DML"], g: [3], c: "tinggi",
+        e: ["DDL (Data Definition Language) mengatur struktur objek, bukan mengolah isi data.",
+            "DCL (Data Control Language) mengatur hak akses, misalnya GRANT dan REVOKE.",
+            "TCL (Transaction Control Language) mengatur transaksi, misalnya COMMIT dan ROLLBACK.",
+            "Benar. DML (Data Manipulation Language) mengolah data di dalam tabel: SELECT, INSERT, UPDATE, DELETE."] },
+      { n: 9, pg: "pK2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Sebuah kumpulan perintah SQL yang berfungsi untuk melakukan perubahan, membuat dan menghapus struktur objek-objek basis data disebut dengan ….",
+        o: ["DCL", "TCL", "DDL", "DML"], g: [2], c: "tinggi",
+        e: ["DCL mengatur hak akses, bukan struktur objek.",
+            "TCL mengatur transaksi, bukan struktur objek.",
+            "Benar. DDL (Data Definition Language) mengatur struktur objek: CREATE, ALTER, DROP.",
+            "DML mengolah isi data, bukan struktur objek."] },
+      { n: 10, pg: "pK2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Perintah untuk mengambil atau menampilkan data tertentu dengan nilai antara “nilai pertama” sampai dengan “nilai kedua” adalah ….",
+        o: ["BETWEEN", "LIKE", "GROUP BY", "ASC"], g: [0], c: "tinggi",
+        e: ["Benar. BETWEEN nilai1 AND nilai2 mengambil data yang nilainya berada dalam rentang tersebut.",
+            "LIKE mencocokkan pola teks, bukan rentang nilai.",
+            "GROUP BY mengelompokkan data, bukan menyaring rentang nilai.",
+            "ASC mengurutkan menaik, bukan menyaring rentang nilai."] }
+    ]
+  }
+  ,
+  {
+    id: "L", name: "Set L · MySQL & XAMPP", src: "Kuis latihan · pengenalan MySQL dan XAMPP",
+    title: "Basis Data · MySQL/MariaDB, XAMPP, dan Tipe Data (modul belum tertera)", ph: "Screenshot asli", kind: "screenshot",
+    qs: [
+      { n: 1, pg: "pL1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Berikut kekurangan dari aplikasi basis data MySQL/MariaDB adalah ....",
+        o: ["gratis", "kurang mendukung dalam Aplikasi Game dan Mobile", "struktur tabel yang fleksibel", "tidak ada jawaban yang tepat"], g: [1], c: "tinggi",
+        e: ["Gratis adalah kelebihan MySQL/MariaDB, bukan kekurangan.",
+            "Benar. MySQL/MariaDB dinilai kurang mendukung untuk aplikasi game dan mobile.",
+            "Struktur tabel yang fleksibel adalah kelebihan, bukan kekurangan.",
+            "Tidak tepat, karena B adalah kekurangan yang dimaksud."] },
+      { n: 2, pg: "pL1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Aplikasi basis data yang paling cocok digunakan untuk  proses bisnis skala besar adalah ....",
+        o: ["MySQL/MariaDB", "PostgreSQL", "SQLServer", "Oracle"], g: [3], c: "cek",
+        note: "SQL Server dan PostgreSQL juga dipakai di bisnis besar, tetapi Oracle yang paling dikenal untuk skala besar (perusahaan besar). Cocokkan dengan kunci buku.",
+        e: ["MySQL/MariaDB umumnya dipakai untuk skala kecil sampai menengah, terutama aplikasi web.",
+            "PostgreSQL kuat dan bisa dipakai di skala besar, tetapi bukan yang paling identik dengan proses bisnis skala besar.",
+            "SQL Server dipakai di banyak perusahaan, tetapi bukan yang paling identik dengan skala besar.",
+            "Kemungkinan jawabannya. Oracle dirancang untuk proses bisnis skala besar dengan data dan pengguna yang sangat banyak."] },
+      { n: 3, pg: "pL1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Berikut adalah basis data yang menjadi satu paket pada aplikasi XAMPP ..",
+        o: ["MySQL/MariaDB", "PostgreSQL", "SQLServer", "Oracle"], g: [0], c: "tinggi",
+        e: ["Benar. XAMPP sudah menyertakan MySQL/MariaDB sebagai basis datanya.",
+            "PostgreSQL tidak termasuk dalam paket XAMPP.",
+            "SQL Server tidak termasuk dalam paket XAMPP.",
+            "Oracle tidak termasuk dalam paket XAMPP."] },
+      { n: 4, pg: "pL1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Aplikasi berikut yang terkenal dalam urusan relasi adalah ....",
+        o: ["MySQL/MariaDB", "PostgreSQL", "SQLServer", "Oracle"], g: [1], c: "cek",
+        note: "Jawaban ini bergantung pada redaksi modulmu. PostgreSQL dikenal kuat dalam fitur relasional (object-relational), sehingga saya menduga B. Cocokkan dengan kunci buku.",
+        e: ["MySQL/MariaDB populer karena mudah dan cepat, tetapi bukan yang paling dikenal soal urusan relasi.",
+            "Kemungkinan jawabannya. PostgreSQL dikenal kuat dalam fitur relasional dan hubungan antar tabel yang kompleks.",
+            "SQL Server adalah basis data relasional, tetapi bukan yang paling dikenal soal urusan relasi di antara pilihan ini.",
+            "Oracle adalah basis data relasional untuk skala besar, tetapi ciri utamanya skala dan kinerja."] },
+      { n: 5, pg: "pL1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Paket aplikasi basis data yang dikembangkan oleh apachefriend adalah ....",
+        o: ["XAMPP", "PhpMyAdmin", "MariaDB", "Oracle"], g: [0], c: "tinggi",
+        e: ["Benar. XAMPP adalah paket aplikasi yang dikembangkan oleh Apache Friends.",
+            "PhpMyAdmin dikembangkan oleh proyek phpMyAdmin, bukan Apache Friends.",
+            "MariaDB dikembangkan oleh komunitas dan MariaDB Foundation.",
+            "Oracle dikembangkan oleh perusahaan Oracle."] },
+      { n: 6, pg: "pL1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Tipe data yang mampu menyimpan data bilangan bulat mulai dari -128 s.d 127 adalah tipe data ....",
+        o: ["TINYINT", "SMALLINT", "INT", "BIGINT"], g: [0], c: "tinggi",
+        e: ["Benar. TINYINT (1 byte) menyimpan bilangan bulat -128 sampai 127.",
+            "SMALLINT (2 byte) menyimpan -32.768 sampai 32.767.",
+            "INT (4 byte) menyimpan sekitar -2,1 miliar sampai 2,1 miliar.",
+            "BIGINT (8 byte) menyimpan rentang yang jauh lebih besar, sekitar -9,22 × 10^18 sampai 9,22 × 10^18."] },
+      { n: 7, pg: "pL2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Berikut ini termasuk ke dalam fitur yang didapatkan dalam paket XAMPP versi 3.2.4, <i>kecuali</i> ....",
+        o: ["WSFTP", "FileZilla", "Tomcat", "Mercury"], g: [0], c: "tinggi",
+        e: ["Benar (jawaban untuk kata kecuali). WSFTP (WS_FTP) tidak termasuk dalam paket XAMPP.",
+            "FileZilla (server FTP) termasuk dalam paket XAMPP untuk Windows.",
+            "Tomcat (server aplikasi Java) termasuk dalam paket XAMPP untuk Windows.",
+            "Mercury (server email) termasuk dalam paket XAMPP untuk Windows."] },
+      { n: 8, pg: "pL2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Halaman untuk mengakses basis data pada XAMPP adalah ....",
+        o: ["PhpMyAdmin", "SQL", "Apache", "Filezilla"], g: [0], c: "tinggi",
+        e: ["Benar. PhpMyAdmin adalah halaman web untuk mengakses dan mengelola basis data di XAMPP.",
+            "SQL adalah bahasa query, bukan halaman.",
+            "Apache adalah web server, bukan halaman untuk mengakses basis data.",
+            "FileZilla adalah server FTP untuk transfer berkas."] },
+      { n: 9, pg: "pL2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Dalam XAMPP terdapat fitur yang berguna sebagai aplikasi webserver adalah ....",
+        o: ["PhpMyAdmin", "SQL", "Apache", "Filezilla"], g: [2], c: "tinggi",
+        e: ["PhpMyAdmin adalah alat mengelola basis data, bukan web server.",
+            "SQL adalah bahasa query, bukan web server.",
+            "Benar. Apache adalah web server di dalam paket XAMPP.",
+            "FileZilla adalah server FTP, bukan web server."] },
+      { n: 10, pg: "pL2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "TinyInt menyimpan bilangan bulat mulai dari ....",
+        o: ["–32.768", "–8.388.608", "–128", "–9.22"], g: [2], c: "tinggi",
+        e: ["–32.768 adalah batas bawah SMALLINT.",
+            "–8.388.608 adalah batas bawah MEDIUMINT.",
+            "Benar. TinyInt (1 byte) menyimpan bilangan bulat mulai dari –128 sampai 127.",
+            "–9.22 kemungkinan awal angka batas bawah BIGINT (sekitar –9,22 × 10^18) yang terpotong di sumber."] }
+    ]
+  }
+  ,
+  {
+    id: "M", name: "Set M · SQL Lanjutan", src: "Kuis latihan · SQL praktik",
+    title: "Basis Data · SQL: SELECT, Index, Constraint, dan INSERT (modul belum tertera)", ph: "Screenshot asli", kind: "screenshot",
+    qs: [
+      { n: 1, pg: "pM1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Diketahui tabel barang. Jika akan menampilkan  seluruh field yang berada di dalam tabel barang, maka SQL yang tepat adalah ....",
+        o: ["select barang", "select * from barang", "select * barang", "select * barang"], g: [1], c: "tinggi",
+        note: "Pilihan C dan D di sumber tertulis sama persis. Keduanya salah karena tidak memakai FROM.",
+        e: ["Tidak ada tanda * dan tidak ada FROM, jadi bukan perintah SELECT yang lengkap.", "Benar. SELECT * mengambil semua field, dan FROM barang menunjuk tabelnya.", "Tidak ada kata FROM sebelum nama tabel.", "Sama dengan pilihan C (di sumber, C dan D tertulis sama), dan tidak ada kata FROM."] },
+      { n: 2, pg: "pM1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Masih dengan tabel barang. SQL cara menghapus tabel barang adalah ....",
+        o: ["drop table * barang", "drop table barang", "drop barang", "drop table_barang"], g: [1], c: "tinggi",
+        e: ["Tanda * tidak dipakai pada DROP TABLE.", "Benar. DROP TABLE nama_tabel menghapus tabel beserta isinya.", "Kata TABLE tidak ada, sehingga tidak jelas objek apa yang dihapus.", "table_barang tertulis menyambung sebagai satu kata, padahal TABLE adalah kata kunci tersendiri."] },
+      { n: 3, pg: "pM1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Pernyataan SQL untuk mengurutkan data terurut menurun adalah dengan ....",
+        o: ["GROUP BY", "HAVING", "UPDATE", "ORDER BY DESC"], g: [3], c: "tinggi",
+        e: ["GROUP BY mengelompokkan data, bukan mengurutkan.", "HAVING menyaring hasil pengelompokan, bukan mengurutkan.", "UPDATE mengubah data, bukan mengurutkan.", "Benar. ORDER BY ... DESC mengurutkan data secara menurun."] },
+      { n: 4, pg: "pM1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Tampilkan last name, dan salary dengan huruf capital di mana last name-nya di awali dengan huruf ‘A’ ....",
+        o: ["select upper(last_name),salary from employees where last_name 'A';", "select upper(last_name),salary from employees where last_name ‘A%'", "select upper(last_name),salary from employees where last_name like 'A'", "select upper(last_name),salary from employees where last_name like 'A%"], g: [3], c: "cek",
+        note: "Pilihan D di sumber tidak memakai tanda kutip penutup. Maksudnya LIKE 'A%', jadi saya menduga D, tetapi tidak ada pilihan yang tertulis sempurna. Cocokkan dengan kunci buku.",
+        e: ["Tidak ada kata LIKE, sehingga syarat WHERE tidak lengkap.", "Tidak ada kata LIKE dan tanda kutipnya tidak serasi (‘A%').", "LIKE 'A' mencocokkan nilai yang persis A, bukan yang diawali huruf A.", "Kemungkinan jawabannya. LIKE 'A%' mencari nilai yang diawali huruf A, dan upper() membuat last_name menjadi huruf kapital. Tanda kutip penutup hilang di sumber."] },
+      { n: 5, pg: "pM1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Pilihlah SQL dibawah ini untuk membuat kolom <i>kode_karyawan</i> pada tabel karyawan sebagai index adalah ....",
+        o: ["create index karyawan nip idx on karyawan(kode_karyawan)", "create index karyawan_nip_idx on karyawan(kode_karyawan)", "create karyawan_nip_idx on karyawan(kode_karyawan)", "create index karyawan_nip_idx karyawan(kode_karyawan)"], g: [1], c: "tinggi",
+        e: ["Nama index karyawan nip idx mengandung spasi, sehingga terbaca sebagai tiga kata terpisah.", "Benar. Bentuknya CREATE INDEX nama_index ON nama_tabel(kolom).", "Kata INDEX tidak ada.", "Kata ON tidak ada sebelum nama tabel."] },
+      { n: 6, pg: "pM1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Pernyataan SQL untuk menghapus melakukan grouping pada atribut tertentu adalah ....",
+        o: ["GROUP BY", "HAVING", "UPDATE", "ORDER BY"], g: [0], c: "tinggi",
+        e: ["Benar. GROUP BY mengelompokkan data berdasarkan atribut (kolom) tertentu.", "HAVING menyaring hasil pengelompokan, bukan melakukan pengelompokan.", "UPDATE mengubah data.", "ORDER BY mengurutkan data, bukan mengelompokkan."] },
+      { n: 7, pg: "pM2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Pilihlah SQL dibawah ini untuk membuat kolom NIP sebagai primary key pada tabel karyawan  ....",
+        o: ["alter tabel karyawan add constraint pk_nip primary key kode_karyawan alter tabel karyawan add constraint pk_nip primary key kode_karyawan", "alter table karyawan add constraint pk_nip primary key (kode_karyawan)", "alter tabel karyawan add constraint pk_nip primary key (kode_karyawan)", "alter table karyawan constraint pk nip primary key (kode_karyawan)"], g: [1], c: "tinggi",
+        note: "Soal menyebut kolom NIP, sedangkan pilihan memakai kode_karyawan. Itu sesuai sumber dan tidak mengubah jawaban.",
+        e: ["Memakai tabel (bukan table), kolomnya tanpa tanda kurung, dan kalimatnya tertulis dua kali.", "Benar. Bentuknya ALTER TABLE nama_tabel ADD CONSTRAINT nama PRIMARY KEY (kolom).", "Kata kunci yang benar adalah table, bukan tabel.", "Kata ADD tidak ada, dan nama constraint pk nip terpisah oleh spasi."] },
+      { n: 8, pg: "pM2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Buatlah table barang dengan field kode_barang char(6), nama barang varchar(25), satuan_barang varchar(20) dan stok_barang numeric(4) primary key adalah kode barang ....",
+        o: ["create table barang( kode_barang char(6), nama_barang varchar(25), satuan_barang varchar(20), stock_barang numeric(4), constraint pk_barang primary key(kode_barang) )", "create table barang( kode_barang char(6) nama_barang varchar(25) satuan_barang varchar(20) stock_barang numeric(4) constraint pk_barang primary key(kode_barang) )", "create table barang(kode_barang char(6), nama_barang varchar(25), constraint pk_barang primary key(kode_barang) )", "create table barang(kode_barang char(6), nama_barang varchar(25), stock_barang numeric (4), constraintpk_barang primary key(kode_barang)"], g: [0], c: "tinggi",
+        note: "Soal menulis stok_barang, sedangkan pilihan menulis stock_barang. Itu sesuai sumber. Di soal, nama barang dan kode barang juga tertulis tanpa garis bawah.",
+        e: ["Benar. Keempat field lengkap, dipisah koma, dan primary key kode_barang ditetapkan lewat constraint.", "Antar field tidak dipisah koma, sehingga SQL tidak valid.", "Hanya dua field. Satuan_barang dan stok_barang tidak dibuat.", "Field satuan_barang tidak ada, constraintpk_barang tertulis menyambung, dan tanda kurung penutup kurang."] },
+      { n: 9, pg: "pM2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Sesuaikanlah kolom email pada tabel pegawai sebagai kolom <i>unique</i> ....",
+        o: ["ALTER TABLE ADD CONSTRAINT unike UNIQUE (email);", "ALTER karyawan ON CONSTRAINT unike UNIQUE (email);", "ALTER TABLE karyawan ADD CONSTRAINT unike UNIQUE (email);", "ALTER TABLE karyawan ADD unike UNIQUE (email);"], g: [2], c: "tinggi",
+        note: "Soal menyebut tabel pegawai, sedangkan pilihan memakai tabel karyawan. Itu sesuai sumber dan tidak mengubah jawaban.",
+        e: ["Nama tabel tidak disebut setelah ALTER TABLE.", "Bentuknya salah: tidak memakai TABLE dan ADD, melainkan ON.", "Benar. ALTER TABLE nama_tabel ADD CONSTRAINT nama UNIQUE (kolom) menjadikan kolom bersifat unique.", "Kata CONSTRAINT tidak ada sebelum nama unike."] },
+      { n: 10, pg: "pM2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Pilihlah SQL dibawah ini untuk mengisikan sebuah record ke dalam tabel barang seperti tampilan berikut:",
+        fig: "tbl",
+        o: ["insert into barang values('KPR-01','KULKAS','BUAH','20')", "insert into_barang values('KPR-01','KULKAS','BUAH','20')", "insert barang_values('KPR-01','KULKAS','BUAH','20')", "insert into barang values(KPR-01,KULKAS,BUAH,20)"], g: [0], c: "tinggi",
+        note: "Tabel pada gambar menampilkan KPR-1, sedangkan pilihan A–C memakai 'KPR-01'. Itu sesuai sumber. Hanya pilihan A yang tertulis benar secara sintaks.",
+        e: ["Benar. Bentuknya INSERT INTO nama_tabel VALUES (...), dengan nilai teks diapit tanda kutip.", "into_barang tertulis menyambung dengan garis bawah, padahal INTO dan nama tabel adalah dua kata terpisah.", "Kata INTO tidak ada, dan barang_values tertulis menyambung.", "Nilai teks tidak diapit tanda kutip, sehingga SQL error."] }
+    ]
+  }
+  ,
+  {
+    id: "N", name: "Set N · Dasar SQL & DBMS", src: "Kuis latihan · pengantar SQL",
+    title: "Basis Data · Pengantar SQL dan DBMS (modul belum tertera)", ph: "Screenshot asli", kind: "screenshot",
+    qs: [
+      { n: 1, pg: "pN1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "DBMS adalah program komputer yang dirancang untuk pengelolaan data dengan melakukan ....",
+        o: ["Penyimpanan", "Pembaruan", "Pengambilan", "Penyimpanan, Pembaruan dan Pengambilan"], g: [3], c: "tinggi",
+        e: ["Penyimpanan hanyalah salah satu dari kegiatan pengelolaan data oleh DBMS.", "Pembaruan hanyalah salah satu dari kegiatan pengelolaan data oleh DBMS.", "Pengambilan hanyalah salah satu dari kegiatan pengelolaan data oleh DBMS.", "Benar. DBMS mengelola data lewat penyimpanan, pembaruan, dan pengambilan data."] },
+      { n: 2, pg: "pN1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Bahasa SQL telah di standarkan namun telah berkembang banyak varian dan bentuk sesuai dengan kebutuhan vendor …",
+        o: ["RDBMS", "DBMS", "DBA", "DBAS"], g: null, c: "cek",
+        note: "Kalimat soal berakhir dengan titik-titik, jadi kemungkinan ada kata yang terpotong. Vendor basis data lazim disebut vendor DBMS atau vendor RDBMS, jadi A atau B. Jawabannya belum bisa dipastikan. Cocokkan dengan kunci buku.",
+        e: ["RDBMS adalah DBMS untuk basis data relasional, yang memakai SQL. Bisa menjadi jawabannya jika modulmu menyebut vendor RDBMS.", "DBMS adalah perangkat lunak pengelola basis data buatan vendor. Bisa menjadi jawabannya jika modulmu menyebut vendor DBMS.", "DBA adalah administrator basis data (orang), bukan vendor.", "DBAS bukan istilah yang umum dipakai untuk menyebut vendor basis data."] },
+      { n: 3, pg: "pN1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Fungsi utama SQL digunakan untuk ....",
+        o: ["Database", "Relasi", "Relational Database", "Sistem"], g: [2], c: "cek",
+        note: "Kalimat soal tidak memakai kata kerja, jadi saya menduga C (relational database). Cocokkan dengan kunci buku.",
+        e: ["Database terlalu umum. SQL dipakai untuk mengelola data di dalamnya, dan bukan database itu sendiri.", "Relasi (tabel) hanyalah bagian dari basis data relasional.", "Kemungkinan jawabannya. SQL (Structured Query Language) dipakai untuk mengelola data pada relational database. Cocokkan dengan kunci buku.", "Sistem terlalu umum dan bukan sasaran utama SQL."] },
+      { n: 4, pg: "pN1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Bahasa SQL terdiri dari beberapa bagian antara lain terdiri dari ....",
+        o: ["DDL, DML, View, Embedded dan Dinamic", "DDL, DML, View, Embedded dan Otorisasi", "DDL, DML, View, Embedded dan System", "DDL, DML, View, Embedded dan Operasional System"], g: null, c: "cek",
+        note: "Dinamic dan Otorisasi sama-sama dikenal sebagai bagian SQL, jadi jawabannya bergantung pada daftar di modulmu dan belum bisa dipastikan. A sedikit lebih mungkin karena Embedded dan Dynamic biasa dipasangkan. Cocokkan dengan kunci buku.",
+        e: ["Dynamic SQL (di sumber ditulis Dinamic) memang bagian dari SQL, dan biasanya dipasangkan dengan Embedded SQL. Mungkin jawabannya.", "Otorisasi (authorization) juga dikenal sebagai bagian SQL. Mungkin jawabannya.", "System bukan bagian dari bahasa SQL.", "Operasional System (sistem operasi) bukan bagian dari bahasa SQL."] },
+      { n: 5, pg: "pN1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Perintah untuk menspesifikasikan konstrain-konstrain integritas di mana data disimpan di basis data yang harus dipenuhi DBMS disebut ....",
+        o: ["Embedded", "Dinamic", "Integrity", "View Definition"], g: [2], c: "tinggi",
+        e: ["Embedded SQL adalah SQL yang disisipkan dalam bahasa pemrograman lain, bukan konstrain integritas.", "Dynamic SQL adalah SQL yang disusun saat program berjalan, bukan konstrain integritas.", "Benar. Integrity adalah bagian SQL untuk menentukan konstrain integritas yang harus dipenuhi DBMS.", "View definition adalah perintah untuk membuat view (tabel virtual), bukan konstrain integritas."] },
+      { n: 6, pg: "pN1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Sekelompok perintah yang menentukan dan melakukan manipulasi nilai-nilai di dalam suatu tabel disebut ....",
+        o: ["DDL", "DCL", "DML", "SQL"], g: [2], c: "tinggi",
+        e: ["DDL mengatur struktur objek basis data, bukan manipulasi nilai di dalam tabel.", "DCL mengatur hak akses, bukan manipulasi nilai di dalam tabel.", "Benar. DML (Data Manipulation Language) memanipulasi nilai di dalam tabel: SELECT, INSERT, UPDATE, DELETE.", "SQL adalah nama bahasanya secara keseluruhan, bukan nama sekelompok perintah tertentu."] },
+      { n: 7, pg: "pN2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Pernyataan SQL yang berfungsi untuk memilih baris dan kolom pada tabel  adalah ....",
+        o: ["ALTER", "CREATE", "SELECT", "UPDATE"], g: [2], c: "tinggi",
+        e: ["ALTER mengubah struktur tabel, bukan memilih data.", "CREATE membuat objek baru, bukan memilih data.", "Benar. SELECT memilih baris dan kolom dari tabel.", "UPDATE mengubah isi data, bukan memilih data."] },
+      { n: 8, pg: "pN2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Perintah SQL yang berfungsi untuk mengubah struktur tabel  adalah ....",
+        o: ["ALTER", "CREATE", "INSERT", "SELECT"], g: [0], c: "tinggi",
+        e: ["Benar. ALTER TABLE mengubah struktur tabel, misalnya menambah atau menghapus kolom.", "CREATE membuat tabel baru, bukan mengubah struktur tabel yang ada.", "INSERT menambah data, bukan mengubah struktur.", "SELECT mengambil data, bukan mengubah struktur."] },
+      { n: 9, pg: "pN2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Simbol ekspresi yang menjelaskan perkalian adalah ....",
+        o: ["^", "/", "+", "*"], g: [3], c: "tinggi",
+        e: ["^ dipakai untuk pangkat, bukan perkalian.", "/ adalah simbol pembagian.", "+ adalah simbol penjumlahan.", "Benar. * adalah simbol perkalian."] },
+      { n: 10, pg: "pN2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Diketahui sebuah basis data kampus yang didalamnya terdapat tabel mahasiswa beratribut nim, nama, dan alamat. Jika tabel tersebut akan dihapus maka perintah SQL yang tepat adalah  ....",
+        o: ["DROP kampus", "DROP mahasiswa", "ALTER table mahasiswa", "DROP table mahasiswa"], g: [3], c: "tinggi",
+        e: ["DROP kampus tidak menyebut objeknya, dan jika dimaksudkan DROP DATABASE kampus, itu menghapus seluruh basis data, bukan hanya tabel.", "DROP mahasiswa tidak menyebut kata TABLE, sehingga jenis objek yang dihapus tidak jelas.", "ALTER TABLE mengubah struktur tabel, bukan menghapus tabelnya.", "Benar. DROP TABLE mahasiswa menghapus tabel mahasiswa beserta isinya."] }
+    ]
+  }
+  ,
+  {
+    id: "O", name: "Set O · Normalisasi & Redundansi", src: "Kuis latihan · normalisasi dan denormalisasi",
+    title: "Basis Data · Redundansi, Normalisasi, dan Denormalisasi (modul belum tertera)", ph: "Screenshot asli", kind: "screenshot",
+    qs: [
+      { n: 1, pg: "pO1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Duplikasi data yang disimpan secara berulang pada lebih dari satu tabel adalah ....",
+        o: ["Redundansi", "Denormalisasi", "Anomali", "Normalisasi"], g: [0], c: "tinggi",
+        e: ["Benar. Redundansi adalah data yang sama disimpan berulang pada lebih dari satu tempat atau tabel.", "Denormalisasi adalah proses menambah redundansi secara sengaja, bukan nama duplikasi datanya.", "Anomali adalah masalah (kesalahan atau inkonsistensi) yang bisa muncul akibat redundansi.", "Normalisasi adalah proses mengurangi redundansi, bukan nama duplikasi datanya."] },
+      { n: 2, pg: "pO1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Di bawah ini merupakan kerugian pada redundasi adalah ....",
+        o: ["menghasilkan data yang baik", "melemahkan integritas basis data", "memperkuat integritas basis data", "mempercepat proses query"], g: [1], c: "tinggi",
+        e: ["Data yang baik adalah hasil yang diinginkan, bukan kerugian redundansi.", "Benar. Redundansi membuat data yang sama bisa tidak seragam, sehingga integritas basis data melemah.", "Memperkuat integritas adalah keuntungan, bukan kerugian.", "Mempercepat query adalah keuntungan redundansi, bukan kerugian."] },
+      { n: 3, pg: "pO1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Tujuan dari denormalisasi adalah ....",
+        o: ["melemahkan integritas data", "menambah jumlah tabel", "menambah waktu query", "mengurangi waktu query"], g: [3], c: "tinggi",
+        e: ["Melemahkan integritas adalah akibat yang tidak diinginkan, bukan tujuan denormalisasi.", "Denormalisasi tidak bertujuan menambah jumlah tabel.", "Menambah waktu query bertentangan dengan tujuan denormalisasi.", "Benar. Denormalisasi dilakukan supaya query lebih cepat, misalnya dengan mengurangi penggabungan banyak tabel."] },
+      { n: 4, pg: "pO1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Penyimpangan-penyimpangan atau Error atau inkonsistensi data yang terjadi pada saat dilakukan proses <i>insert, delete</i> maupun <i>modify</i>, disebut dengan ....",
+        o: ["Normalisasi", "Database", "Well Structure Relation", "UnNormalisasi"], g: null, c: "cek",
+        note: "Istilah umum untuk penyimpangan saat insert, delete, dan modify adalah anomali, tetapi kata itu tidak ada di pilihan. Jawabannya belum bisa dipastikan. D paling mungkin jika modulmu menyebut kondisi tabel yang belum dinormalisasi. Cocokkan dengan kunci buku.",
+        e: ["Normalisasi adalah proses memperbaiki struktur tabel untuk mengatasi masalah ini, bukan nama masalahnya.", "Database adalah kumpulan data, bukan nama penyimpangan tersebut.", "Well structured relation adalah relasi yang baik (redundansi minimal, tanpa anomali), kebalikan dari penyimpangan ini.", "UnNormalisasi (relasi yang belum dinormalisasi) adalah kondisi yang bisa menimbulkan penyimpangan tersebut. Mungkin jawabannya."] },
+      { n: 5, pg: "pO1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Satu atribut satu set minimal  tabel yang mengidentifikasikan secara unik suatu kejadian yang spesifik dari entitas. Disebut dengan ....",
+        o: ["Primary Key", "Foreign Key", "Alternate Key", "Candidate Key"], g: [3], c: "cek",
+        note: "Rumusan satu atribut atau satu set minimal atribut yang mengidentifikasi secara unik adalah definisi candidate key, sehingga saya menduga D. Primary key adalah candidate key yang dipilih. Cocokkan dengan kunci buku.",
+        e: ["Primary key adalah candidate key yang dipilih menjadi kunci utama. Bisa menjadi jawabannya jika modulmu memakai definisi ini untuk primary key.", "Foreign key adalah atribut yang merujuk ke kunci tabel lain, bukan pengenal unik tabelnya sendiri.", "Alternate key adalah candidate key yang tidak dipilih sebagai primary key.", "Kemungkinan jawabannya. Definisi satu atribut atau satu set minimal atribut yang mengidentifikasi secara unik adalah definisi candidate key. Cocokkan dengan kunci buku."] },
+      { n: 6, pg: "pO1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Suatu atribut yang diturunkan dari atribut tabel adalah ....",
+        o: ["turunan", "berlebihan", "tabel rekapitulasi", "tidak ada jawaban benar"], g: [0], c: "tinggi",
+        e: ["Benar. Atribut turunan adalah atribut yang nilainya diturunkan dari atribut lain.", "Atribut berlebihan adalah atribut yang menyatakan lebih dari satu fakta (lihat soal 7).", "Tabel rekapitulasi adalah tabel tambahan, bukan atribut.", "Tidak tepat, karena A benar."] },
+      { n: 7, pg: "pO2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Suatu atribut yang menyatakan lebih dari satu fakta adalah .....",
+        o: ["turunan", "berlebihan", "tabel rekapitulasi", "tidak ada jawaban yang benar"], g: [1], c: "cek",
+        note: "Saya menduga B karena atribut yang menyatakan lebih dari satu fakta (seperti ID Anggota di soal 8 yang memuat tahun) disebut atribut berlebihan. Cocokkan dengan kunci buku.",
+        e: ["Atribut turunan nilainya diturunkan dari atribut lain (lihat soal 6), bukan yang menyatakan lebih dari satu fakta.", "Kemungkinan jawabannya. Atribut berlebihan memuat lebih dari satu fakta, misalnya ID Anggota di soal 8 yang sekaligus memuat tahun. Cocokkan dengan kunci buku.", "Tabel rekapitulasi adalah tabel tambahan, bukan atribut.", "Tidak tepat jika B benar."] },
+      { n: 8, pg: "pO2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Perhatikan tabel berikut ini:",
+        fig: "tbl2",
+        t2: "Dari tabel diatas, atribut mana yang merupakan turunan dari ID Anggota ....",
+        o: ["Nama", "Tahun", "Judul Buku", "Jumlah"], g: [1], c: "tinggi",
+        e: ["Nama (Tono) tidak bisa dibaca dari ID A201801.", "Benar. ID Anggota A201801 memuat 2018, yaitu tahun yang sama dengan kolom Tahun, sehingga Tahun adalah turunan dari ID Anggota.", "Judul Buku (Basis Data) tidak terbaca dari ID A201801.", "Jumlah (10) tidak terbaca dari ID A201801."] },
+      { n: 9, pg: "pO2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Sebuah tabel tambahan yang diperlukan jika terjadi pengolahan data yang berlebihan disebut dengan....",
+        o: ["tabel redundansi", "tabel rekapitulasi", "tabel normalisasi", "tidak ada jawaban yang benar"], g: [1], c: "tinggi",
+        e: ["Tabel redundansi bukan istilah baku untuk tabel tambahan tersebut.", "Benar. Tabel rekapitulasi (ringkasan) adalah tabel tambahan yang menyimpan hasil olahan data supaya tidak dihitung berulang.", "Tabel normalisasi bukan istilah baku untuk tabel tambahan tersebut.", "Tidak tepat, karena B benar."] },
+      { n: 10, pg: "pO2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Salah satu alasan mengapa dibutuhkan denormalisasi adalah memiliki ....",
+        o: ["banyak tabel", "banyak relasi", "redundansi", "akses yang lama"], g: null, c: "cek",
+        note: "A, B, dan D sama-sama bisa menjadi alasan denormalisasi (banyak tabel atau relasi membuat query lambat, dan akses lama adalah masalahnya). Jawabannya bergantung pada redaksi modulmu dan belum bisa dipastikan. Cocokkan dengan kunci buku.",
+        e: ["Banyak tabel membuat query perlu menggabungkan banyak tabel, dan itu bisa menjadi alasan denormalisasi.", "Banyak relasi (hubungan antar tabel) juga membuat query lambat, dan bisa menjadi alasan denormalisasi.", "Redundansi justru bertambah ketika denormalisasi dilakukan, jadi bukan alasannya.", "Akses yang lama (query lambat) adalah masalah yang ingin diatasi denormalisasi (lihat soal 3). Bisa menjadi jawabannya."] }
+    ]
+  }
+  ,
+  {
+    id: "P", name: "Set P · Normalisasi & Bentuk Normal", src: "Kuis latihan · normalisasi, anomali, 3NF, BCNF",
+    title: "Basis Data · Normalisasi, Anomali, dan Bentuk Normal (modul belum tertera)", ph: "Screenshot asli", kind: "screenshot",
+    qs: [
+      { n: 1, pg: "pP1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Normalisasi pertama kali dikemukakan oleh ....",
+        o: ["E.F. CODD", "Niklaus Wirth", "Boyce CODD", "John Warnier"], g: [0], c: "tinggi",
+        e: ["Benar. Normalisasi pertama kali dikemukakan oleh Edgar F. Codd (1970) dalam model relasional.", "Niklaus Wirth adalah perancang bahasa pemrograman Pascal, bukan penemu normalisasi.", "Boyce dan Codd terkait dengan BCNF (Boyce-Codd Normal Form), bukan penemu pertama normalisasi.", "John Warnier dikenal lewat diagram Warnier (perancangan program), bukan normalisasi."] },
+      { n: 2, pg: "pP1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Sebuah relation yang jumlah kerangkapan datanya sedikit (Minimum Amount of Redudancy), serta memberikan kemungkinan bagi pengguna untuk melakukan insert, delete, modify disebut dengan ....",
+        o: ["Normalisasi", "Anomalisasi", "Well Structure Relation", "Fragmentasi"], g: [2], c: "tinggi",
+        e: ["Normalisasi adalah prosesnya, sedangkan soal menanyakan nama relasi hasilnya.", "Anomalisasi bukan istilah baku.", "Benar. Well structured relation adalah relasi dengan redundansi minimal yang aman untuk insert, delete, dan modify tanpa anomali.", "Fragmentasi adalah pemecahan data pada basis data terdistribusi, bukan istilah ini."] },
+      { n: 3, pg: "pP1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Proses pengelompokan elemen data menjadi tabel-tabel yang menunjukan <i>entity</i> dan relasinya, merupakan pengertian dari ....",
+        o: ["Entity", "Anomali", "Normalisasi", "Model data"], g: [2], c: "tinggi",
+        e: ["Entity adalah objek yang datanya disimpan, bukan proses pengelompokan.", "Anomali adalah masalah akibat struktur tabel yang buruk, bukan proses pengelompokan.", "Benar. Normalisasi adalah proses mengelompokkan elemen data menjadi tabel-tabel yang menunjukkan entity dan relasinya.", "Model data adalah cara merepresentasikan data (misalnya relasional), bukan proses ini."] },
+      { n: 4, pg: "pP1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Penyimpangan-penyimpangan atau error atau inkonsistensi data yang terjadi pada saat dilakukan proses insert, delete, maupun update disebut dengan ....",
+        o: ["Entity", "Anomali", "Performance Problem", "Normalisasi"], g: [1], c: "tinggi",
+        e: ["Entity adalah objek data, bukan nama penyimpangannya.", "Benar. Anomali adalah penyimpangan atau inkonsistensi data yang terjadi saat insert, delete, atau update.", "Performance problem berkaitan dengan kecepatan sistem, bukan inkonsistensi data.", "Normalisasi adalah proses untuk mengatasi anomali, bukan nama penyimpangannya."] },
+      { n: 5, pg: "pP1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Himpunan dari satu atau lebih entitas yang digunakan untuk mengidentifikasikan secara unik sebuah entitas dalam entitas set disebut ....",
+        o: ["Super Key", "Primary Key", "Foreign Key", "Candidate Key"], g: [0], c: "tinggi",
+        note: "Soal ini sama dengan Set O soal 5 dari sisi topik tetapi redaksi dan pilihannya berbeda (ada Super Key). Di sini 'himpunan ... yang mengidentifikasi secara unik' tanpa kata minimal mengarah ke Super Key.",
+        e: ["Benar. Super key adalah himpunan satu atau lebih atribut yang dapat mengidentifikasi sebuah baris secara unik. Tidak disyaratkan minimal.", "Primary key adalah satu candidate key yang dipilih sebagai kunci utama, bukan sembarang himpunan pengenal unik.", "Foreign key adalah atribut yang merujuk ke kunci tabel lain.", "Candidate key adalah super key yang minimal. Soal tidak menyebut minimal, sehingga yang paling cocok adalah super key."] },
+      { n: 6, pg: "pP2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Dibawah ini merupakan masalah-masalah yang timbul dalam pembuatan tabel, <i>kecuali</i> ....",
+        o: ["Insert Anomaly", "Drop Anomaly", "Delete Anomaly", "Update Anomaly"], g: [1], c: "tinggi",
+        e: ["Insert anomaly adalah masalah nyata (data tidak bisa disisipkan tanpa data lain).", "Benar. Drop anomaly bukan istilah baku. Tiga anomali yang dikenal adalah insert, update, dan delete.", "Delete anomaly adalah masalah nyata (menghapus satu data ikut menghilangkan informasi lain).", "Update anomaly adalah masalah nyata (pembaruan harus dilakukan di banyak tempat)."] },
+      { n: 7, pg: "pP2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Bentuk normalisasi yang berfungsi menghilangkan ketergantungan transitif adalah ....",
+        o: ["1NF", "2NF", "3NF", "BCNF"], g: [2], c: "tinggi",
+        e: ["1NF menghilangkan perulangan group (atribut multinilai).", "2NF menghilangkan ketergantungan sebagian (partial dependency).", "Benar. 3NF menghilangkan ketergantungan transitif.", "BCNF menghilangkan anomali akibat ketergantungan fungsional yang masih tersisa setelah 3NF."] },
+      { n: 8, pg: "pP2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Fungsi dari bentuk normalisasi BCNF adalah menghilangkan ....",
+        o: ["perulangan group", "ketergantungan sebagian", "ketergantungan transitif", "anomali-anomali hasil ketergantungan fungsional"], g: [3], c: "tinggi",
+        e: ["Perulangan group dihilangkan oleh 1NF.", "Ketergantungan sebagian dihilangkan oleh 2NF.", "Ketergantungan transitif dihilangkan oleh 3NF (lihat soal 7).", "Benar. BCNF menghilangkan anomali yang masih tersisa akibat ketergantungan fungsional setelah 3NF."] },
+      { n: 9, pg: "pP2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Salah satu ciri bahwa sebuah tabel diperlukan normalisasi adalah ....",
+        o: ["jika relasi memuat set berulang", "tidak dapat menyisipkan informasi parsial", "terhapusnya informasi ketika menghapus sebuah record", "proses pembaruan data tidak efisien"], g: null, c: "cek",
+        note: "Keempat pilihan sama-sama ciri tabel yang perlu dinormalisasi, sedangkan soal hanya meminta satu jawaban. Saya tidak bisa memastikan mana yang dimaksud kunci. Cocokkan dengan kunci buku.",
+        e: ["Relasi yang memuat set (grup) berulang melanggar 1NF, sehingga perlu dinormalisasi. Ini bisa menjadi ciri yang benar.", "Tidak dapat menyisipkan informasi parsial adalah insert anomaly, ciri tabel yang perlu dinormalisasi.", "Terhapusnya informasi lain ketika sebuah record dihapus adalah delete anomaly, ciri tabel yang perlu dinormalisasi.", "Proses pembaruan data yang tidak efisien adalah update anomaly, ciri tabel yang perlu dinormalisasi."] },
+      { n: 10, pg: "pP2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Tujuan akhir dari sebuah normalisasi adalah ....",
+        o: ["terbentuknya sebuah tabel", "terbentuknya berbagai macam atribut", "terbentuknya Entity Relationship Diagram", "tidak ada jawaban yang benar"], g: [3], c: "cek",
+        note: "Tujuan akhir normalisasi adalah tabel yang well structured (redundansi minimal, bebas anomali). Itu tidak tercantum di A sampai C, jadi saya menduga D. Cocokkan dengan kunci buku.",
+        e: ["Normalisasi biasanya menghasilkan beberapa tabel yang lebih kecil, bukan satu tabel.", "Normalisasi tidak bertujuan membentuk berbagai atribut. Atribut sudah ada sebelumnya.", "ERD dibuat pada tahap perancangan konseptual, bukan hasil akhir normalisasi.", "Kemungkinan jawabannya. Tujuan akhir normalisasi adalah relasi yang well structured (redundansi minimal, bebas anomali), dan itu tidak ada di pilihan A sampai C. Cocokkan dengan kunci buku."] }
+    ]
+  }
+  ,
+  {
+    id: "Q", name: "Set Q · Simbol ERD & Kardinalitas", src: "Kuis latihan · simbol diagram ER dan derajat kardinalitas",
+    title: "Basis Data · Simbol Diagram ER dan Derajat Kardinalitas (modul belum tertera)", ph: "Screenshot asli", kind: "screenshot",
+    qs: [
+      { n: 1, pg: "pQ1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Berikut ini adalah simbol yang digunakan untuk menggambarkan entitas adalah ....",
+        o: ["Simbol A", "Simbol B", "Simbol C", "Simbol D"], oimg: ["Qs_rect", "Qs_oval", "Qs_diam", "Qs_tri"], g: [0], c: "tinggi",
+        e: ["Benar. Persegi panjang adalah simbol entitas pada diagram ER.", "Oval adalah simbol atribut.", "Belah ketupat adalah simbol relasi (relationship).", "Segitiga bukan simbol entitas pada notasi ER yang umum."] },
+      { n: 2, pg: "pQ1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Berikut ini adalah simbol yang digunakan untuk menggambarkan relasi adalah ....",
+        o: ["Simbol A", "Simbol B", "Simbol C", "Simbol D"], oimg: ["Qs_rect", "Qs_oval", "Qs_diam", "Qs_tri"], g: [2], c: "tinggi",
+        e: ["Persegi panjang adalah simbol entitas.", "Oval adalah simbol atribut.", "Benar. Belah ketupat adalah simbol relasi (relationship) pada diagram ER.", "Segitiga bukan simbol relasi pada notasi ER yang umum."] },
+      { n: 3, pg: "pQ2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Berikut ini adalah simbol yang digunakan untuk menggambarkan derajat karditalitas “satu”",
+        o: ["Simbol A", "Simbol B", "Simbol C", "Simbol D"], oimg: ["Qk_0", "Qk_1", "Qk_m", "Qk_zm"], g: [1], c: "tinggi",
+        e: ["Garis polos tanpa tanda di ujungnya tidak menyatakan jumlah tertentu, jadi bukan simbol “satu”.", "Benar. Satu garis tegak (bar) pada ujung garis relasi adalah simbol kardinalitas “satu”.", "Kaki gagak (crow's foot) berbentuk garpu adalah simbol “banyak”.", "Kaki gagak dengan lingkaran adalah simbol “nol ke banyak”."] },
+      { n: 4, pg: "pQ2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Berikut ini adalah simbol yang digunakan untuk menggambarkan derajat karditalitas “banyak” ....",
+        o: ["Simbol A", "Simbol B", "Simbol C", "Simbol D"], oimg: ["Qk_0", "Qk_1", "Qk_m", "Qk_zm"], g: [2], c: "tinggi",
+        e: ["Garis polos tanpa tanda di ujungnya tidak menyatakan “banyak”.", "Satu garis tegak (bar) adalah simbol “satu”, bukan “banyak”.", "Benar. Kaki gagak (crow's foot) berbentuk garpu adalah simbol “banyak”.", "Kaki gagak dengan lingkaran berarti “nol ke banyak”. Ada tambahan lingkaran (nol), jadi bukan “banyak” saja."] },
+      { n: 5, pg: "pQ2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Jika sebuah relasi memiliki derajat kardinalitas banyak ke banyak (M:N) maka relasi tersebut berubah menjadi ....",
+        o: ["Software", "User", "End User", "Front End"], g: null, c: "cek",
+        note: "Pada perancangan basis data, relasi banyak ke banyak (M:N) diubah menjadi entitas asosiatif (tabel baru). Istilah itu tidak ada di pilihan A sampai D (Software, User, End User, Front End semuanya istilah perangkat lunak). Jadi jawabannya belum bisa ditentukan. Pilihan di sumber mungkin tidak cocok dengan soalnya atau terpotong. Cocokkan dengan kunci buku.",
+        e: ["Software adalah istilah perangkat lunak, tidak terkait dengan hasil relasi M:N.", "User adalah istilah pengguna sistem, tidak terkait dengan hasil relasi M:N.", "End User adalah pengguna akhir, tidak terkait dengan hasil relasi M:N.", "Front End adalah antarmuka sisi pengguna, tidak terkait dengan hasil relasi M:N."] },
+      { n: 6, pg: "pQ3", pgl: "Screenshot 3", pageTag: "screenshot 3",
+        t: "Berikut ini adalah simbol yang digunakan untuk menggambarkan atribut adalah ....",
+        o: ["Simbol A", "Simbol B", "Simbol C", "Simbol D"], oimg: ["Qs_rect", "Qs_oval", "Qs_diam", "Qs_tri"], g: [1], c: "tinggi",
+        e: ["Persegi panjang adalah simbol entitas.", "Benar. Oval adalah simbol atribut pada diagram ER.", "Belah ketupat adalah simbol relasi.", "Segitiga bukan simbol atribut pada notasi ER yang umum."] },
+      { n: 7, pg: "pQ3", pgl: "Screenshot 3", pageTag: "screenshot 3",
+        t: "Berikut ini adalah simbol yang digunakan untuk menggambarkan derajat karditalitas “NOL ke banyak” ....",
+        o: ["Simbol A", "Simbol B", "Simbol C", "Simbol D"], oimg: ["Qk_0", "Qk_1", "Qk_m", "Qk_zm"], g: [3], c: "tinggi",
+        e: ["Garis polos tanpa tanda tidak menyatakan “nol ke banyak”.", "Satu garis tegak (bar) adalah simbol “satu”.", "Kaki gagak tanpa lingkaran adalah simbol “banyak” (satu atau lebih).", "Benar. Kaki gagak dengan lingkaran adalah simbol “nol ke banyak”. Lingkaran melambangkan nol (boleh tidak ada)."] },
+      { n: 8, pg: "pQ4", pgl: "Screenshot 4", pageTag: "screenshot 4",
+        t: "Berikut ini adalah simbol yang digunakan untuk menggambarkan derajat karditalitas “satu-ke-satu” ....",
+        o: ["Simbol A", "Simbol B", "Simbol C", "Simbol D"], oimg: ["Qk_0", "Qk_1", "Qk_m", "Qk_11"], g: [3], c: "tinggi",
+        e: ["Garis polos tanpa tanda tidak menyatakan “satu-ke-satu”.", "Satu garis tegak (bar) adalah simbol “satu” (satu sisi saja).", "Kaki gagak adalah simbol “banyak”.", "Benar. Dua garis tegak (bar) berdampingan adalah simbol “satu-ke-satu” (wajib satu dan hanya satu)."] },
+      { n: 9, pg: "pQ4", pgl: "Screenshot 4", pageTag: "screenshot 4",
+        t: "Berikut ini adalah simbol yang digunakan untuk menggambarkan derajat karditalitas “NOL ke satu” ....",
+        o: ["Simbol A", "Simbol B", "Simbol C", "Simbol D"], oimg: ["Qk_0", "Qk_1", "Qk_m", "Qk_z1"], g: [3], c: "tinggi",
+        e: ["Garis polos tanpa tanda tidak menyatakan “nol ke satu”.", "Satu garis tegak (bar) adalah simbol “satu”, tanpa pilihan nol.", "Kaki gagak adalah simbol “banyak”.", "Benar. Garis tegak (bar) dengan lingkaran adalah simbol “nol ke satu”. Lingkaran melambangkan nol, bar melambangkan satu."] },
+      { n: 10, pg: "pQ5", pgl: "Screenshot 5", pageTag: "screenshot 5",
+        t: "Berikut ini adalah simbol yang digunakan untuk menggambarkan derajat karditalitas “satu-ke-banyak” ....",
+        o: ["Simbol A", "Simbol B", "Simbol C", "Simbol D"], oimg: ["Qk_1m", "Qk_1", "Qk_m", "Qk_z1"], g: [0], c: "tinggi",
+        e: ["Benar. Satu garis tegak (bar) di satu sisi dan kaki gagak di sisi lain adalah simbol “satu-ke-banyak”.", "Satu garis tegak (bar) saja adalah simbol “satu”.", "Kaki gagak saja adalah simbol “banyak”.", "Garis tegak dengan lingkaran adalah simbol “nol ke satu”."] }
+    ]
+  }
+  ,
+  {
+    id: "R", name: "Set R · Aplikasi yEd", src: "Kuis latihan · yEd (editor diagram)",
+    title: "Basis Data · Aplikasi yEd: Menu, Toolbar, dan Fungsi (modul belum tertera)", ph: "Screenshot asli", kind: "screenshot",
+    qs: [
+      { n: 1, pg: "pR1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Berikut ini perintah membuat halaman baru pada yEd berbasis web adalah ....",
+        o: ["Open Sample Graph", "Open an Existing", "Start With Blank Diagram", "Semua Salah"], g: [2], c: "tinggi",
+        e: ["Open Sample Graph membuka contoh diagram yang sudah jadi, bukan halaman baru yang kosong.", "Open an Existing membuka diagram yang sudah ada, bukan membuat halaman baru.", "Benar. Start With Blank Diagram membuat diagram (halaman) baru yang kosong.", "Tidak tepat, karena C benar."] },
+      { n: 2, pg: "pR1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Sebuah area yang memungkinkan dalam membuat dan menganalisis sebuah grafik, diagram, flowcart atau struktur yang anda buat adalah ....",
+        o: ["Editor Windows", "Menu Bar", "Pallete", "Neighborboard"], g: [0], c: "tinggi",
+        e: ["Benar. Editor window adalah area kerja utama tempat diagram atau grafik dibuat dan dianalisis.", "Menu bar adalah baris menu di bagian atas, bukan area pembuatan diagram.", "Palette adalah daftar bentuk node dan edge yang dipilih untuk dipakai, bukan area kerjanya.", "Neighborhood adalah jendela untuk melihat node di sekitar node terpilih, bukan area pembuatan diagram."] },
+      { n: 3, pg: "pR1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Fungsi untuk membatalkan modifikasi terakhir pada node dokumen adalah ....",
+        o: ["Menu bar", "Undo", "Redo", "Cut"], g: [1], c: "tinggi",
+        e: ["Menu bar adalah baris menu, bukan fungsi pembatalan.", "Benar. Undo membatalkan modifikasi terakhir.", "Redo mengulang kembali modifikasi yang baru dibatalkan, kebalikan dari Undo.", "Cut memotong (menyalin lalu menghapus) seleksi, bukan membatalkan modifikasi."] },
+      { n: 4, pg: "pR1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Fungsi untuk Menyalin sekaligus menghapus seleksi node pada dokumen adalah ....",
+        o: ["Menu bar", "Undo", "Redo", "Cut"], g: [3], c: "tinggi",
+        e: ["Menu bar adalah baris menu, bukan fungsi ini.", "Undo membatalkan modifikasi terakhir.", "Redo mengulang modifikasi yang dibatalkan.", "Benar. Cut menyalin seleksi ke clipboard dan sekaligus menghapusnya dari dokumen."] },
+      { n: 5, pg: "pR1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Menu untuk mengatur tata letak sesuai dengan kebutuhan adalah ....",
+        o: ["Menu toolbar", "Main toolbar", "Layout", "Tools"], g: [2], c: "tinggi",
+        e: ["Menu toolbar adalah baris ikon menu, bukan menu pengatur tata letak.", "Main toolbar adalah baris ikon pintasan (shortcut) fitur-fitur menu.", "Benar. Menu Layout dipakai untuk mengatur tata letak (susunan) node dan edge pada diagram.", "Menu Tools berisi alat bantu lain, bukan pengatur tata letak."] },
+      { n: 6, pg: "pR1", pgl: "Screenshot 1", pageTag: "screenshot 1",
+        t: "Berikut ini menu sebagai <i>shortcut</i> fitur-fitur menu adalah ....",
+        o: ["Menu toolbar", "Main toolbar", "Layout", "Tools"], g: [1], c: "cek",
+        note: "Pilihan A (Menu toolbar) dan B (Main toolbar) mirip. Di yEd, baris ikon pintasan disebut main toolbar, jadi saya menduga B. Istilah di modulmu bisa berbeda. Cocokkan dengan kunci buku.",
+        e: ["Menu toolbar bisa saja dipakai di modulmu sebagai istilah pintasan. Cocokkan dengan kunci buku.", "Kemungkinan jawabannya. Main toolbar adalah baris ikon di bagian atas yang menjadi pintasan (shortcut) untuk fitur-fitur menu yang sering dipakai. Cocokkan dengan kunci buku.", "Layout adalah menu pengatur tata letak (lihat soal 5), bukan pintasan menu.", "Tools adalah menu alat bantu, bukan pintasan menu."] },
+      { n: 7, pg: "pR2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Mengubah ukuran node yang dipilih, sehingga label node sepenuhnya berada di dalam batas node fungsi dari menu ....",
+        o: ["Main bar", "Layout", "Fit Label to Node", "Fit Node to Label"], g: [3], c: "cek",
+        note: "Yang diubah ukurannya adalah node (bukan label), jadi saya menduga Fit Node to Label (D). Cocokkan dengan kunci buku.",
+        e: ["Main bar bukan menu pengubah ukuran node.", "Layout mengatur tata letak diagram, bukan ukuran node.", "Fit Label to Node menyesuaikan label supaya muat di dalam node (yang diubah label-nya), bukan ukuran node.", "Kemungkinan jawabannya. Fit Node to Label mengubah ukuran node supaya label sepenuhnya berada di dalam batas node. Cocokkan dengan kunci buku."] },
+      { n: 8, pg: "pR2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Menu untuk Mengeluarkan semua node dari group adalah ....",
+        o: ["Open Group", "Close Group", "Ungroup", "Ungroup All"], g: [3], c: "cek",
+        note: "Ungroup dan Ungroup All sama-sama mengeluarkan node dari group. Karena soal menyebut semua node, saya menduga Ungroup All (D). Cocokkan dengan kunci buku.",
+        e: ["Open Group membuka (menampilkan isi) group, node tidak dikeluarkan dari group.", "Close Group menutup (menyembunyikan isi) group, node tidak dikeluarkan dari group.", "Ungroup mengeluarkan node dari group. Bisa menjadi jawabannya jika modulmu memakai istilah ini untuk semua node. Cocokkan dengan kunci buku.", "Kemungkinan jawabannya. Ungroup All mengeluarkan semua node dari group (kata semua pada soal). Cocokkan dengan kunci buku."] },
+      { n: 9, pg: "pR2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Menu First Step adalah fungsi untuk ....",
+        o: ["menu contoh grapik dalam yEd", "menampilkan layar Selamat Datang", "menu tutorial yang menjelaskan konsep yEd", "cek update dari pengembang yEd"], g: [2], c: "cek",
+        note: "Dari namanya, First Step (langkah pertama) adalah tutorial pengenalan, jadi saya menduga C. Cocokkan dengan kunci buku.",
+        e: ["Contoh grafik dibuka lewat menu sample (lihat soal 1), bukan First Step.", "Layar Selamat Datang (Welcome) adalah fitur lain, bukan First Step.", "Kemungkinan jawabannya. First Step (langkah pertama) adalah menu tutorial yang menjelaskan konsep dasar yEd. Cocokkan dengan kunci buku.", "Cek update adalah fitur terpisah untuk memeriksa versi baru, bukan First Step."] },
+      { n: 10, pg: "pR2", pgl: "Screenshot 2", pageTag: "screenshot 2",
+        t: "Menu Fit Content adalah fungsi menu untuk ....",
+        o: ["memindahkan area pandang supaya terlihat keseluruhan", "memperkecil tampilan satu langkah", "mengaktifkan kaca pembesar pada area mouse", "memperbesar tampilan satu langkah"], g: [0], c: "tinggi",
+        e: ["Benar. Fit Content menyesuaikan area pandang supaya seluruh isi diagram terlihat.", "Memperkecil tampilan satu langkah adalah fungsi Zoom Out.", "Kaca pembesar pada area mouse adalah fungsi Magnifying Glass.", "Memperbesar tampilan satu langkah adalah fungsi Zoom In."] }
+    ]
+  }
 ];
 
 const L = ["A", "B", "C", "D"];
@@ -573,6 +1533,20 @@ const $ = (s, r = document) => r.querySelector(s);
 /* gambar soal digambar ulang sebagai grafik vektor, mengikuti warna tema */
 const sym = (vb, inner, label) => `<svg viewBox="${vb}" role="img" aria-label="${label}" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" style="height:100%;width:auto;display:block">${inner}</svg>`;
 const FIG = {
+  Qk_1m: sym("0 0 110 60", "<path d=\"M8 38H62V14H104M30 38L16 28M30 38L16 48M42 28V48\"/>", "Kaki gagak dan satu garis tegak (satu-ke-banyak)"),
+  Qs_rect: sym("0 0 120 70", "<rect x=\"8\" y=\"8\" width=\"104\" height=\"54\"/>", "Persegi panjang"),
+  Qs_oval: sym("0 0 120 70", "<ellipse cx=\"60\" cy=\"35\" rx=\"50\" ry=\"26\"/>", "Oval"),
+  Qs_diam: sym("0 0 120 70", "<path d=\"M60 4L104 35L60 66L16 35Z\"/>", "Belah ketupat"),
+  Qs_tri: sym("0 0 120 70", "<path d=\"M60 6L108 64H12Z\"/>", "Segitiga"),
+  Qk_0: sym("0 0 110 60", "<path d=\"M8 38H62V14H104\"/>", "Garis polos tanpa tanda"),
+  Qk_1: sym("0 0 110 60", "<path d=\"M8 38H62V14H104M36 28V48\"/>", "Satu garis tegak (bar)"),
+  Qk_m: sym("0 0 110 60", "<path d=\"M8 38H62V14H104M34 38L20 28M34 38L20 48\"/>", "Kaki gagak (banyak)"),
+  Qk_zm: sym("0 0 110 60", "<path d=\"M8 38H30M38 38H62V14H104M30 38L16 28M30 38L16 48\"/><circle cx=\"44\" cy=\"38\" r=\"6\"/>", "Kaki gagak dengan lingkaran (nol ke banyak)"),
+  Qk_11: sym("0 0 110 60", "<path d=\"M8 38H62V14H104M34 28V48M44 28V48\"/>", "Dua garis tegak (satu-ke-satu)"),
+  Qk_z1: sym("0 0 110 60", "<path d=\"M8 38H40M52 38H62V14H104M28 28V48\"/><circle cx=\"46\" cy=\"38\" r=\"6\"/>", "Garis tegak dengan lingkaran (nol ke satu)"),
+  tbl2: `<table class="dt" aria-label="Tabel anggota: ID Anggota A201801, Nama Tono, Tahun 2018, Judul Buku Basis Data, Jumlah 10"><thead><tr><th>ID Anggota</th><th>Nama</th><th>Tahun</th><th>Judul Buku</th><th>Jumlah</th></tr></thead><tbody><tr><td>A201801</td><td>Tono</td><td>2018</td><td>Basis Data</td><td>10</td></tr></tbody></table>`,
+  tbl: `<table class="dt" aria-label="Tabel barang: KODE_BARANG KPR-1, NAMA_BARANG KULKAS, SATUAN_BARANG BUAH, STOK_BARANG 20"><thead><tr><th>KODE_<wbr>BARANG</th><th>NAMA_<wbr>BARANG</th><th>SATUAN_<wbr>BARANG</th><th>STOK_<wbr>BARANG</th></tr></thead><tbody><tr><td>KPR-1</td><td>KULKAS</td><td>BUAH</td><td>20</td></tr></tbody></table>`,
+  web: `<div class="web" role="img" aria-label="Halaman unduh XAMPP di apachefriends.org: XAMPP Apache + MariaDB + PHP + Perl, unduhan untuk Windows, Linux, dan OS X versi 7.4.11"><div class="w-bar">apachefriends.org/index.html</div><div class="w-nav"><b>Apache Friends</b><span>Download</span><span>Add-ons</span><span>Hosting</span><span>Community</span><span>About</span><span class="w-s">Search...</span><span class="w-b">Search</span><span>EN</span></div><div class="w-body"><h4>XAMPP Apache + MariaDB + PHP + Perl</h4><div class="w-cols"><div><b>What is XAMPP?</b><p><strong>XAMPP is the most popular PHP development environment</strong></p><p class="sm">XAMPP is a completely free, easy to install Apache distribution containing MariaDB, PHP, and Perl. The XAMPP open source package has been set up to be incredibly easy to install and to use.</p></div><div class="w-v"><span>Introduction to XAMPP</span><i></i><b>XAMPP</b></div></div><div class="w-dl"><div class="w-g">Download<small>Click here for other versions</small></div><div>XAMPP for Windows<small>7.4.11 (PHP 7.4.11)</small></div><div>XAMPP for Linux<small>7.4.11 (PHP 7.4.11)</small></div><div>XAMPP for OS X<small>7.4.11 (PHP 7.4.11)</small></div></div></div></div>`,
   conf: `<div class="conf" role="img" aria-label="Potongan konfigurasi replication: server-id=3288226, log_bin=mysql-bin, log_error=mysql-bin.err, binlog_do_db=rumahsakit"><div class="c-link">Select all/Unselect all</div><p>Now, add the following lines at the e</p><pre><mark>server-id=3288226
 log_bin=mysql-bin
 log_error=mysql-bin.err
@@ -609,6 +1583,8 @@ const ICON = {
   no: '<svg class="mark" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>',
   info: '<svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 9v5M10 6.2v.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
   db: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="2.8"/><path d="M4.5 5.5v6.5c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8V5.5M4.5 12v6.5c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8V12"/></svg>',
+  sndOn: '<svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 8v4h3l4 3.5v-11L6 8H3z" fill="currentColor"/><path d="M13 7.5a3.5 3.5 0 010 5M15.2 5.5a6.5 6.5 0 010 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>',
+  sndOff: '<svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 8v4h3l4 3.5v-11L6 8H3z" fill="currentColor"/><path d="M13.5 7.5l4 5M17.5 7.5l-4 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>',
   back: '<svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><path d="M12 4l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
   arrow: '<svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 };
@@ -620,10 +1596,48 @@ const store = {
 };
 let ans = store.get("bank.ans", null);
 let keys = store.get("bank.keys", null);
-if (!ans) ans = { A: store.get("bdm1.ans", {}), B: {}, C: {}, D: {} };
-if (!keys) keys = { A: store.get("bdm1.keys", {}), B: {}, C: {}, D: {} };
+if (!ans) ans = { A: store.get("bdm1.ans", {}), B: {}, C: {}, D: {}, E: {}, F: {}, G: {}, H: {}, I: {}, J: {}, K: {}, L: {}, M: {}, N: {}, O: {}, P: {}, Q: {}, R: {} };
+if (!keys) keys = { A: store.get("bdm1.keys", {}), B: {}, C: {}, D: {}, E: {}, F: {}, G: {}, H: {}, I: {}, J: {}, K: {}, L: {}, M: {}, N: {}, O: {}, P: {}, Q: {}, R: {} };
 SETS.forEach(s => { ans[s.id] = ans[s.id] || {}; keys[s.id] = keys[s.id] || {}; });
 const save = () => { store.set("bank.ans", ans); store.set("bank.keys", keys); };
+
+
+/* ---------- suara: ting untuk benar, toot untuk salah ---------- */
+const snd = {
+  on: store.get("bank.sound", true), ctx: null,
+  ac() {
+    try {
+      if (!this.ctx) { const C = window.AudioContext || window.webkitAudioContext; if (!C) return null; this.ctx = new C(); }
+      if (this.ctx.state === "suspended") this.ctx.resume();
+      return this.ctx;
+    } catch (e) { return null; }
+  },
+  voice(c, type, f0, f1, t, dur, vol, cutoff) {
+    const o = c.createOscillator(), g = c.createGain(); let out = o;
+    o.type = type; o.frequency.setValueAtTime(f0, t);
+    if (f1 !== f0) o.frequency.exponentialRampToValueAtTime(f1, t + dur);
+    if (cutoff) { const f = c.createBiquadFilter(); f.type = "lowpass"; f.frequency.value = cutoff; o.connect(f); out = f; }
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + 0.012);
+    g.gain.setValueAtTime(vol, t + dur * 0.55); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    out.connect(g); g.connect(c.destination); o.start(t); o.stop(t + dur + 0.05);
+  },
+  ting() {
+    const c = this.ac(); if (!c) return; const t = c.currentTime;
+    [[1318.5, 0.2, 0.9], [2637, 0.07, 0.6], [3951, 0.035, 0.35]].forEach(([f, v, d]) => {
+      const o = c.createOscillator(), g = c.createGain();
+      o.type = "sine"; o.frequency.value = f;
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(v, t + 0.005); g.gain.exponentialRampToValueAtTime(0.0001, t + d);
+      o.connect(g); g.connect(c.destination); o.start(t); o.stop(t + d + 0.05);
+    });
+  },
+  toot() {
+    const c = this.ac(); if (!c) return; const t = c.currentTime;
+    this.voice(c, "sawtooth", 175, 120, t, 0.42, 0.16, 900);
+    this.voice(c, "square", 181, 124, t, 0.42, 0.05, 700);
+  },
+  play(ok) { if (this.on) ok ? this.ting() : this.toot(); },
+  toggle() { this.on = !this.on; store.set("bank.sound", this.on); if (this.on) this.ting(); }
+};
 
 let page = "home", courseId = "basis-data", setId = "A", cur = 1, tab = "latihan", animate = false;
 const course = () => COURSES.find(c => c.id === courseId);
@@ -681,6 +1695,7 @@ function renderHero() {
     $("#hero").innerHTML = `
       <div>
         <button class="back" type="button" data-home>${ICON.back} Mata kuliah</button>
+        <button class="back snd" type="button" data-snd aria-pressed="${snd.on}" aria-label="Suara ${snd.on ? "nyala" : "mati"}">${snd.on ? ICON.sndOn : ICON.sndOff} Suara ${snd.on ? "nyala" : "mati"}</button>
         <div class="brand">${c.code} · ${c.sks} sks</div>
         <h1>${c.name}</h1>
         <p>${c.info}</p>
@@ -745,7 +1760,9 @@ function viewLatihan() {
   const ef = effective(s.id, q);
   const locked = keys[s.id][q.n] !== undefined && a !== undefined;
   const allDone = s.qs.every(x => ans[s.id][x.n] !== undefined);
-  const pager = s.qs.map(x => `<button type="button" data-go="${x.n}" class="${status(s.id, x)}" ${x.n === cur ? 'aria-current="true"' : ""} aria-label="Soal ${x.n}">${x.n}</button>`).join("");
+  const pager = s.qs.map((x, i) => `<button type="button" data-go="${i + 1}" class="${status(s.id, x)}" ${i + 1 === cur ? 'aria-current="true"' : ""} aria-label="Soal ${x.n}">${x.n}</button>`).join("");
+  const gap = s.qs.some((x, i) => x.n !== i + 1);
+  const miss = s.missing ? `<div class="note cek" style="margin:0 0 12px">${ICON.info}<span>Soal ${s.missing.join(", ")} belum ada di bank ini (tidak ada di screenshot yang dikirim), jadi nomornya dilewati. Kirim fotonya kalau ada.</span></div>` : "";
   const opts = q.o.map((txt, i) => {
     let c = "opt", mark = "";
     if (a === i) c += " sel";
@@ -770,10 +1787,11 @@ function viewLatihan() {
   const fig = (q.fig ? `<div class="fig">${FIG[q.fig]}</div>` : "") + (q.t2 ? `<p class="qtext qtext2">${q.t2}</p>` : "");
   const done = allDone ? `<div class="done"><span>Semua soal di set ini sudah dijawab.</span><button class="btn small primary" type="button" data-tab="kunci">Lihat hasil</button></div>` : "";
   return `<div class="col">
+  ${miss}
   <div class="pager" aria-label="Pilih soal">${pager}</div>
     <section class="card q ${animate ? "enter" : ""}">
       <div class="progress" aria-hidden="true"><i style="width:${cur / s.qs.length * 100}%"></i></div>
-      <div class="eyebrow"><span>Soal ${q.n} dari ${s.qs.length}</span><span>${s.name}${s.kind === "foto" ? " · " + q.pageTag : ""}</span></div>
+      <div class="eyebrow"><span>${gap ? `Soal ${q.n} · ke-${cur} dari ${s.qs.length}` : `Soal ${q.n} dari ${s.qs.length}`}</span><span>${s.name}${s.kind === "foto" ? " · " + q.pageTag : ""}</span></div>
       <p class="qtext"><span class="qno">${q.n}.</span> ${q.t}</p>
       ${fig}
       <div class="opts">${opts}</div>
@@ -790,7 +1808,7 @@ function viewLatihan() {
 }
 
 function viewSemua() {
-  return course().sets.map(s => `<div class="group-title">${s.title}</div><div class="grid2">` + s.qs.map(q => `
+  return course().sets.map(s => `<div class="group-title">${s.title}</div>${s.missing ? `<p class="src" style="margin:0 0 10px;color:var(--muted);font-size:13px">Soal ${s.missing.join(", ")} belum ada di bank ini (tidak ada di screenshot).</p>` : ""}<div class="grid2">` + s.qs.map(q => `
     <article class="card item ${animate ? "enter" : ""}">
       <div class="eyebrow"><span>${s.name} · Soal ${q.n}</span>${s.kind === "foto" ? `<span>${q.pageTag}</span>` : ""}</div>
       <p class="qtext"><span class="qno">${q.n}.</span> ${q.t}</p>
@@ -834,6 +1852,8 @@ function viewKunci() {
 
 function render() {
   renderHero(); renderTop();
+  const ss = $("#sets"), sb = ss && ss.querySelector('[aria-pressed="true"]');
+  if (sb) ss.scrollLeft = sb.offsetLeft - (ss.clientWidth - sb.offsetWidth) / 2;
   $("#view").innerHTML = page === "home" ? "" : tab === "latihan" ? viewLatihan() : tab === "semua" ? viewSemua() : viewKunci();
   animate = false;
 }
@@ -850,6 +1870,7 @@ window.addEventListener("hashchange", () => route(location.hash.slice(1)));
 
 document.addEventListener("click", e => {
   const t = e.target.closest("button"); if (!t) return;
+  if (t.hasAttribute("data-snd")) { snd.toggle(); renderHero(); return; }
   if (t.hasAttribute("data-home")) { go("mapel"); route("mapel"); return; }
   if (t.dataset.open) { courseId = t.dataset.open; cur = 1; go("latihan"); route("latihan"); return; }
   if (t.dataset.set) { setId = t.dataset.set; cur = 1; animate = true; render(); return; }
@@ -870,8 +1891,11 @@ document.addEventListener("click", e => {
 
 function pick(i) {
   const s = curSet();
-  if (keys[s.id][cur] !== undefined && ans[s.id][cur] !== undefined) return;
-  ans[s.id][cur] = i; save(); render();
+  const n = curQ().n;
+  if (keys[s.id][n] !== undefined && ans[s.id][n] !== undefined) return;
+  ans[s.id][n] = i; save(); render();
+  const ef = effective(s.id, curQ());
+  if (ef) snd.play(ef.idx.includes(i));
   const sel = $(".opt.sel, .opt.right, .opt.wrong"); if (sel) sel.focus();
 }
 document.addEventListener("keydown", e => {
