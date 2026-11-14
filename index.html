@@ -100,7 +100,8 @@ svg { display: block; }
 .sect { font-family: var(--f-display); font-size: 18px; font-weight: 600; margin: 26px 0 12px; letter-spacing: -.01em; }
 .back { display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(255,255,255,.28); background: rgba(255,255,255,.08); color: #fff; border-radius: 99px; padding: 6px 14px 6px 10px; font-size: 13px; margin-bottom: 16px; min-height: 34px; }
 .back:hover { background: rgba(255,255,255,.16); }
-.hero.compact .gut { padding-block: 18px 88px; }
+.hero.compact .gut { padding-block: 14px 76px; }
+.hero.compact p { display: none; }
 
 main.gut { padding-block: 22px 44px; }
 nav.tabs { display: inline-flex; gap: 4px; padding: 4px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); margin: 22px 0 18px; max-width: 100%; overflow-x: auto; }
@@ -270,6 +271,19 @@ nav.tabs button[aria-selected="true"] { background: var(--accent); color: var(--
 .dt td { text-align: center; padding: 9px 8px; border-bottom: 1px solid var(--accent); }
 .opt span { overflow-wrap: anywhere; }
 @media (max-width: 520px) { .dt { font-size: 11.5px; } .dt th, .dt td { padding: 8px 4px; } }
+
+/* pemilih set: satu baris geser agar soal langsung terlihat */
+.setswrap { position: relative; margin-top: -62px; }
+.setswrap .sets { margin-top: 0; }
+.setswrap .arr { position: absolute; top: 50%; transform: translateY(-50%); z-index: 3; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--ink); box-shadow: var(--shadow); font-size: 20px; line-height: 1; display: grid; place-items: center; padding: 0; }
+.setswrap .arr:hover { border-color: var(--accent); }
+.setswrap .arr.l { left: -14px; } .setswrap .arr.r { right: -14px; }
+@media (min-width: 641px) {
+  #sets.sets { display: flex; overflow-x: auto; scroll-snap-type: x proximity; gap: 10px; padding: 4px 4px 12px; scrollbar-width: thin; }
+  #sets.sets button { flex: 0 0 218px; min-height: 0; scroll-snap-align: start; padding: 12px 14px; }
+  #sets.sets .src { display: none; }
+}
+@media (max-width: 640px) { .setswrap { margin-top: -48px; } .setswrap .arr { display: none; } }
 </style>
 
 <header class="hero"><div class="gut" id="hero"></div></header>
@@ -1727,10 +1741,10 @@ function renderTop() {
     <div class="card" style="font-size:14px;color:var(--muted)">Buka mata kuliah, pilih set soal, lalu jawab satu per satu. Setelah menjawab, pembahasan tiap pilihan langsung muncul. Isi kunci dari buku di tab <b style="color:var(--ink)">Kunci &amp; hasil</b> supaya penilaian memakai kunci resmi.</div>`;
   } else {
     const c = course();
-    el.innerHTML = `<div class="sets" id="sets" role="group" aria-label="Pilih set soal">${c.sets.map(s => {
+    el.innerHTML = `<div class="setswrap"><button type="button" class="arr l" data-arr="-1" aria-label="Set sebelumnya">‹</button><button type="button" class="arr r" data-arr="1" aria-label="Set berikutnya">›</button><div class="sets" id="sets" role="group" aria-label="Pilih set soal">${c.sets.map(s => {
       const st = statsOf([s]), pct = st.total ? Math.round(st.answered / st.total * 100) : 0;
       return `<button type="button" data-set="${s.id}" aria-pressed="${s.id === setId}"><span class="sid">${s.id === "A" ? "Buku modul" : "Kuis latihan"}</span><b>${s.name}</b><span class="src">${s.src}</span><span class="mini"><i style="width:${pct}%"></i></span><span class="cnt">${st.answered}/${st.total} terjawab</span></button>`;
-    }).join("")}</div>
+    }).join("")}</div></div>
     <nav class="tabs" role="tablist" aria-label="Tampilan">
       <button role="tab" data-tab="latihan" aria-selected="${tab === "latihan"}">Latihan</button>
       <button role="tab" data-tab="semua" aria-selected="${tab === "semua"}">Semua soal</button>
@@ -1858,6 +1872,15 @@ function render() {
   animate = false;
 }
 
+/* setelah ganti soal atau set, halaman berhenti di soal (tanpa lempar ke atas) */
+function alignTo(sel, force) {
+  requestAnimationFrame(() => {
+    const t = $(sel); if (!t) return;
+    const y = t.getBoundingClientRect().top;
+    if (force ? Math.abs(y - 10) > 4 : (y < 0 || y > innerHeight * 0.55)) window.scrollTo({ top: Math.max(0, window.scrollY + y - 10), behavior: "smooth" });
+  });
+}
+
 /* ---------- navigasi ---------- */
 function go(hash) { try { location.hash = hash; } catch (e) {} }
 function route(h) {
@@ -1873,12 +1896,13 @@ document.addEventListener("click", e => {
   if (t.hasAttribute("data-snd")) { snd.toggle(); renderHero(); return; }
   if (t.hasAttribute("data-home")) { go("mapel"); route("mapel"); return; }
   if (t.dataset.open) { courseId = t.dataset.open; cur = 1; go("latihan"); route("latihan"); return; }
-  if (t.dataset.set) { setId = t.dataset.set; cur = 1; animate = true; render(); return; }
+  if (t.dataset.arr) { const ss = $("#sets"); if (ss) ss.scrollBy({ left: Number(t.dataset.arr) * ss.clientWidth * 0.8, behavior: "smooth" }); return; }
+  if (t.dataset.set) { setId = t.dataset.set; cur = 1; animate = true; render(); alignTo(".setswrap", true); return; }
   if (t.dataset.tab) { go(t.dataset.tab); route(t.dataset.tab); return; }
   if (page !== "course") return;
   const s = curSet();
-  if (t.dataset.go) { cur = +t.dataset.go; animate = true; render(); return; }
-  if (t.dataset.step) { cur = Math.min(s.qs.length, Math.max(1, cur + +t.dataset.step)); animate = true; render(); window.scrollTo({ top: 0 }); return; }
+  if (t.dataset.go) { cur = +t.dataset.go; animate = true; render(); alignTo(".pager"); return; }
+  if (t.dataset.step) { cur = Math.min(s.qs.length, Math.max(1, cur + +t.dataset.step)); animate = true; render(); alignTo(".pager"); return; }
   if (t.dataset.pick !== undefined) { pick(+t.dataset.pick); return; }
   if (t.dataset.key) {
     const [n, i] = t.dataset.key.split(":").map(Number);
