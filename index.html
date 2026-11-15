@@ -3,7 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0b1f4a">
+<meta name="theme-color" content="#060913">
+<meta name="description" content="Bank soal latihan UAS Semester 2, Program Studi Sistem Informasi, UT Jayapura. Latihan pribadi dengan pembahasan tiap pilihan.">
+<meta property="og:title" content="Bank Soal UAS UT">
+<meta property="og:description" content="Latihan soal UAS Semester 2 S1 Sistem Informasi dengan pembahasan.">
+<meta property="og:image" content="icon-512.png">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Bank Soal UAS">
@@ -19,7 +23,7 @@ img{max-width:100%}
 [hidden]{display:none!important}
 </style>
 <title>Bank Soal UAS UT</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Nunito:wght@600;700;800;900&family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap">
 <style>
 /* Layout: hero navy berpola kisi tabel (motif basis data) dengan cincin progres; kartu set menimpa tepi hero; kartu soal di kiri, foto asli di kanan. Satu aksen biru UT, emas hanya untuk progres. */
 :root {
@@ -316,6 +320,242 @@ nav.tabs button[aria-selected="true"] { background: var(--accent); color: var(--
 .fig:has(.codetbl) { max-width: 640px; padding: 0; overflow-x: auto; background: transparent; border: 0; border-radius: 0; }
 .fig:has(.llf) { max-width: 600px; }
 
+/* ===== 5 tema (data-skin) ===== */
+:root { --r: 16px; --bw: 1px; --hero-ink: #fff; --hero-mute: rgba(255,255,255,.72); --hero-line: rgba(255,255,255,.28); --hbtn: rgba(255,255,255,.08); --grid: rgba(255,255,255,.055); --btn: var(--accent); --btn-ink: var(--accent-ink); --ring: var(--gold); --pbg: var(--bg); --card-bg: var(--surface); --hero-bg: linear-gradient(165deg, var(--hero1), var(--hero2)); }
+:root[data-skin] body { background: var(--pbg); background-attachment: fixed; }
+:root[data-skin] .hero { color: var(--hero-ink); background: var(--hero-bg); }
+:root[data-skin] .hero::before { background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); }
+:root[data-skin] .brand, :root[data-skin] .hero p, :root[data-skin] .hnums span, :root[data-skin] .ring b small { color: var(--hero-mute); }
+:root[data-skin] .back { color: var(--hero-ink); border-color: var(--hero-line); background: var(--hbtn); }
+:root[data-skin] .ring .trk { stroke: var(--hero-line); }
+:root[data-skin] .ring .val { stroke: var(--ring); }
+:root[data-skin] .card, :root[data-skin] .why, :root[data-skin] .note { border-radius: var(--r); }
+:root[data-skin] .card { background: var(--card-bg); border-width: var(--bw); }
+:root[data-skin] .opt { border-width: var(--bw); border-radius: calc(var(--r) - 4px); }
+:root[data-skin] .btn { border-radius: calc(var(--r) - 4px); }
+:root[data-skin] .btn.primary, :root[data-skin] nav.tabs button[aria-selected="true"] { background: var(--btn); color: var(--btn-ink); }
+:root[data-skin] .qno, :root[data-skin] .go { color: var(--accent); }
+.thm svg { width: 15px; height: 15px; }
+.brand::before, .brand::after { content: none; }
+
+/* 1. Cyber Neon */
+:root[data-skin="neon"] {
+  --bg: #060913; --surface: #0d1424; --surface-2: #0a101d; --ink: #e7eefc; --muted: #8a9bb8; --line: #1b2a45;
+  --accent: #22d3ee; --accent-ink: #031017; --accent-soft: rgba(34,211,238,.12);
+  --good: #34d399; --good-soft: rgba(52,211,153,.13); --bad: #fb7185; --bad-soft: rgba(251,113,133,.13); --warn: #fbbf24; --warn-soft: rgba(251,191,36,.12); --gold: #fbbf24;
+  --pbg: radial-gradient(1000px 520px at 88% -8%, rgba(34,211,238,.14), transparent 60%), radial-gradient(800px 520px at -8% 6%, rgba(168,85,247,.13), transparent 55%), #060913;
+  --hero-bg: linear-gradient(165deg, rgba(7,11,24,.9), rgba(11,26,58,.85)); --ring: #22d3ee; --btn: linear-gradient(135deg, #22d3ee, #6366f1); --btn-ink: #04111a; --grid: rgba(34,211,238,.07);
+  --shadow: 0 0 0 1px rgba(34,211,238,.08), 0 0 26px rgba(34,211,238,.06), 0 14px 32px rgba(0,0,0,.45);
+  --f-display: "Space Grotesk", "IBM Plex Sans", system-ui, sans-serif; --f-text: "IBM Plex Sans", system-ui, sans-serif; --r: 18px; color-scheme: dark;
+}
+:root[data-skin="neon"] .hero h1 { background: linear-gradient(90deg, #fff 10%, #7dd3fc 55%, #c4b5fd); -webkit-background-clip: text; background-clip: text; color: transparent; }
+:root[data-skin="neon"] .brand svg { display: none; }
+:root[data-skin="neon"] .brand::before { content: "$"; color: #22d3ee; font-weight: 700; margin-right: -2px; }
+:root[data-skin="neon"] .brand::after { content: "▍"; color: #22d3ee; animation: blink 1.1s steps(2) infinite; }
+:root[data-skin="neon"] .opt.sel { box-shadow: 0 0 0 1px var(--accent), 0 0 18px rgba(34,211,238,.35); }
+:root[data-skin="neon"] .opt.right { box-shadow: 0 0 0 1px var(--good), 0 0 18px rgba(52,211,153,.3); }
+:root[data-skin="neon"] .opt.wrong { box-shadow: 0 0 0 1px var(--bad), 0 0 18px rgba(251,113,133,.3); }
+:root[data-skin="neon"] .opt .l { box-shadow: 0 2px 0 var(--line); }
+:root[data-skin="neon"] .eyebrow span:first-child::before { content: ">_ "; color: var(--accent); }
+:root[data-skin="neon"] .btn.primary { box-shadow: 0 6px 20px rgba(34,211,238,.28); }
+:root[data-skin="neon"] .sets button[aria-pressed="true"], :root[data-skin="neon"] #sets.sets button[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--accent), 0 0 18px rgba(34,211,238,.3); }
+
+/* 2. Aurora Glass */
+:root[data-skin="aurora"] {
+  --bg: #0b0b1e; --surface: rgba(255,255,255,.075); --surface-2: rgba(255,255,255,.05); --ink: #f6f3ff; --muted: #bdb7da; --line: rgba(255,255,255,.17);
+  --accent: #b69cff; --accent-ink: #160b30; --accent-soft: rgba(182,156,255,.22);
+  --good: #6ee7b7; --good-soft: rgba(110,231,183,.16); --bad: #fda4af; --bad-soft: rgba(253,164,175,.16); --warn: #fcd34d; --warn-soft: rgba(252,211,77,.14); --gold: #fcd34d;
+  --pbg: radial-gradient(800px 600px at 8% 0%, rgba(124,58,237,.62), transparent 60%), radial-gradient(760px 560px at 100% 18%, rgba(6,182,212,.5), transparent 58%), radial-gradient(900px 700px at 50% 108%, rgba(236,72,153,.5), transparent 60%), #0b0b1e;
+  --hero-bg: transparent; --ring: #f9a8d4; --btn: linear-gradient(135deg, #b69cff, #f472b6); --btn-ink: #1b0b2e; --grid: rgba(255,255,255,.04); --hbtn: rgba(255,255,255,.1);
+  --shadow: 0 10px 34px rgba(5,0,30,.3); --r: 24px; --f-display: "Space Grotesk", system-ui, sans-serif; --f-text: "IBM Plex Sans", system-ui, sans-serif; color-scheme: dark;
+}
+:root[data-skin="aurora"] .card, :root[data-skin="aurora"] .course, :root[data-skin="aurora"] .sets button, :root[data-skin="aurora"] nav.tabs, :root[data-skin="aurora"] .pager button, :root[data-skin="aurora"] .opt, :root[data-skin="aurora"] .why, :root[data-skin="aurora"] .note, :root[data-skin="aurora"] .btn { -webkit-backdrop-filter: blur(16px) saturate(1.3); backdrop-filter: blur(16px) saturate(1.3); }
+:root[data-skin="aurora"] .opt { background: rgba(255,255,255,.06); }
+:root[data-skin="aurora"] .opt.sel { background: var(--accent-soft); border-color: var(--accent); }
+:root[data-skin="aurora"] .hero h1 { background: linear-gradient(90deg, #fff, #f9a8d4 70%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+:root[data-skin="aurora"] .sets button[aria-pressed="true"], :root[data-skin="aurora"] #sets.sets button[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--accent), 0 8px 24px rgba(182,156,255,.3); }
+:root[data-skin="aurora"] .hero::before { -webkit-mask-image: none; mask-image: none; opacity: .5; }
+:root[data-skin="aurora"] .sheet { background: #17123a; }
+
+/* 3. Neo Brutal */
+:root[data-skin="brutal"] {
+  --bg: #fff7d6; --surface: #ffffff; --surface-2: #fff0a8; --ink: #111111; --muted: #444444; --line: #111111;
+  --accent: #e11d74; --accent-ink: #ffffff; --accent-soft: #ffd3e6;
+  --good: #0a7a3d; --good-soft: #b8f5c8; --bad: #c81e1e; --bad-soft: #ffc4c4; --warn: #7a4b00; --warn-soft: #ffe08a; --gold: #111111;
+  --pbg: radial-gradient(rgba(0,0,0,.16) 1.2px, transparent 1.4px) 0 0 / 18px 18px, #fff7d6;
+  --hero-bg: #ffd400; --hero-ink: #111; --hero-mute: #222; --hero-line: #111; --hbtn: #ffffff; --grid: rgba(0,0,0,.09); --ring: #111;
+  --btn: #ffd400; --btn-ink: #111; --shadow: 4px 4px 0 #111; --r: 14px; --bw: 2.5px;
+  --f-display: "Space Grotesk", system-ui, sans-serif; --f-ui: "Space Grotesk", system-ui, sans-serif; --f-text: "Space Grotesk", system-ui, sans-serif; color-scheme: light;
+}
+:root[data-skin="brutal"] .hero { border-bottom: 3px solid #111; }
+:root[data-skin="brutal"] .hero::before { -webkit-mask-image: none; mask-image: none; }
+:root[data-skin="brutal"] .ring .trk { stroke: rgba(0,0,0,.2); }
+:root[data-skin="brutal"] .card, :root[data-skin="brutal"] .sets button, :root[data-skin="brutal"] nav.tabs, :root[data-skin="brutal"] .why, :root[data-skin="brutal"] .soon, :root[data-skin="brutal"] .fig { border: var(--bw) solid #111; box-shadow: 4px 4px 0 #111; }
+:root[data-skin="brutal"] .opt { border: var(--bw) solid #111; box-shadow: 3px 3px 0 #111; background: #fff; }
+:root[data-skin="brutal"] .opt:hover:not(:disabled) { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 #111; }
+:root[data-skin="brutal"] .opt:active:not(:disabled) { transform: translate(2px, 2px); box-shadow: 1px 1px 0 #111; }
+:root[data-skin="brutal"] .opt.sel { background: #ffe66d; border-color: #111; }
+:root[data-skin="brutal"] .opt.sel .l { background: #111; color: #ffd400; border-color: #111; }
+:root[data-skin="brutal"] .opt .l { border: 2px solid #111; background: #fff; color: #111; }
+:root[data-skin="brutal"] .btn, :root[data-skin="brutal"] .back, :root[data-skin="brutal"] .pager button, :root[data-skin="brutal"] .chip { border: 2px solid #111; box-shadow: 2px 2px 0 #111; color: #111; }
+:root[data-skin="brutal"] .btn:active:not(:disabled) { transform: translate(2px, 2px); box-shadow: 0 0 0 #111; }
+:root[data-skin="brutal"] .btn.primary { background: #ffd400; color: #111; border-color: #111; }
+:root[data-skin="brutal"] .btn:disabled { box-shadow: none; }
+:root[data-skin="brutal"] .back { background: #fff; }
+:root[data-skin="brutal"] nav.tabs button { color: #111; font-weight: 600; }
+:root[data-skin="brutal"] nav.tabs button[aria-selected="true"] { background: #111; color: #ffd400; }
+:root[data-skin="brutal"] .sets button[aria-pressed="true"], :root[data-skin="brutal"] #sets.sets button[aria-pressed="true"] { background: #ffd400; box-shadow: 4px 4px 0 #111; border-color: #111; }
+:root[data-skin="brutal"] .pager button.answered { background: #ffe66d; }
+:root[data-skin="brutal"] .pager button.ok { background: var(--good-soft); color: #111; }
+:root[data-skin="brutal"] .pager button.no { background: var(--bad-soft); color: #111; }
+:root[data-skin="brutal"] .progress { background: #111; }
+:root[data-skin="brutal"] .progress i { background: #e11d74; }
+:root[data-skin="brutal"] .hero h1 { font-weight: 700; letter-spacing: -.03em; }
+:root[data-skin="brutal"] .brand svg { color: #111; }
+:root[data-skin="brutal"] .courses .course .ico { background: #fff; border: 2.5px solid #111; color: #111; }
+:root[data-skin="brutal"] .note, :root[data-skin="brutal"] .done { border: 2px solid #111; }
+:root[data-skin="brutal"] .sheet { background: #fff7d6; border: 3px solid #111; box-shadow: 0 -5px 0 #111; }
+
+/* 4. Pop Gamified */
+:root[data-skin="pop"] {
+  --bg: #f4f0ff; --surface: #ffffff; --surface-2: #f1ecff; --ink: #1f1747; --muted: #6b628f; --line: #e0d8ff;
+  --accent: #7c3aed; --accent-ink: #ffffff; --accent-soft: #ece4ff;
+  --good: #15803d; --good-soft: #d9f8e3; --bad: #e11d48; --bad-soft: #ffe1e6; --warn: #b45309; --warn-soft: #fff0c2; --gold: #ffc800;
+  --pbg: #f4f0ff; --hero-bg: linear-gradient(155deg, #7c3aed, #c026d3 68%, #ec4899); --grid: rgba(255,255,255,.07); --ring: #ffc800;
+  --btn: #7c3aed; --btn-ink: #ffffff; --shadow: 0 5px 0 #e0d8ff; --r: 22px; --bw: 2px;
+  --f-display: "Nunito", system-ui, sans-serif; --f-ui: "Nunito", system-ui, sans-serif; --f-text: "Nunito", system-ui, sans-serif; color-scheme: light;
+}
+:root[data-skin="pop"] body { font-weight: 600; }
+:root[data-skin="pop"] .hero h1 { font-weight: 900; letter-spacing: -.02em; }
+:root[data-skin="pop"] .hero { border-radius: 0 0 28px 28px; }
+:root[data-skin="pop"] .card, :root[data-skin="pop"] .sets button, :root[data-skin="pop"] nav.tabs, :root[data-skin="pop"] .why { border: 2px solid var(--line); box-shadow: 0 5px 0 var(--line); }
+:root[data-skin="pop"] .opt { border: 2px solid var(--line); border-bottom-width: 5px; background: #fff; font-weight: 700; }
+:root[data-skin="pop"] .opt:active:not(:disabled) { transform: translateY(3px); border-bottom-width: 2px; margin-bottom: 3px; }
+:root[data-skin="pop"] .opt.sel { border-color: #7c3aed; background: #f3edff; }
+:root[data-skin="pop"] .opt.right { border-color: #22c55e; background: #e3fbe9; }
+:root[data-skin="pop"] .opt.wrong { border-color: #f43f5e; background: #ffe9ed; }
+:root[data-skin="pop"] .opt .l { background: #fff; border: 2px solid var(--line); color: #7c3aed; font-weight: 800; }
+:root[data-skin="pop"] .btn { border: 2px solid var(--line); border-bottom-width: 5px; font-weight: 800; }
+:root[data-skin="pop"] .btn.primary { border-color: #5b21b6; background: #7c3aed; box-shadow: none; }
+:root[data-skin="pop"] .btn:active:not(:disabled) { transform: translateY(3px); border-bottom-width: 2px; }
+:root[data-skin="pop"] .pager button { border: 2px solid var(--line); border-bottom-width: 4px; font-weight: 800; border-radius: 12px; }
+:root[data-skin="pop"] .pager button.answered { background: #ece4ff; border-color: #7c3aed; }
+:root[data-skin="pop"] .progress { background: #ece4ff; height: 8px; border-radius: 99px; }
+:root[data-skin="pop"] .progress i { background: linear-gradient(90deg, #ffc800, #ff8a00); border-radius: 99px; }
+:root[data-skin="pop"] nav.tabs button { font-weight: 800; }
+:root[data-skin="pop"] .sets button[aria-pressed="true"], :root[data-skin="pop"] #sets.sets button[aria-pressed="true"] { border-color: #7c3aed; box-shadow: 0 5px 0 #7c3aed; background: #f6f1ff; }
+:root[data-skin="pop"] .chip { background: #fff; border-color: var(--line); font-weight: 700; }
+:root[data-skin="pop"] .back { font-weight: 700; }
+:root[data-skin="pop"] .courses .course .ico { background: #fff3c4; color: #b45309; }
+:root[data-skin="pop"] .eyebrow { color: #7c3aed; font-weight: 800; }
+:root[data-skin="pop"] .sheet { background: #fff; }
+
+/* 5. Matrix Terminal */
+:root[data-skin="matrix"] {
+  --bg: #030806; --surface: #07120d; --surface-2: #050d09; --ink: #c2ffe0; --muted: #62b88e; --line: #14402f;
+  --accent: #00ff9c; --accent-ink: #00150c; --accent-soft: rgba(0,255,156,.1);
+  --good: #00ff9c; --good-soft: rgba(0,255,156,.1); --bad: #ff5c7a; --bad-soft: rgba(255,92,122,.12); --warn: #ffd24a; --warn-soft: rgba(255,210,74,.1); --gold: #ffd24a;
+  --pbg: #030806; --hero-bg: linear-gradient(180deg, #02100a, #031c11); --grid: rgba(0,255,156,.08); --ring: #00ff9c;
+  --btn: #00ff9c; --btn-ink: #00150c; --shadow: 0 0 0 1px rgba(0,255,156,.1), 0 0 26px rgba(0,255,156,.07); --r: 6px; --bw: 1px;
+  --f-display: "JetBrains Mono", ui-monospace, Menlo, monospace; --f-ui: "JetBrains Mono", ui-monospace, Menlo, monospace; --f-text: "JetBrains Mono", ui-monospace, Menlo, monospace; color-scheme: dark;
+}
+:root[data-skin="matrix"] body { font-size: 13.5px; }
+:root[data-skin="matrix"] body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 60; background: repeating-linear-gradient(0deg, rgba(0,0,0,.2) 0 1px, transparent 1px 3px); }
+:root[data-skin="matrix"] .hero h1 { text-shadow: 0 0 16px rgba(0,255,156,.55); font-weight: 700; letter-spacing: -.04em; }
+:root[data-skin="matrix"] .brand svg { display: none; }
+:root[data-skin="matrix"] .brand { color: #00ff9c; text-transform: none; letter-spacing: 0; }
+:root[data-skin="matrix"] .brand::before { content: "root@ut-si:~$"; color: #00ff9c; margin-right: 4px; }
+:root[data-skin="matrix"] .brand::after { content: "▍"; animation: blink 1s steps(2) infinite; }
+:root[data-skin="matrix"] .qtext { font-size: 1rem; line-height: 1.6; }
+:root[data-skin="matrix"] .opt { font-size: .9rem; }
+:root[data-skin="matrix"] .opt.sel { box-shadow: 0 0 0 1px var(--accent), 0 0 14px rgba(0,255,156,.35); }
+:root[data-skin="matrix"] .opt.wrong { box-shadow: 0 0 0 1px var(--bad), 0 0 14px rgba(255,92,122,.3); }
+:root[data-skin="matrix"] .opt .l { border-radius: 3px; }
+:root[data-skin="matrix"] .eyebrow span:first-child::before { content: "> "; color: var(--accent); }
+:root[data-skin="matrix"] .btn.primary { box-shadow: 0 0 16px rgba(0,255,156,.35); }
+:root[data-skin="matrix"] .sets button[aria-pressed="true"], :root[data-skin="matrix"] #sets.sets button[aria-pressed="true"] { box-shadow: 0 0 0 1px var(--accent), 0 0 16px rgba(0,255,156,.3); }
+:root[data-skin="matrix"] .sheet { background: #04110b; }
+:root[data-skin="matrix"] .hero::before { -webkit-mask-image: linear-gradient(180deg, #000, transparent); mask-image: linear-gradient(180deg, #000, transparent); }
+:root[data-skin="matrix"] .brand { font-size: 0; }
+:root[data-skin="matrix"] .brand::before { font-size: 12px; content: "root@ut-si:~$ ./uas"; }
+:root[data-skin="matrix"] .brand::after { font-size: 12px; }
+:root[data-skin="aurora"] .card.q .nav { background: linear-gradient(180deg, transparent, rgba(22,16,56,.94) 34%); }
+:root[data-skin="aurora"] .btn:not(.primary) { background: rgba(34,26,82,.92); }
+:root[data-skin="brutal"] .opt.right { background: var(--good-soft); }
+:root[data-skin="brutal"] .opt.wrong { background: var(--bad-soft); }
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .brand::after { animation: none !important; } }
+@media (prefers-reduced-motion: no-preference) {
+  :root[data-skin] .opt.wrong { animation: shake .35s; }
+  @keyframes shake { 20% { transform: translateX(-5px); } 40% { transform: translateX(5px); } 60% { transform: translateX(-3px); } 80% { transform: translateX(3px); } }
+}
+
+/* pemilih tema */
+#skinsheet { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,.55); display: flex; align-items: flex-end; justify-content: center; }
+#skinsheet[hidden] { display: none; }
+.sheet { width: min(560px, 100%); max-height: 88vh; overflow-y: auto; background: var(--bg); color: var(--ink); border: 1px solid var(--line); border-radius: 22px 22px 0 0; padding: 14px 16px calc(16px + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -12px 40px rgba(0,0,0,.4); }
+.sheet .sh-h { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-family: var(--f-display); font-size: 17px; }
+.sheet .sh-h button { border: 1px solid var(--line); background: var(--surface); width: 34px; height: 34px; border-radius: 50%; line-height: 1; }
+.sk-list { display: grid; gap: 8px; }
+.sk { display: grid; grid-template-columns: 62px minmax(0, 1fr); gap: 12px; align-items: center; text-align: left; padding: 8px 12px 8px 8px; border: 2px solid var(--line); border-radius: 14px; background: var(--surface); color: var(--ink); }
+.sk[aria-pressed="true"] { border-color: var(--accent); }
+.sk .sw { height: 44px; border-radius: 10px; display: flex; overflow: hidden; border: 1px solid rgba(128,128,128,.4); }
+.sk .sw i { flex: 1; }
+.sk b { display: block; font-family: var(--f-display); font-size: 15px; }
+.sk span { display: block; font-size: 12.5px; color: var(--muted); }
+
+/* ===== layar awal ===== */
+body[data-page="start"] .hero, body[data-page="start"] #top, body[data-page="start"] .foot { display: none; }
+body[data-page="start"] main.gut { padding-block: 0; }
+.start { min-height: 100vh; min-height: 100svh; max-width: 560px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding-block: 28px 22px; }
+.s-logo { background: #fff; border-radius: 22px; padding: 12px 16px; box-shadow: var(--shadow); border: var(--bw) solid var(--line); line-height: 0; }
+:root[data-skin="brutal"] .s-logo { border: 3px solid #111; box-shadow: 5px 5px 0 #111; }
+.s-logo img { width: min(162px, 44vw); height: auto; display: block; }
+.s-title { margin: 20px 0 2px; font-family: var(--f-display); font-weight: 700; font-size: clamp(34px, 9vw, 48px); letter-spacing: -.025em; line-height: 1.05; }
+.s-prodi { margin: 4px 0 0; font-size: 16px; font-weight: 600; color: var(--accent); }
+.s-app { margin: 4px 0 0; font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.s-pick { width: 100%; margin-top: 28px; }
+.s-lbl { margin: 0 0 10px; font-size: 13px; color: var(--muted); }
+.s-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.s-tile { text-align: left; display: flex; flex-direction: column; gap: 4px; padding: 10px 12px 11px; border: 2px solid var(--line); border-radius: 16px; background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+.s-tile:last-child { grid-column: 1 / -1; }
+.s-tile:hover { border-color: var(--accent); }
+.s-tile[aria-pressed="true"] { border-color: var(--accent); }
+.s-tile .sw { height: 26px; border-radius: 8px; display: flex; overflow: hidden; border: 1px solid rgba(128,128,128,.4); margin-bottom: 4px; }
+.s-tile .sw i { flex: 1; }
+.s-tile b { font-family: var(--f-display); font-size: 15px; }
+.s-tile .tg { font-size: 11.5px; color: var(--muted); line-height: 1.3; }
+:root[data-skin="brutal"] .s-tile { border: 2.5px solid #111; box-shadow: 3px 3px 0 #111; background: #fff; }
+:root[data-skin="brutal"] .s-tile[aria-pressed="true"] { background: #ffd400; }
+:root[data-skin="pop"] .s-tile { border-bottom-width: 5px; }
+.s-note { margin: 18px 0 0; font-size: 11.5px; color: var(--muted); }
+@media (min-width: 641px) { .s-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .s-tile:last-child { grid-column: auto; } .s-tile .tg { font-size: 12px; } }
+@media (max-width: 640px) and (max-height: 700px) { .start { padding-block: 16px 12px; } .s-title { margin-top: 14px; } .s-pick { margin-top: 18px; } .s-tile .tg { display: none; } .s-tile:last-child { grid-column: 1 / -1; } }
+
+/* ===== polesan: pratinjau tema, lanjutkan belajar, transisi ===== */
+.s-tile .pv { position: relative; display: block; height: 46px; border-radius: 9px; overflow: hidden; border: 1px solid rgba(128,128,128,.45); margin-bottom: 4px; }
+.s-tile .pv .ph { position: absolute; inset: 0 0 auto 0; height: 16px; }
+.s-tile .pv .pc { position: absolute; left: 9px; right: 9px; top: 10px; bottom: 6px; border-radius: 5px; box-shadow: 0 0 0 1px rgba(128,128,128,.4); }
+.s-tile .pv .pc::before { content: ""; position: absolute; left: 7px; top: 7px; width: 46%; height: 4px; border-radius: 2px; background: rgba(128,128,128,.6); }
+.s-tile .pv .pa { position: absolute; right: 6px; bottom: 5px; width: 28px; height: 8px; border-radius: 4px; }
+.s-tile { transition: transform .15s, border-color .15s, box-shadow .15s; }
+.s-tile:active { transform: scale(.97); }
+.resume { width: 100%; margin-top: 12px; display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; align-items: center; text-align: left; padding: 10px 14px; border: var(--bw) solid var(--accent); border-radius: var(--r); background: var(--accent-soft); color: var(--ink); }
+.resume .rp { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--btn); color: var(--btn-ink); }
+.resume b { display: block; font-family: var(--f-display); font-size: 15px; }
+.resume span span { display: block; font-size: 12.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+:root[data-skin="brutal"] .resume { border: 2.5px solid #111; box-shadow: 4px 4px 0 #111; background: #fff; }
+:root[data-skin="pop"] .resume { border: 2px solid #7c3aed; box-shadow: 0 5px 0 #7c3aed; background: #fff; }
+:root[data-skin="aurora"] .resume { -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes rise { from { opacity: 0; transform: translateY(12px); } }
+  .start > * { animation: rise .5s cubic-bezier(.2,.7,.2,1) backwards; }
+  .start > :nth-child(2) { animation-delay: .07s; } .start > :nth-child(3) { animation-delay: .12s; } .start > :nth-child(4) { animation-delay: .16s; } .start > :nth-child(5) { animation-delay: .2s; } .start > :nth-child(6) { animation-delay: .5s; }
+  .s-tile { animation: rise .45s cubic-bezier(.2,.7,.2,1) backwards; animation-delay: calc(.26s + var(--i, 0) * .06s); }
+  .pgin #top, .pgin #hero { animation: rise .32s cubic-bezier(.2,.7,.2,1) backwards; }
+}
+@media (max-width: 640px) and (max-height: 840px) { .s-logo img { width: 118px; } .s-logo { padding: 8px 12px; border-radius: 18px; } .s-title { margin-top: 10px; font-size: 30px; } .s-pick { margin-top: 12px; } .s-lbl { margin-bottom: 7px; } .s-grid { gap: 8px; } .s-tile { padding: 8px 10px 9px; } .s-tile .pv { height: 40px; } .s-note { margin-top: 10px; } }
+
 /* ===== tampilan HP: semua muat satu layar, tanpa gulir ===== */
 .sh, .bs { display: none; }
 @media (max-width: 640px) {
@@ -340,6 +580,9 @@ nav.tabs button[aria-selected="true"] { background: var(--accent); color: var(--
   .ring b span { font-size: 10px !important; }
   .back { margin-bottom: 8px; min-height: 30px; padding: 3px 12px 3px 8px; font-size: 12.5px; }
   .back.snd { margin-left: 6px; }
+  .back.snd .tl { display: none; }
+  .back.snd { padding: 3px 9px; }
+  .back.thm { font-weight: 600; }
   main.gut { padding-block: 4px 18px; }
   .foot { margin-top: 12px; font-size: 10.5px; line-height: 1.4; }
 
@@ -371,7 +614,7 @@ nav.tabs button[aria-selected="true"] { background: var(--accent); color: var(--
   .pager button[aria-current="true"] { outline-offset: 1px; }
 
   /* kartu soal */
-  .card { padding: 14px; border-radius: 14px; }
+  .card { padding: 14px; }
   .progress { margin: 0 -14px 10px; height: 3px; }
   .eyebrow { font-size: 10.5px; }
   .qtext { font-size: 1.03rem; line-height: 1.42; margin: 8px 0 12px; }
@@ -393,8 +636,9 @@ nav.tabs button[aria-selected="true"] { background: var(--accent); color: var(--
 
 <main class="gut" id="main">
   <div id="view"></div>
-  <p class="foot">Teks soal disalin persis dari sumber, termasuk salah ketik di sumber. Diagram dan simbol digambar ulang mengikuti sumber. Pembahasan adalah analisis Claude dan belum dicocokkan dengan kunci resmi buku. Isi kunci buku di tab Kunci &amp; hasil, lalu penilaian memakai kunci itu. Jawaban dan kunci tersimpan di browser ini saja.</p>
+  <p class="foot">Teks soal disalin persis dari sumber, termasuk salah ketik di sumber. Penilaian memakai kunci buku bila tersedia. Selain itu jawaban berupa analisis dan diberi tanda dugaan. Jawaban tersimpan di perangkat ini saja. · v2.0</p>
 </main>
+<div id="skinsheet" hidden></div>
 
 
 <script>
@@ -4136,6 +4380,7 @@ const COURSES = [
 const cCode = c => c.code + (c.sks ? ` · ${c.sks} sks` : "");
 
 const ICON = {
+  pal: '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5a7.5 7.5 0 100 15c1.2 0 1.7-.8 1.3-1.7-.4-.9.1-1.8 1.1-1.8H14a3.5 3.5 0 003.5-3.5C17.5 5.5 14.2 2.5 10 2.5z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="6.5" cy="9" r="1.1" fill="currentColor"/><circle cx="9" cy="6" r="1.1" fill="currentColor"/><circle cx="12.5" cy="6.8" r="1.1" fill="currentColor"/></svg>',
   ok: '<svg class="mark" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
   no: '<svg class="mark" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>',
   info: '<svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 9v5M10 6.2v.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
@@ -4151,6 +4396,22 @@ const store = {
   get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
 };
+const SKINS = [
+  { id: "neon", name: "Cyber Neon", tag: "Gelap, cahaya cyan, gaya terminal", sw: ["#060913", "#22d3ee", "#6366f1"], pv: ["#060913", "#0b1a3a", "#0d1424", "#22d3ee"], tc: "#060913" },
+  { id: "aurora", name: "Aurora Glass", tag: "Kaca buram, gradasi ungu dan pink", sw: ["#7c3aed", "#06b6d4", "#ec4899"], pv: ["linear-gradient(135deg,#5b2bd6,#0b6f8f 55%,#b0307a)", "rgba(255,255,255,.16)", "rgba(255,255,255,.18)", "#f472b6"], tc: "#1a1140" },
+  { id: "brutal", name: "Neo Brutal", tag: "Garis tebal, kuning, berani", sw: ["#ffd400", "#111111", "#e11d74"], pv: ["#fff7d6", "#ffd400", "#ffffff", "#e11d74"], tc: "#ffd400" },
+  { id: "pop", name: "Pop Gamified", tag: "Ungu ceria, tombol tebal ala game", sw: ["#7c3aed", "#ec4899", "#ffc800"], pv: ["#f4f0ff", "linear-gradient(135deg,#7c3aed,#ec4899)", "#ffffff", "#7c3aed"], tc: "#7c3aed" },
+  { id: "matrix", name: "Matrix Terminal", tag: "Hijau fosfor, semua monospace", sw: ["#030806", "#00ff9c", "#14402f"], pv: ["#030806", "#031c11", "#07120d", "#00ff9c"], tc: "#030806" }
+];
+let skin = store.get("bank.skin", "neon");
+if (!SKINS.some(s => s.id === skin)) skin = "neon";
+function applySkin() {
+  document.documentElement.dataset.skin = skin;
+  const m = document.querySelector('meta[name="theme-color"]'), s = SKINS.find(x => x.id === skin);
+  if (m && s) m.setAttribute("content", s.tc);
+}
+applySkin();
+let last = store.get("bank.last", null);
 let ans = store.get("bank.ans", null);
 let keys = store.get("bank.keys", null);
 if (!ans) ans = { A: store.get("bdm1.ans", {}), B: {}, C: {}, D: {}, E: {}, F: {}, G: {}, H: {}, I: {}, J: {}, K: {}, L: {}, M: {}, N: {}, O: {}, P: {}, Q: {}, R: {} };
@@ -4244,6 +4505,7 @@ function renderHero() {
     const st = statsOf(COURSES.flatMap(c => c.sets));
     $("#hero").innerHTML = `
       <div>
+        <button class="back thm" type="button" data-skin-open aria-label="Pilih tema">${ICON.pal} <span class="tl">Tema</span></button>
         <div class="brand">${ICON.db.replace('width="24" height="24"', 'width="22" height="22"')} <span class="bl">Universitas Terbuka</span><span class="bs">UT</span> · S1 Sistem Informasi<span class="bx"> · Semester 2</span></div>
         <h1>Bank Soal <br>UAS</h1>
         <p>Pilih mata kuliah untuk mulai berlatih. Soal disalin persis dari sumber, lengkap dengan diagram dan simbolnya, dan setiap pilihan punya pembahasan.</p>
@@ -4256,7 +4518,8 @@ function renderHero() {
     $("#hero").innerHTML = `
       <div>
         <button class="back" type="button" data-home>${ICON.back} Mata kuliah</button>
-        <button class="back snd" type="button" data-snd aria-pressed="${snd.on}" aria-label="Suara ${snd.on ? "nyala" : "mati"}">${snd.on ? ICON.sndOn : ICON.sndOff} Suara ${snd.on ? "nyala" : "mati"}</button>
+        <button class="back snd" type="button" data-snd aria-pressed="${snd.on}" aria-label="Suara ${snd.on ? "nyala" : "mati"}">${snd.on ? ICON.sndOn : ICON.sndOff} <span class="tl">Suara ${snd.on ? "nyala" : "mati"}</span></button>
+        <button class="back thm" type="button" data-skin-open aria-label="Pilih tema" style="margin-left:6px">${ICON.pal} <span class="tl">Tema</span></button>
         <div class="brand">${cCode(c)}</div>
         <h1>${c.name}</h1>
         <p>${c.info}</p>
@@ -4264,6 +4527,16 @@ function renderHero() {
       <div class="hstats">${ring(st.total ? st.answered / st.total : 0, `${st.answered}<span style="font-size:15px;font-weight:500">/${st.total}</span>`, "terjawab")}
         <div class="hnums"><div><b>${st.graded ? Math.round(st.right / st.graded * 100) : "-"}</b><span>nilai rata-rata</span></div><div><b>${c.sets.length}</b><span>set soal</span></div></div></div>`;
   }
+}
+
+function lastValid() {
+  if (!last) return null;
+  const c = COURSES.find(x => x.id === last.c), s = c && c.sets.find(x => x.id === last.s);
+  return s ? { c, s, n: Math.min(Math.max(1, last.n || 1), s.qs.length) } : null;
+}
+function resumeCard() {
+  const v = lastValid(); if (!v) return "";
+  return `<button type="button" class="resume" data-resume><span class="rp" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18"><path d="M6 4l10 6-10 6z" fill="currentColor"/></svg></span><span><b>Lanjutkan belajar</b><span>${v.c.name} · ${v.s.name} · soal ke-${v.n}</span></span></button>`;
 }
 
 function renderTop() {
@@ -4277,13 +4550,14 @@ function renderTop() {
           <span class="sid">${cCode(c)}</span>
           <b>${c.name}</b>
           <span class="src">${c.info}</span>
-          <span class="chips"><span class="chip">${c.sets.length} set</span><span class="chip">${st.total} soal</span><span class="chip">${st.answered} terjawab</span></span>
+          <span class="chips"><span class="chip">${c.sets.length} set</span><span class="chip">${st.total} soal</span><span class="chip">${st.answered} terjawab</span>${st.graded ? `<span class="chip">nilai ${Math.round(st.right / st.graded * 100)}</span>` : ""}</span>
           <span class="mini"><i style="width:${pct}%"></i></span>
           <span class="go">Buka mata kuliah ${ICON.arrow}</span>
         </button>`;
       }).join("")}
       <div class="soon" role="listitem"><b>Mata kuliah berikutnya</b><span>Kirim foto soal mata kuliah lain di chat. Nanti ditambahkan di sini sebagai kelompok sendiri, tanpa tercampur.</span></div>
     </div>
+    ${resumeCard()}
     <div class="sect howto">Cara pakai</div>
     <div class="card howto" style="font-size:14px;color:var(--muted)">Buka mata kuliah, pilih set soal, lalu jawab satu per satu. Setelah menjawab, pembahasan tiap pilihan langsung muncul. Isi kunci dari buku di tab <b style="color:var(--ink)">Kunci &amp; hasil</b> supaya penilaian memakai kunci resmi.</div>`;
   } else {
@@ -4413,8 +4687,25 @@ function viewKunci() {
   </section>`;
 }
 
+const UT_LOGO = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUQAAAD0CAIAAABsNchQAAAgxElEQVR42u1db0xTab5+d7KRjII12yZMAO1iI3Yn8dQPkhWwJMvERvfSeDETxsR2s8kmFxz8sLkXNQt7d5mblY3o5u4HFLnJJjfbmrhmVq6pMxLMMgkVmBv8MD0mDmIqWwQiN+3ECmrwy94P7/DO6znt6enpOaWnfZ6QSe2Ucs573uf9/f/9vvePf/yDAABgfryDJQAAkBkAAJAZAACQGQAAkBkAQGYAAEBmAABAZgAAssD3sQTFh9jK6sKzF+yfE+Iye90sVLHXgsNmKS/DchUNvocMMLPzVozGxWj8QTT+/OUbMRpPrq1n9Q2W8jLBYbNXVuyqrBAcNvoaCwsyA/lAOLI0IS6HxWUN1FVJ72ahap/D1ixUuV3VWHCQGdBZAocmn9wTl0NT8/n8u5TYrY21blc1JDbIDOTK4Wt3H4nR+KZfjOCwdbUJ3sZaWNogM5AFgmOzt6fm8yyHVcLbWHvS4/Q21uIxgcxAWiTX1gdHxGtjs7GV1QK/VHtlxcdtgt/jhKAGmQGpRt0fmAlNzRvh0zLUqO5qE063CaA0yAyQ5Nr62auTwbFZ894CKA0yg8brgyPi5RHRXNJYgdI9vgOnj7vwZEHm0kJoav7c0L3Ct4012NLD3S0IUIPMpWIed1waD0eWivgevY21w90t0LpB5mLG4M1If/B+cejVGbXu4e4WRLBA5uK0kD/6ZLS4BTJENMhMSiGh+qNPRktBIKe0oq/3HRUcNmwDkNn0OB+Y6Q/MlPgiDHe3+DxObAaQ2cSqdcel8cLMysw/fB7ncHcL1gFkNiWTj5y5VQg1EoUDwWEbvXgMJjTIbCaI0fiRM7dK00gGnwl6gIHJxLAoUUEtzo9+FoTCAjKDyRqFIQwQkBkoBu3azfXxA59BZsDEdrJl2xYCByHIDBSBx8tVqAkbybX1E3134CYEmQtOyBTmpizwAqbYyirc/iAzmFw8Sk3HpXGsA0GcuRDIXMiGH21zX/gFHpiwATIDAAA1GwBAZgAAQGYAAEBmAAAI5jMT/RsAmeVqBzqbBIctODYbvPvILNe8Y9sWNBsCmfMBc/XWpNMbYyur5mo/tm9E7PXXY7NBzSaGdvMyV+cQk8q3/sBM8TUVB5kLC2evThJztgQwowaE/QYyE+MmrZqryodxeEdBFk5lVIJKrTMxyEzyOeGNmK0TvdndE9h4ILP+GDTzhDeTtq2Orayaej4myFygYvnyiGi6y2aVzOYV0Wg5DjLrjMDYrBnF8nYTmsoQziCzsbhiQrFcHJo2IcRE6S4gswmc2CaNefIENq+mDbc2yAzJYMqIFIQzyGygzVYcYsFl5jmMQXP6LEBmWMu6Ydd720mxOMMCcIOBzDkiNPmEmHk2ctE8iGvQtEHmnJg8NV806f5mJ7YYjaP0AmTWjttmHq0sYW8RSGlTa0kg8+ZL5uIwmKFpg8ykxJuzF5MHtQi4DU0bZC5FsVyUajYhBNkjILOmfSMum1sUF5Eru2geCsgMIQCHNiQzwXgaAIBkBgAAZAYAAGQGAABkBgCQGQAAgvE0pEiDUkfO3DL1LVjKy5Zv/qL47oti9OIxt6saGxWSOTMmzJ+ZIJi5FQEAMgNF3hOfIWKquSIg82ZiwfzZ/Cm7fxWNuE6+fINdCjITlX2/zH4L+6Bmg8wAQFBuATIDBWQep2nfBycwyAwQNNYFQGYAAEBmQO8olFuowuKAzABB0ggAMgMAADIDumZ6NUPNBpkB6NgAyAwAOgNuPJCZlOC8NQhtkLmkYfaO0wqCq2gKpwCQGSgGwI0HMmOvQNMmaBtUYmr2e9t7/PXmvX6fx6nwf7vaBLPXeKJchGCiBQBAzQYAAGQGAABkBgAAZAYAAm82QEw9CthSXqYcfEqurYumbVWb8e5AZiAFzgfvm5HPblf16MVjCh8Qo3HzzrXwNtZe7zuKzQk1G9n8hBCy673t5r341sZa7EyQWYsQKMozyNRlJEgXAZmJtrRHlCUU2hMp4oI2kBnCmZROjSd0bJC5tHaPGmevSc1mL8gMMueye0ynae9IM8uiCHRsBKVA5pzgV6xAgpqdN5w8vBe7EWQurT2kSs02IZm9TbuxG0Hm0tLuitID7/M44ccGmXVAV5tASmNGZOGSGTo2yKyXWDCLuFOpRJhrRqS9sgK5IiBzyQnnotSxTd3CCWQuOJxuE4qJJya6F3tlha8YAwog82buflMIZ5X6s4lcehDLIHOJCuftxZUxArEMMhslnHt8B6Bp5xMXTh3CxgOZjRHOx10FHu1Urz8XvqbtdlUjGRtkNhDD3S0Eidl5wUBnE/YbyAxxUQxKEMoqQOZ8GHIFa3CqJ0AhN0WyV1YUk3uCYDxNIUOMxpNr66buqhNbWV149oIUapcyZGKDzAAANRsAAJAZAACQGQAAkBkAAILxNHrj3NXJSAFMb/Id3ptVJnPhDKlxC1W9KKgAmQsBH7cJDadubHqwKtvQcYFM0hIcttNF18sFajYxb3HP6MVjm55Jkm1sthBSrCzlZdf7jmJyCMhMCir1atP5nC2ZN51ClvKy0YvHkB8CMhcin1EbkC2TkYANMpOCbf23iWVV2Q6d2cS2fmAyyGwOPk8PtW+KBputvrpZbUnAZJAZ9jMpGmchmAwym4zP+dyyGtxI+WeU4LBND7WDySCzKfmct+7tGqa05rktic/jhMICMhNTO2xPH3dhKS50Ng13t4DJILPp93Ee8iI0qNn5GbmOEw1kJkU2tH16qN1QlVvDlNY8ZGt4G2u//rMPk6JAZlJ8XtzSmc9gKS/Lj0oCgMybg15/vUEiWtuUVoOEs9tVPT3UDtUaZCal4OXW3RukLZ1Ld7PZXllxve8oMq4JSiBJKSWKeRtrB0fE/sBMMc3WK7JxmZDMgNrd3+uvfxjw6zIbTRuF9JKfPo/z6z/7ev31YDLITErZMTbc3ZI7pbWlVe3KjcyW8jKfx/kw4EcMGWo28Bale/z1V0bEwNhsYXbYl1zwSY8TSjXIDKRlyIXOph7fgdDU/OURUVTdV0wzozT4wN2u6mybjQEgcyEiNDV/e2qeaaf2ygpqduo4UYXqrj6PM7ayemVEDE0+ia2sGlQy4cpmBOzJw3u9Tbv1dVOzQT+RaDz58g1980E0fuHUIfjDQWZjcW7onjK1BIfNUl5mr6zYVVlh2bbF5bBp5jkV1Bc6m8RonB4iYt57gLpd1a0NP8yRw5SxE+IyJerzl28Wnr1QXkZLeVmBT88Fmc2N4NhsRiFJ+RZOQ3K3UEWFeVZ5I4LDJjhsvf56Sol74vJEZIkntub6p5T6udtV7XLYDglVzUJVtgp8cm1djMYj0fjT/1uLROMZSaugAQ2srcMgJxgcZxCOnLmlY3tawWGzV1YcEqpcDpu2nLBwZCm2shpbWbVXVmg2YhtO3WCnDD01smXvhLgsRuNhcVnf4Zg9/no00waZDUFsZbXj0rhxHacFh63ZVa1NHuZ/KcKRpbC4TE8Tonf4nR4oO7Ztud53FBsPZCZ5HtRM/TcvXr6hoy1ylFHU29Tsqi6ophyhqfl74rIah5yyI4DmkNKW/UZ4EEFmwCiqU56HxWUNBqS9ssLbtPvk4b2byGrqewtNzWd7PFE7Yp/DRhkLuoLMxQaqmj54kohE4+oFuOCwdbUJ3sbavGngsZXV4NjsNRU+P3buCA7bPoeNGt7gLchcitKbeo/U2J/5KWaIraz2B2aCY7PFZOeDzAAJR5bOB++TjQjQPoeNJk7RdAt9K5OpY+n21PyEuKwgsY2jtBoaU81fdwLHVlYXnr0ghNBwNCEkvPECnjCQmeQtHEVjyC6Hbfu2LYLDtmPbltxJntFSpencOp4mgzcj/cH7Cn9OF+udBqJpRE1lAgkhZLi7BQmkIHOuYlnzEGPq8tEcv2VbXzlP+/Rx14WcB1wl19Y/+mQ03Znl8zh9h/dqOzUkOSSanfz2yoqHAT82JMhcQFkigsPmFqo0cJtq+ykvJscBV2I03nFpPOVh4fM4e/z12bqywpGlSDR+T1ymEliv1YNwBplzsuKOdv+P7kkRzO5tFqoOCVVZBZPDkaWOS+PyS9LM5+TaesOpG/Iv9DbWZlXqEI4sTYjL1I1HDGv0CcsZZNbHN0PNvIWV1djKqr55izRVu7WxVqVL6dzVycGbESLrzq2hgZ5c9bCUlw10NqmRgbGV1dDkk3vicmhqnuhaB7rrve36OiBAZiCzOCKETIjLOjLc21jb2libkUvBsVmWW8pI+PWffVm5l1N+ScYRWZTD1+4+yr2Ei7kVciwvA0BmA3NCYiurYXGZun+0KeHextquNkGBV4M3I+euTpIcKhMaTt3gLy8jk0NT89fGZjXLYbermlaG0pQSjI8DmYlJ00IovbOV3m5Xda/vQDo9U6Ik0xmL6m2H9/0BNWdBcm09MDZ7ZUTMyn3AcjmREEZQz0yKqFE2L4WouJ4Qlx9skDxDbCyylI7SbqGKJ3NWWgDN0JBo+NkGn+W3uW+3VXNFJwAyE9N12HW7qtl2p8b2PXE5Eo2ncwUzSg93t+RNxKXznEtqFd1CVbNQBfaCzKTQXNasmJbksYmfvbKCScVwZOn29N8ljUTY/2o4daPHd4B5rVnCI9GpOoree3JtvT94X+4w5xsJbXp5Jj34aO4ddi9sZqVwK2M1LbulMZJ8ultZnrbc4UTb3MqDullFYpNr6z/6WVCiP1MvujyHlDrkWhtrU6rieSggpfECeVuIHBNmQOYixPnAjPoxMXwmdrNQZTTDM2Z0MoxePJaVuqvmrr2NtSc9TqM5TH0HYjSuIciX7V2DzEWuYDecupFjiJjFXZqFKoN0P4WMzmxd2ekc2rnncqr8u9TD/2CDwzmu/OjFY9jGIDMhhHRcGldTu6stHUJ3bgfHZs9enZQfPdpSl1Peu+CwDXe36GgSU5OB9mMwIt8Tadsgc+q6qK4PvvDu/9b3Iz6tSb7e+vzVu+LTGkJIeG5PLgmb2kos1GRuEUKWb/5Cw5ERmpo/0XdH8ubDgD93gUyztR9E48q12QqwbH0t1CwSQpr3PiaE7KtZ3LH1FSHk+aut16Z/HPrKxS/v9FB7iXvCQGZp3oWv4cvhnwcybNO5PYSQ8FwdJflC4gexhDXbEovWxlqqmWu77Pf9Ad5dl0sRwjbPFb1cSrRZv4ZyC2HnouXd1817H1vefUVfCzsXlfwIr95t+N2v+GVHX95SJ7NExFm2vp7+9e/t1oQWQTS35/mrrQ8Wa8Sn1bGElUpylf36DglV2XqYJLmcuWxlyXGWrVim/rmM3VHesnLrHtutCbvtG3fd3C7rN9oWPDh9sOO//fwROT3UXsp5ZiVNZnk4qtf7eU/rZ3p9v/i0RlysEZ/W0BfJV++qEdcqW/ZJfFe5eHT5Giz1PQDUl1vYrQlh56Kwc2lfzaKwc1EbdVMfQ3/4JW/4lHiYqqSTRgbfTja2WxNdLeM6fr+wc1HYuUgaNnZ/wio+rQnP7aH/TSnfQlPzHeqiQTTVRJda6+3caBtv0+6MJ2BgbFaZw9TWbd772F03J9QsWra+NugJ9no/O/KHX/J6luaOKCAzMXU46vKIyL/T4/3cuG1HDwu7NcFca4zVE3N1EqFNWZ2xcEpw2HRvnLBvt1VbyZTdmnDXPXbvfUxV6Pw8RHfdY1/Dl8Hpg+yd88H7oyBzqaE/MMMbeHRb5PMC3HWP3XWPuz74girk4bk94bk9vIc2ubYeHJsNjs3Sjtny0Ms+h03frgBU4MtF8eCImLJ79qYQWIIe7+ehiIudhuHIUnBstjTDVN8v2XCUJLja6/1sE6+HKuSU2JTSt78SmKuW9ug6e3VSQ3vd4NgsTR2jQj4rFTRd211h56Kv4Ut33WNlh3N+YLcmTn/wxfnQT/ljOp+jAkDmTQbrg83CUe66xwVybVRiD7R/SsV1cPogdYwn19b7AzOXR8SUlI5E43Ki8tmaVHWfHmqXK+3yao2UNPbuj7TuF72uiKHGiAZ0tYwP/u0nTDjHVlYHR8QSDFOVojdbnnHxsP83m6UlEnVe8eD0weD0QbZfaRP8B9E4U7NTOnIlAeR04eiq439iFkePv35hZZWnMZXDvoYvC43DCFOVumSm8k2ip4Xn9ixYf1A4wlmu1g7s/HSg/dPQV67Lf/tJeG6P/C7kSRop0zaev3yTbool01F5haXrgy8KQZdOawgkrAuJHzx/tXXh7aQduj6lFqb6fomHo+iG4A91mn5EUxp2WRN2ayJjNlLe4N0f8e6PhOf2nL3xoSQphZYr8Cq0yqTRiVSc9+6PXGj/a+FoKywhhxAy8WiPmrzaEgxTlZaanUt1lN2a2GX9Rti5uGPra3fd3KYz/OyNDy//7SdEcbTFib47Enf39b6jkvC1JC3UsvX1QPuneXbsS3gbS1gXElbxafXzV1s1J8OXYDVVaZGZjYDTq3CH5jMZkdukzVCUtNpNrq2fvTpJDeCU3bAlRSaWra9H//WP+TykaG7cQsI68WhPtinuRDGdjjaTyKqPP8hsYuNZMr5MF4bTgI2wc1GoWcwDKyR8TlkJSH3aL8c+JopZ2flhMp/imovUlfCWNYrQfS4nbGZimq56aaacJV++CYvLaqYTyrVEfo+66x437328r2axuW7OCG8w1YcZn7MKsYYjS/lhcnhuT3iubuLRnowJ6lm178WkC5A5i76Z8qb22dKb57awc5HGkPUltq/hS/FpDbWfswqx8sH2v5wa1pfJjMC5iF903gaZdYZcgNMph3RGqXrlnOqWlHXCzkXvfrHVFdGFQizDhBByeUT0eZwZ931wbJZdea/3c13CcrGE9fZXgiQpNVuFOccJuAT1zEDuAyu09cSxbH3tdUVa94s5iutYwtrwu19RJVbixZXbzHxfTnfd49F/+2PuOS18/mm27IXghWQmhTmwgnKbTqLJWOubfPUuze4iueVL2q2J3tbPzt74kCoOgzcjChMhP/pklDLZsvV1xrYq+nKY750E9kIyE9P5zLMaXMxkNSuWJJqK9VkatkQy8y1KNDRjiCWs16YPBqd+rJLDVGfOdgw1ADKbQCGfiCzdE5fVdNixWxO+xv892fCl+vB1eG4PK9ZnPe54MvOBZbs1Mf3r36vXAoLTB4NTB9U4tFj3wlyanAEgs5mIrbL3nXd/pOuDL1T6qHjhTI1nRmZJAtzwzwNqMr2Sr969PN6SURTr0qUQAJlNj9DU/D1xOTT5RCHuZbcmeryfZ6QfL5wJIT6Pc1dlRX9gZvnmL46cucVseLs18bD/Nxk16v7QT/nS/5T+Atq3DCo0yAxk1yVPDaUlbe4s5WXJtXXBYeO/c6D9U9oLQYHGfDueXHoPAiAzKXHPGe1fm7IxkN2auND+13QestBXrhND/6LsY/v6/L+ntJapUs037tjc2XEAyFwSrKYNSVKmnbzf8x8KJm66Rv/B6YNnb3woUarBYZAZMEQDvyKrx+764Ive1s8kYlZeIMnj+qn/kkh18WnN2RsfSjzVjMPQpUFmgBjVjfDuI76zj92aGP55gHd3S6qpJFj+z26e/P23/4nXq+nwZzU5oQDIDOijfgfGZnlBzYtoZbP55XAX32WFD2X5Du/FOEWQGSCb1Z+QzWGn2WN22zehrwSFYVfe/RFh55L4tJpVRPg8zlKeBQEyAwXXREVDfwXjJqoDIDOQk5TuD8yorLh2u6qHu1tAY5AZKFycD8xcHhEVcr/tlRXD3S1QqkFmgJgijtVxaTyl1n36uKvHdwDRJpAZMBMkA9kt5WV/+e0RCGSQGTCrFX326iTNzb7edxQWMsgMAECh4x0sAQCAzAAAgMwAAIDMAACAzAAAMgMAADIDAAAyAwAAMgMAwayp7MEmJPDDygiXThi8+4gQ4nLYLnQ2Sd50C1Up54+euzoZicYJIXzjC/lXsXd2bNtyve8oSdNr/uxGfjKr+GPXnA781ab78I5tW/Y5bAoto+nlidE4LWASHLZmV/XHbYIkp5LdBbtZ9k5GyNf8RN+d5y/fEEK62gTlFnzhyBLtakBLJukcmZMeZ8bGfdleHv8IDFrwdL/iFqqahSp5Ojr7/EBnk/zb+AtmK5xyJ8t3LCHkL789krKOZfBm5Pb039N9Q0GQWbkgPrayKv8AezMcWUr5bNg4RbdQpfBVgsMWvjTOHkBKUl27+4j+lr2ygrEoqyJ+hQ+Hpub7AzNuV7Xk+SXX1vmO8/xAOTrSja9bYvfFbjblohHVUzII15Ev3Sc7Lo3zXcToH42trIam5t2u6pRbXPmZEsUOR0YveLpfCUeW+glR+HzKQtGUF6xw14M3I4M3I0xgpKtIYz2ewpElIwrXNl/N7thgI9E6jJuRNvXjn3zy7c5u2k0M6/IhkQxyJkuefUZJpQ38ItAZ8SRNwbOEyZLbOdF3hxR2W5WPPhnN6vMGLTg9QFlpms/jTNdBLTQ1zz+OlO3QTT/SlQkrbb/ubdpND8XQ5BO56sJ0SELIycN71aipZKNaUP7mhc4mFyev+NmOYjQeHJulDzI0Nc+Y7G2s7fHX02kSoal52jPAUl7Wk8q4IFwrn2ZOJYlw2yXdBUtOLvbPlAt7eURkp2GPv97bWEvFDuslZtDl5b7gtzfWNhxZYgue7vsj0TibDRIcmzWiOxJVwdhiDqRXnm+/zd7bU/O6N04siPnM/cH73qbd2hb65OG9lMyxlVW5ps0kFTUIU7bOUf+3XA4b/3n6+siZW5TP7PEwJtOqQ36G8+k24ciZWwOdTco3y1sE6i+YP7nY7cvJHI4sMd2SFUXaKyvsHqfP46S0VN5n2i5PlwXv9de/7w98q6yKy/LrlHze73FWHf8T/efCsxe6k/m7SdflZdf7jipozhJRHJqap8d6sXmzk2vr54buGaFpT2wYOcbp2MzQpW4nZVjKy6aH2g1qD8Bunx1bcnrLXUpyYWiEb0ZHnNwgsJpWZ4Y2VDl3dZJZ0crd1Ch16fWwj+muab9TOGMQNd8bI+rE2/4JKqsVdGyDwJ4WtSDy9ncDG2ZwF+cwlyjePNWpwyLjmGhi8rm5xu1Y9nCpqaLwYaZjextr2XZlxk6RqNluV3VybZ2u+Lmhe81ClYajlGnaVBDJ93E6HZu6gvh/9iraiil1imsbFGJ/19tYe7a8jJLk3NXJKyMifdiGSgl29tMLeL62ThXmKyOiRNO2lJe5XdVUpISm5id+FvR7nPKAGTGs2aDuC57u+1+8fBPgPqyjQkRbrLHDUfku6LQw+rq1sdZeWZFyuxaDzTzQ2URdCLGV1f7gfQ06HtW0qdLFu3yY2vlxm5DWXM9mbwXvPpoQl9/SbMdmmbLn2xD+lvKygc4m9rDpg+8wuNE8f/Zbysu8TbspmVO6EuiaU/In19ZpZEVw2LraBKPHWRix4Arfz55IujQEbVbhib477OjMyElex6YCPOV2LQY12+2qZvczeDOiTS9iqgsjMK9j62Uw067U/M93G8vj5Fnq8zhHLx6TJ4ccOXOL3wf6SmZ29kuUEbkrQXDYvv6zT6IZitF4x6Xx9/0B41RT4xY8I/101GlpvgBRHV7lz9l027V4bOYe3wG277XFA5lJzFw+TMfmPWQpjxL+R9v1nz7uGu5ukX/zw4B/uLtFwpnQ1DyTigbp2JI1kZvNTFhND7X7PE5e/4+trCoHyXM/uw1acGa+sh9+9l1wbPZ8KqGd472QjQBBunwSiY6dbrsWnJqt2dVuKS+7cOoQTVQIR5Y0OI3kmjY785RdXxnjopK/Qm9w4dkL9gxGLx5T2JQ0iyC2skonQlHKidH44IiYrbmo5uynAW36egeXYZYuPU5w2Ia7W4bfHoVB1ciHAb8RZM59waeH2hWy0ySrmlxb77g0Tul0Ofs1V9jPp4+7LnQ2sTjZ2auT00PtyhGpHdu2MM5bNrwqwbFZvXbCOwXiOfRys7z7g/c1CC5mGF+7+8gIHZuamqMXj41ePHbn0j/zdh1R4d/u9dfzu/C2fmGJ5No6S+cSo/EjZ27RH173y6jO+TzOhwG/j4v66Cgx9F3wrFRTPj8nubau8qbYx9KdGsJGcjX7cpo1pJwrwh4Nr5pdS5+Kt5lkTrlSCxtvykOaErCkVubf1mY2i9H4FS7DyQgnrb2ygi//ULlF7JUV/LPX3VpWnxmmQJ7vHtyzF6RgwC/44M1IVgcNT0h2U2xXRFI9COXvt5SXMf3C53Gy7+8PzEiEEM11z8gavTbDOzpaDillFLuZQ1wCYNpD1Hcgl+fNlpUp6saFl/mER7kHtePSuO4WWkYdm0ZfUhqlkl0VHJttOHXDXBFm5QUn6so22A5R8A7y0tKVxjbh1W92AsZWVgffdrOxM5SGAyU/7Ev0coPpQObWhh+yVZOYu3xOghp19/RxVy6RGzl1jUv8UhDO565OUhP0RN8d/v3k2jrbhXoFqHj/So+/niql/I9csadeazEabzh1Q+K24b2PCnbppgtn9dpQbGWV3ZS9soLxh/mi6GqQtyPVyvn8KV16ZCMPhL8wxlJvY6380fg3bkel3pQPB5jf42RWLs2R2PXedonTwttYq1LdHe5u0Sw0WHBVvY69zXNFwVWjTLkefz0zk/oDM9S/mlxbZ4kKNK2N93l+Z6PqpDIwJlvKy1KGiE8e3ku1uNDU/PDbjKWOa3tlhfx5SVzcOkJhwV+OfZxROMsXXP33n+TWx+dxModfcGw2HFmSL4LbVa3yRBvubnnfH2DnNb0wXn9uTZUfplxWsDmS2VJexi8rrb/h6++oy1T9AdyVPsdDvaadhxTOlLKCGlT8IUJX4y0mpy+UyxZB7uxXdiUwGS6ZHZfyeQ0UZHq2NuHM1lziNObrIuSLINnVWV3Yt6cnp2OnfDpqCng3wQHmbaxNVz9A0yeyOuZ7/fWaTymewMbp2MqGnOCwTQ+19/jr5Xdtr6y40Nmkfpdk1CHZGdGahsz8AUc1bXrcDHe3pFxkDc+rwC3nb8NvsjUXHLZ0ypfP45weas/KdTrQ2cQWjeo+jJ/+9Ac326IBPXzaOg+Oi62sLjx7MSEuW7ZtcTlsEleB5GN0Y6XcUuwDu97bztY0429JPOEKSrKaxhfs4tmHU94O6wqU8qpoVoAYjVNSqb9ZNTel8mYV1k3l88potytfhsrwhNweUb/gKR+oytvRa9OyC6P3onwXWT1BTIEEAILunAAAgMwAAIDMAACAzAAAgMwAADIDAAAyAwAAMgMAkAb/D0hqtWLhLeJnAAAAAElFTkSuQmCC";
+function viewStart() {
+  return `<section class="start">
+    <div class="s-logo"><img src="${UT_LOGO}" alt="Logo Universitas Terbuka" width="162" height="122"></div>
+    <h1 class="s-title">UT Jayapura</h1>
+    <p class="s-prodi">Program Studi Sistem Informasi</p>
+    <p class="s-app">Bank Soal UAS · Semester 2</p>
+    <div class="s-pick">
+      <p class="s-lbl">Pilih tema untuk mulai</p>
+      <div class="s-grid">${SKINS.map(s => `<button type="button" class="s-tile" data-start-skin="${s.id}" aria-pressed="${s.id === skin}" style="--i:${SKINS.indexOf(s)}"><span class="pv" style="background:${s.pv[0]}"><i class="ph" style="background:${s.pv[1]}"></i><i class="pc" style="background:${s.pv[2]}"><i class="pa" style="background:${s.pv[3]}"></i></i></span><b>${s.name}</b><span class="tg">${s.tag}</span></button>`).join("")}</div>
+    </div>
+    <p class="s-note">Aplikasi latihan pribadi, bukan aplikasi resmi UT.</p>
+  </section>`;
+}
+
 function render() {
   document.body.dataset.page = page;
+  if (page === "start") { $("#view").innerHTML = viewStart(); animate = false; return; }
+  if (page === "course") { last = { c: courseId, s: setId, n: cur }; store.set("bank.last", last); }
   renderHero(); renderTop();
   const ss = $("#sets"), sb = ss && ss.querySelector('[aria-pressed="true"]');
   if (sb) ss.scrollLeft = sb.offsetLeft - (ss.clientWidth - sb.offsetWidth) / 2;
@@ -4431,18 +4722,33 @@ function alignTo(sel, force) {
   });
 }
 
+/* ---------- pemilih tema ---------- */
+function openSkins() {
+  const el = $("#skinsheet");
+  el.innerHTML = `<div class="sheet" role="dialog" aria-label="Pilih tema"><div class="sh-h"><b>Pilih tema</b><button type="button" data-skin-close aria-label="Tutup">✕</button></div><div class="sk-list">${SKINS.map(s => `<button type="button" class="sk" data-skin="${s.id}" aria-pressed="${s.id === skin}"><span class="sw">${s.sw.map(c => `<i style="background:${c}"></i>`).join("")}</span><span><b>${s.name}</b><span>${s.tag}</span></span></button>`).join("")}</div></div>`;
+  el.hidden = false;
+}
+document.addEventListener("click", e => { const el = $("#skinsheet"); if (e.target === el) el.hidden = true; });
+
 /* ---------- navigasi ---------- */
 function go(hash) { try { location.hash = hash; } catch (e) {} }
 function route(h) {
   if (["latihan", "semua", "kunci"].includes(h)) { page = "course"; tab = h; }
-  else page = "home";
+  else if (h === "mapel") page = "home";
+  else page = "start";
   animate = true; render();
+  document.body.classList.remove("pgin"); void document.body.offsetWidth; document.body.classList.add("pgin");
   window.scrollTo({ top: 0 });
 }
 window.addEventListener("hashchange", () => route(location.hash.slice(1)));
 
 document.addEventListener("click", e => {
   const t = e.target.closest("button"); if (!t) return;
+  if (t.dataset.startSkin) { skin = t.dataset.startSkin; applySkin(); store.set("bank.skin", skin); go("mapel"); route("mapel"); return; }
+  if (t.hasAttribute("data-resume")) { const v = lastValid(); if (v) { courseId = v.c.id; setId = v.s.id; cur = v.n; go("latihan"); route("latihan"); } return; }
+  if (t.hasAttribute("data-skin-open")) { openSkins(); return; }
+  if (t.hasAttribute("data-skin-close")) { $("#skinsheet").hidden = true; return; }
+  if (t.dataset.skin) { skin = t.dataset.skin; applySkin(); store.set("bank.skin", skin); $("#skinsheet").hidden = true; return; }
   if (t.hasAttribute("data-snd")) { snd.toggle(); renderHero(); return; }
   if (t.hasAttribute("data-home")) { go("mapel"); route("mapel"); return; }
   if (t.dataset.open) { courseId = t.dataset.open; setId = course().sets[0].id; cur = 1; go("latihan"); route("latihan"); return; }
@@ -4484,4 +4790,5 @@ document.addEventListener("keydown", e => {
 route(location.hash.slice(1));
 
 </script>
+<script>if("serviceWorker" in navigator && location.protocol==="https:"){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}</script>
 </html>
